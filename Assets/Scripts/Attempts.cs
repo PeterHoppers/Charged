@@ -7,10 +7,10 @@ public class Attempts : MonoBehaviour {
 
     // Call when there is another attempt
     public void Attempted() {
-        attempts++;
+        attempts++;                         // Call to increase attempt
     }
 
     void Update() {
-        gameObject.GetComponent<Text>().text = " Attempts: " + attempts;
+        gameObject.GetComponent<Text>().text = " Attempts: " + attempts;    // Update Attempt text
     }
 }
