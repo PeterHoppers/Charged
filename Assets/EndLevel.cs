@@ -8,7 +8,7 @@ public class EndLevel : MonoBehaviour
     GameObject playerGO;
 
     //Load the scene into the object then upon trigger, load next scene
-    public Scene NextLevel;
+    public string NextLevel;
 
 	// Use this for initialization
 	void Start ()
@@ -24,7 +24,8 @@ public class EndLevel : MonoBehaviour
     {
         if (other.gameObject == playerGO)
         {
-            SceneManager.LoadScene(NextLevel.ToString());
+            print("Player Hit");
+            SceneManager.LoadScene(NextLevel);
         }
     }
 }
