@@ -15,16 +15,10 @@ public class EndLevel : MonoBehaviour
     {
         playerGO = GameObject.FindGameObjectWithTag("Player");
 	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-	}
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject == playerGO)
         {
-            print("Player Hit");
             SceneManager.LoadScene(NextLevel);
         }
     }

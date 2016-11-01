@@ -7,7 +7,6 @@ public class ScoreManager : MonoBehaviour
     [Tooltip("The canvas text object for the tries count.")]
     public Text triesText;
     int tries;                                  //Keeps track of the number of tries.
-
     void Start()
     {
         triesText.text = "Tries " + tries;      //Change the text at the start to make sure it says the correct text.

@@ -6,18 +6,14 @@ public class Power : MonoBehaviour {
     public float startingPower = 0.5f;
     public float power;
     private Slider theSlider;
-
     void Start() {
         power = startingPower;                              // The power it starts at.
         theSlider = gameObject.GetComponent<Slider>();      // The power reps the fill ammount
     }
-        
     float thePower {
         get { return power; }
         set { power = value; }
     }
-
-    // Update is called once per frame
 	void Update () {
 
         theSlider.value = thePower;                                 // Change the slider value
@@ -33,12 +29,10 @@ public class Power : MonoBehaviour {
             }
         }
     }
-
     public float powerImplementation(float powerMuliplier) {
         float totalPower = thePower * powerMuliplier;               // The power value on the slider will be multiplied
         return totalPower;
     }
-
     public void Reset() {
         power = startingPower;
     }
