@@ -19,11 +19,7 @@ public class Obstacle : MonoBehaviour
     {
         if(other.gameObject == player)   
         {
-            currentPosition = trailRenderer.transform.position;
-            trailRenderer.transform.parent = canvas.transform;
-            transform.transform.position = currentPosition;
-            Destroy(other.gameObject);                                                             //Destroyes the player and updates the score
-            attempts.Attempted();
+            DeathManager.killProjectile();
         }
     }
 }
