@@ -17,6 +17,7 @@ public class EndLevel : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            Destroy(other.gameObject);
             scoreManager.LevelCompleted();
         }
     }

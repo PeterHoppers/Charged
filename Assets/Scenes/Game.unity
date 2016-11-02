@@ -241,8 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b31814640a5cf49b36ad71e03c5b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingPower: 0.5
-  power: 0
+  startingPower: 50
 --- !u!114 &28547315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,9 +282,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 50
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1421,7 +1420,6 @@ MonoBehaviour:
   minRotation: -15
   note: 'Note: speed may affect the min and max rotation'
   speed: 2
-  maxCharge: 500
 --- !u!114 &838801769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1843,7 +1841,7 @@ CircleCollider2D:
   m_UsedByEffector: 1
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 7.5
+  m_Radius: 4.35
 --- !u!114 &1274967831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2360,7 +2358,7 @@ CircleCollider2D:
   m_UsedByEffector: 1
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 7.5
+  m_Radius: 4.35
 --- !u!222 &1780916518
 CanvasRenderer:
   m_ObjectHideFlags: 0
