@@ -14,12 +14,12 @@ public class ToggleBar : MonoBehaviour {
 
     void Start()
     {
-        bar = transform.parent.gameObject;
-        animBar = bar.GetComponent<Animator>();
+        bar = transform.parent.gameObject;              //grab the bar...
+        animBar = bar.GetComponent<Animator>();         //and its animator
 
-        emptyPosition = GameObject.FindGameObjectWithTag("Empty").GetComponent<RectTransform>().anchoredPosition;
-        barTransform = bar.GetComponent<RectTransform>();
-        startPosition = barTransform.anchoredPosition;
+        emptyPosition = GameObject.FindGameObjectWithTag("Empty").GetComponent<RectTransform>().anchoredPosition;  //grabs the position of the edge of the canvas
+        barTransform = bar.GetComponent<RectTransform>();                       
+        startPosition = barTransform.anchoredPosition;                      //grabs where the bar starts at for reference
     }
 
     public void toggleBar()
@@ -35,8 +35,8 @@ public class ToggleBar : MonoBehaviour {
 
             if (isClosed)
             {
-                animBar.Play("maximize");
-                yield return new WaitUntil(LerpDown);
+                animBar.Play("maximize");                       //play animation
+                yield return new WaitUntil(LerpDown);           //try to lerp until it reaches it
             }
             else
             {
@@ -51,7 +51,7 @@ public class ToggleBar : MonoBehaviour {
 
     bool LerpUp()
     {
-        barTransform.anchoredPosition = Vector3.Lerp(barTransform.anchoredPosition, emptyPosition, Time.deltaTime * 4f);
+        barTransform.anchoredPosition = Vector3.Lerp(barTransform.anchoredPosition, emptyPosition, Time.deltaTime * 4f); //move between the current spot and end of screen
 
         if (Vector3.Distance(barTransform.anchoredPosition, emptyPosition) <= .3)
         {
@@ -62,7 +62,7 @@ public class ToggleBar : MonoBehaviour {
     }
     bool LerpDown()
     {
-        barTransform.anchoredPosition = Vector3.Lerp(barTransform.anchoredPosition, startPosition, Time.deltaTime * 4f);
+        barTransform.anchoredPosition = Vector3.Lerp(barTransform.anchoredPosition, startPosition, Time.deltaTime * 4f); //move between the current spot and the beginning spot
 
         if (Vector3.Distance(barTransform.anchoredPosition, startPosition) <= .3)
         {

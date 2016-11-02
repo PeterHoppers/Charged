@@ -18,13 +18,13 @@ public class DeathManager : MonoBehaviour {
 
     public static void killProjectile()
     {
-        shooting.ChangeBool();
-        player = GameObject.FindGameObjectWithTag("Player");
-        trailRenderer = player.transform.FindChild("TrailRenderer").gameObject;
+        shooting.ChangeBool();                                  
+        player = GameObject.FindGameObjectWithTag("Player");                        //since player always changes, grab it here
+        trailRenderer = player.transform.FindChild("TrailRenderer").gameObject;     //`` trail renderer
         currentPosition = trailRenderer.transform.position;
-        trailRenderer.transform.SetParent(canvas.transform);
+        trailRenderer.transform.SetParent(canvas.transform);                        //retransform the trailrenderer
         trailRenderer.transform.position = currentPosition;
         Destroy(player.gameObject);                                                  //Destroyes the player and updates the score
-        attempts.Attempted();
+        attempts.Attempted();                                                       //increments attempts
     }
 }
