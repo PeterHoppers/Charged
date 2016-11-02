@@ -8,16 +8,19 @@ public class DeathManager : MonoBehaviour {
     static GameObject player;
     static GameObject trailRenderer;
     static GameObject canvas;
+    static Shooting shooting;
     void Start()
     {
         canvas = GameObject.Find("Canvas");
         attempts = GameObject.Find("Attempts").GetComponent<Attempts>();     //References the scoreManager
-        player = GameObject.FindGameObjectWithTag("Player");
-        trailRenderer = player.transform.FindChild("TrailRenderer").gameObject;
+        shooting = GameObject.Find("GunBarrel").GetComponent<Shooting>();
     }
 
     public static void killProjectile()
     {
+        shooting.ChangeBool();
+        player = GameObject.FindGameObjectWithTag("Player");
+        trailRenderer = player.transform.FindChild("TrailRenderer").gameObject;
         currentPosition = trailRenderer.transform.position;
         trailRenderer.transform.SetParent(canvas.transform);
         trailRenderer.transform.position = currentPosition;

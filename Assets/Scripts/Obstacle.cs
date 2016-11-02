@@ -8,17 +8,18 @@ public class Obstacle : MonoBehaviour
     GameObject player;
     GameObject trailRenderer;
     GameObject canvas;
+    Shooting shooting;
     void Start()
     {
         canvas = GameObject.Find("Canvas");
         attempts = GameObject.Find("Attempts").GetComponent<Attempts>();     //References the scoreManager
-        player = GameObject.FindGameObjectWithTag("Player");
-        trailRenderer = player.transform.FindChild("TrailRenderer").gameObject;
+        shooting = GameObject.Find("GunBarrel").GetComponent<Shooting>();
     }
     void OnTriggerEnter2D(Collider2D other)                                             //Checks for collision with the player
     {
-        if(other.gameObject == player)   
+        if(other.tag == "Player")   
         {
+            shooting.isActive = false;
             DeathManager.killProjectile();
         }
     }
