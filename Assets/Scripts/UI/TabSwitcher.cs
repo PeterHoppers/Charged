@@ -5,7 +5,6 @@ public class TabSwitcher : MonoBehaviour {
 
     TabWrangler tabWrangler;
 
-
     void Start()
     {
         tabWrangler = GetComponentInParent<TabWrangler>();
@@ -18,7 +17,7 @@ public class TabSwitcher : MonoBehaviour {
             tab.SetActive(false);
         }
 
-        tabWrangler.tabs[index].SetActive(true);
+        tabWrangler.tabs[index].SetActive(true);        //activates what you want
     }
 
     public void ActivateTab(string name)
@@ -26,7 +25,7 @@ public class TabSwitcher : MonoBehaviour {
         foreach (GameObject tab in tabWrangler.tabs)
         {
             if (tab.name == name)
-                tab.SetActive(true);
+                tab.SetActive(true);                    //activates the tab with the same name
             else
                 tab.SetActive(false);
         }

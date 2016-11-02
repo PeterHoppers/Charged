@@ -10,7 +10,7 @@ public class ResetButton : MonoBehaviour
     }
     public void resetProjectile()
     {
-        if(shooting.isActive)
-        DeathManager.killProjectile();
+        if(shooting.isActive)                   //needs to make sure it cannot fire twice
+            DeathManager.killProjectile();
     }
 }
