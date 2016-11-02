@@ -4,9 +4,9 @@ using System.Collections;
 
 public class MenuScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+    // Use this for initialization
+    void Start () {
+
 	}
 	
 	public void Play(string sceneName)
