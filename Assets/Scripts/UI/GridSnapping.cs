@@ -14,6 +14,7 @@ public class GridSnapping : MonoBehaviour {
         if (GetComponent<RectTransform>() != null)
         {
            currentTransfrom = GetComponent<RectTransform>();
+           snap();
         }
 	}
 
