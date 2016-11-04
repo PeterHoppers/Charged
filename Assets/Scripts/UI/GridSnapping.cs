@@ -4,7 +4,9 @@ using System.Collections;
 
 public class GridSnapping : MonoBehaviour {
 
+    [Tooltip("Object will snap to multiples of this number")]
     public float snapTo = 1;
+    [Tooltip("When clicked, it will only snap on start. Else, it will snap on update as well")]
     public bool onlyStart = true;
     RectTransform currentTransfrom;
 
@@ -13,8 +15,12 @@ public class GridSnapping : MonoBehaviour {
     {
         if (GetComponent<RectTransform>() != null)
         {
-           currentTransfrom = GetComponent<RectTransform>();
-           snap();
+            currentTransfrom = GetComponent<RectTransform>();
+            snap();
+        }
+        else
+        {
+            Debug.LogError("There is no rect Transform attached to this object.");
         }
 	}
 
@@ -29,11 +35,11 @@ public class GridSnapping : MonoBehaviour {
 
     float findSnap(float number)
     {
-        if (snapTo == 0) return number;
+        if (snapTo == 0) return number;         //cannot divide by 0
 
-        number = (number * (1 / snapTo));
-        number = Mathf.Round(number);
-        number = (number / (1 / snapTo));
+        number = (number * (1 / snapTo));       //math equation to
+        number = Mathf.Round(number);           //round to nearest number
+        number = (number / (1 / snapTo));       //that is a multiple of snapTo
         return number;
     }
 	
