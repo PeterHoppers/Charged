@@ -1,5 +1,4 @@
-﻿//Chris - Mike > Sam^2
-//buhahaha
+﻿//I'm da greatest ^^
 
 using UnityEngine;
 using System.Collections;
@@ -11,7 +10,10 @@ public class LevelSelect : MonoBehaviour
 {
     [Header("Game Object Levels")]
     GameObject level;
+	[Header("How many levels?")]
+	public int maxLevels;
     public bool[] locked;
+	GameObject myLock;
     [HideInInspector]
     public int sceneLevel = 0;
     float doubleClick;
@@ -28,16 +30,22 @@ public class LevelSelect : MonoBehaviour
     void OnEnable()
     {
         levelCount = 0;
+		locked [0] = false;
 
         //  loading prefabs from the (resource folder > Levels) and assigning them to the variable "levels"
         levels = Resources.LoadAll<GameObject>("Levels");
         //looping through all the levels from the (resource folder > Levels) and instantiating them as GameObjects
          foreach (GameObject go in levels)
         {
+			levelCount++;
             level = Instantiate(go);
             CreateSlot();
-            levelCount++;
+            
+			GameObject child = level.transform.Find("Locked").gameObject;
+			if (child != null && levelCount < locked.Length && locked[levelCount] == false)
+				child.SetActive (false);
         }
+
     }
     //settig this object's activeness to false will destroy all levels in order to prevent duplication
     //the reason we istantiate OnEnable is so that we can keep the information up to date
@@ -79,6 +87,12 @@ public class LevelSelect : MonoBehaviour
         level.GetComponent<RectTransform>().localRotation = Quaternion.identity;
         level.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
         xPos += (int)level.GetComponent<RectTransform>().rect.height;
+		//checking to see if the level should be shown as locked or unlocked
+//		if (locked [levelCount] == true && levelCount > 0 && levelCount < maxLevels) 
+//		{
+//			myLock = level.transform.Find("Locked").gameObject;
+//			myLock.SetActive (false);
+//		}
     }
     //scrolling by clicking the left arrow
     public void LeftArrowScroll()
@@ -90,5 +104,7 @@ public class LevelSelect : MonoBehaviour
     {
         content.transform.position -= new Vector3(+50, 0, 0);
     }
+
+
 
 }
