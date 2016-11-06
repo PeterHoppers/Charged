@@ -42,8 +42,11 @@ public class LevelSelect : MonoBehaviour
             CreateSlot();
             
 			GameObject child = level.transform.Find("Locked").gameObject;
-			if (child != null && levelCount < locked.Length && locked[levelCount] == false)
-				child.SetActive (false);
+            if (child != null && levelCount < locked.Length && locked[(levelCount - 1)] == false) //off by 1 error
+            {
+                child.SetActive(false);
+                print(levelCount);
+            }
         }
 
     }
