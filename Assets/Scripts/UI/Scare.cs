@@ -17,7 +17,6 @@ public class Scare : MonoBehaviour {
     // Use this for initialization
     IEnumerator Start () {        
         popupTime += Random.Range(15, 30);
-        print(popupTime);
         scareIMG.sprite = possibleSprites[Random.Range(0, possibleSprites.Length)];        
         yield return new WaitUntil(PopUp);
         yield return new WaitForSeconds(3f);
