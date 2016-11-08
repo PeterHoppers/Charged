@@ -37,13 +37,15 @@ public class LevelSelect : MonoBehaviour
         //looping through all the levels from the (resource folder > Levels) and instantiating them as GameObjects
          foreach (GameObject go in levels)
         {
-			levelCount++;
+            levelCount++;
             level = Instantiate(go);
             CreateSlot();
-            
+            //finding the "Locked" image of the instantiated object
 			GameObject child = level.transform.Find("Locked").gameObject;
+             //if the boolean index matches the value current levelCount variable, that image will be disabled
 			if (child != null && levelCount < locked.Length && locked[levelCount] == false)
 				child.SetActive (false);
+            
         }
 
     }
@@ -80,29 +82,26 @@ public class LevelSelect : MonoBehaviour
     private void CreateSlot()
     {
         //creating the level image slot
-        level.name = "Level " + levelCount.ToString();   //turning level's name and the level number to a string
+        if (levelCount < locked.Length)//here we are detecting whether or not the array length is larger than the variable, levelCount, so we can determine whether or not this is a custom map.
+            level.name = "Level " + levelCount.ToString();   //turning level's name and the level number to a string
+        else
+            level.name = "Custom " + (levelCount - maxLevels).ToString();   //Turning all levels that are instantiated after maxLevels into a custom string (i.e Custom 1)
         level.GetComponentInChildren<Text>().text = level.name;   //finding the child text of that level and printing the level name and level number
         level.transform.SetParent(content.transform);  //assigning the instantiate level to child of the GameObject, "content"
         level.GetComponent<RectTransform>().localPosition = new Vector3(xPos, 0, 0);   //here we are assigning the proper scale, rotation, position, width, and height of the gameobject "level"
         level.GetComponent<RectTransform>().localRotation = Quaternion.identity;
         level.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
         xPos += (int)level.GetComponent<RectTransform>().rect.height;
-		//checking to see if the level should be shown as locked or unlocked
-//		if (locked [levelCount] == true && levelCount > 0 && levelCount < maxLevels) 
-//		{
-//			myLock = level.transform.Find("Locked").gameObject;
-//			myLock.SetActive (false);
-//		}
     }
     //scrolling by clicking the left arrow
     public void LeftArrowScroll()
     {
-        content.transform.position += new Vector3(+50, 0, 0);
+        content.transform.position += new Vector3(+82, 0, 0);
     }
     //scrolling by clicking the right arrow
     public void RightArrowScroll()
     {
-        content.transform.position -= new Vector3(+50, 0, 0);
+        content.transform.position -= new Vector3(+82, 0, 0);
     }
 
 
