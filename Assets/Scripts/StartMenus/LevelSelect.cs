@@ -42,10 +42,18 @@ public class LevelSelect : MonoBehaviour
             CreateSlot();
             //finding the "Locked" image of the instantiated object
 			GameObject child = level.transform.Find("Locked").gameObject;
+<<<<<<< HEAD
              //if the boolean index matches the value current levelCount variable, that image will be disabled
 			if (child != null && levelCount < locked.Length && locked[levelCount] == false)
 				child.SetActive (false);
             
+=======
+            if (child != null && levelCount < locked.Length && locked[(levelCount - 1)] == false) //off by 1 error
+            {
+                child.SetActive(false);
+                print(levelCount);
+            }
+>>>>>>> origin/LevelSelection
         }
 
     }
