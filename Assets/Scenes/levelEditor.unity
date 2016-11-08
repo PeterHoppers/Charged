@@ -1534,7 +1534,7 @@ GameObject:
   - 114: {fileID: 865847527}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1993,6 +1993,7 @@ GameObject:
   - 212: {fileID: 1274967828}
   - 222: {fileID: 1274967832}
   - 114: {fileID: 1274967831}
+  - 114: {fileID: 1274967833}
   m_Layer: 0
   m_Name: PositiveIon
   m_TagString: Untagged
@@ -2120,6 +2121,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1274967826}
+--- !u!114 &1274967833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1274967826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bfb0c10334fe6141b5518c29a6bed5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1359402930
 GameObject:
   m_ObjectHideFlags: 0
@@ -2201,6 +2213,7 @@ GameObject:
   - 250: {fileID: 1780916516}
   - 222: {fileID: 1780916518}
   - 114: {fileID: 1780916515}
+  - 114: {fileID: 1780916519}
   m_Layer: 0
   m_Name: PositiveIon
   m_TagString: Untagged
@@ -2294,6 +2307,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1780916513}
+--- !u!114 &1780916519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1780916513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bfb0c10334fe6141b5518c29a6bed5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1931970267
 GameObject:
   m_ObjectHideFlags: 0
