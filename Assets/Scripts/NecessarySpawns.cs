@@ -55,10 +55,10 @@ public class NecessarySpawns : MonoBehaviour {
 
         inSceneLauncher = (GameObject) Instantiate(launcher, canvas.transform);
         inSceneLauncher.GetComponent<RectTransform>().localPosition = startPoint.localPosition;
-        inSceneLauncher.transform.localScale = new Vector3(1, 1, 1);
+        inSceneLauncher.transform.localScale = Vector3.one;
         
         inSceneExit = (GameObject) Instantiate(exit, canvas.transform);
         inSceneExit.GetComponent<RectTransform>().localPosition = endPoint.localPosition;
-        inSceneExit.transform.localScale = new Vector3(1, 1, 1);
+        inSceneExit.transform.localScale = Vector3.one;
     }
 }
