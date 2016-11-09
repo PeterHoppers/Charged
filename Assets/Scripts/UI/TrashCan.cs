@@ -10,11 +10,12 @@ public class TrashCan : MonoBehaviour {
         cloneFolder = GameObject.Find("CloneFolder").transform;  //finds where all the items are stored
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D col)
     {
         if (col.tag.Equals("Clone"))
         {
-            Destroy(col.gameObject);
+            if (Input.GetMouseButtonUp(0))                      //when released over trash can
+                Destroy(col.gameObject);
         }
     }
 
@@ -26,3 +27,5 @@ public class TrashCan : MonoBehaviour {
         }
     }
 }
+
+//~Peter
