@@ -27,57 +27,91 @@ public class ControlScript : MonoBehaviour {
 	void Update () 
     {
         //aiming up
-        if (Input.GetKey("up") || Input.GetKey("w"))
-        {            
-            // clamping up
-            if (curTurn + speed < maxRotation)
-            {
-                transform.Rotate(Vector3.forward * speed);
-                curTurn += speed;
-            }
-            else if(curTurn + speed >= maxRotation)
-            {
-                transform.rotation = Quaternion.Euler(0, 0, maxRotation);
-                curTurn = maxRotation;
-            }
-        }
-        if (Input.GetKey("down") || Input.GetKey("s"))
-        {            
-            // clamping up
-            if (curTurn - speed > minRotation)
-            {
-                transform.Rotate(-Vector3.forward * speed);
-                curTurn -= speed;
-            }
-            else if (curTurn - speed <= minRotation)
-            {
-                transform.rotation = Quaternion.Euler(0, 0, minRotation);
-                curTurn = minRotation;
-            }
-        }
-
-        if ((Input.GetKey("right") || Input.GetKey("a")) && Time.time > wait + .002f)
+        if (transform.tag == "PlayerOne" && Input.GetKey("w"))
         {
-            print(maxCharge);
-            // charging up
-            if (ControlScript.charge < maxCharge)
-            {
-                ControlScript.charge++;
-                print("your charge is at: " + ControlScript.charge);
-                wait = Time.time;
-            }
+            AimingUp();
         }
-        if ((Input.GetKey("left") || Input.GetKey("s")) && Time.time > wait + .002f)
+        else if (transform.tag == "PlayerTwo" && Input.GetKey("up"))        //Aiming up for both players
         {
-            
-            // cooling down
-            if (ControlScript.charge > 0)
-            {
-                ControlScript.charge--;
-                print("your charge is at: " + ControlScript.charge);
-                wait = Time.time;
-            }
+            AimingUp();
+        }
+        ///////////////////////////////////////////////////////////////
+        if (transform.tag == "PlayerOne" && Input.GetKey("s"))
+        {
+            AimingDown();
+        }
+        else if (transform.tag == "PlayerTwo" && Input.GetKey("down"))      //Aim down for both players
+        {
+            AimingDown();
+        }
+        ///////////////////////////////////////////////////////////////
+        if (transform.tag == "PlayerOne" && Input.GetKey("d") && Time.time > wait + .002f)
+        {
+            ChargingUp();
+        }
+        else if(transform.tag == "PlayerTwo" && Input.GetKey("right") && Time.time > wait + .002f)      //charge up for both players
+        {
+            ChargingUp();
+        }
+        ///////////////////////////////////////////////////////////////
+        if (transform.tag == "PlayerOne" && Input.GetKey("a") && Time.time > wait + .002f)
+        {
+            CoolingDown();
+        }
+        else if (transform.tag == "PlayerTwo" && Input.GetKey("left") && Time.time > wait + .002f)      //charge down for both players
+        {
+            CoolingDown();
         }
 	}
+
+    void AimingUp()
+    {
+        // clamping up
+        if (curTurn + speed < maxRotation)
+        {
+            transform.Rotate(Vector3.forward * speed);
+            curTurn += speed;
+        }
+        else if (curTurn + speed >= maxRotation)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, maxRotation);
+            curTurn = maxRotation;
+        }
+    }
+    void AimingDown()
+    {
+        // clamping up
+        if (curTurn - speed > minRotation)
+        {
+            transform.Rotate(-Vector3.forward * speed);
+            curTurn -= speed;
+        }
+        else if (curTurn - speed <= minRotation)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, minRotation);
+            curTurn = minRotation;
+        }
+    }
+    void ChargingUp()
+    {
+        // charging up
+        if (ControlScript.charge < maxCharge)
+        {
+            ControlScript.charge++;
+            print("your charge is at: " + ControlScript.charge);
+            wait = Time.time;
+        }
+    }
+    void CoolingDown()
+    {
+        // cooling down
+        if (ControlScript.charge > 0)
+        {
+            ControlScript.charge--;
+            print("your charge is at: " + ControlScript.charge);
+            wait = Time.time;
+        }
+    }
+
+
 }
-//for (int i = 0; i < myIndex % myActive.Length; i++)

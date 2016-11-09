@@ -13,10 +13,13 @@ public class EndLevel : MonoBehaviour
 	}
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "PlayerOneProjectile" || other.gameObject.tag == "PlayerTwoProjectile")
         {
             Destroy(other.gameObject);
-            scoreManager.LevelCompleted();
+            if(PlayerManager.numberOfPlayers == 1)
+            {
+                scoreManager.LevelCompleted();
+            }
         }
     }
 }

@@ -17,12 +17,18 @@ public class ScoreManager : MonoBehaviour
     int starsEarned;
     void Start()
     {
+        if(PlayerManager.numberOfPlayers == 2)
+        {
+            enabled = false;
+        }
         triesText.text = "Attempts: " + tries;      //Change the text at the start to make sure it says the correct text.
     }
     public void UpdateScore()
     {
+        print("Happens");
         tries++;                                //Updates the try count
         triesText.text = "Attempts: " + tries;
+        print(tries);
     }
     public void ResetScore()
     {
@@ -31,9 +37,11 @@ public class ScoreManager : MonoBehaviour
     }
     public void LevelCompleted()
     {
+        print("Level completed called");
         levelCompletedPanel.SetActive(true);
         if (tries <= oneStarAttempts)
         {
+            print("3 stars earned");
             star1.SetActive(true);
             star2.SetActive(true);
             star3.SetActive(true);
@@ -41,12 +49,14 @@ public class ScoreManager : MonoBehaviour
         }
         else if (tries <= twoStarAttempts && tries >= oneStarAttempts)
         {
+            print("2 stars earned");
             star1.SetActive(true);
             star2.SetActive(true);
             starsEarned = 2;
         }
         else if (tries <= threeStarAttempts && tries >= twoStarAttempts)
         {
+            print("2 stars earned");
             star1.SetActive(true);
             starsEarned = 1;
         }

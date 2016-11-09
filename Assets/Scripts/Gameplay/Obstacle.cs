@@ -11,15 +11,12 @@ public class Obstacle : MonoBehaviour
     void Start()
     {
         canvas = GameObject.Find("Canvas");
-        attempts = GameObject.Find("Attempts").GetComponent<Attempts>();     //References the scoreManager
-        //player = GameObject.FindGameObjectWithTag("Player");
-        //trailRenderer = player.transform.FindChild("TrailRenderer").gameObject;
     }
     void OnTriggerEnter2D(Collider2D other)                                             //Checks for collision with the player
     {
-        if(other.gameObject.tag == "Player")   
+        if(other.gameObject.tag == "PlayerOneProjectile" || other.gameObject.tag == "PlayerTwoProjectile")
         {
-            DeathManager.killProjectile();
+            DeathManager.killProjectile(other.gameObject);
         }
     }
 }

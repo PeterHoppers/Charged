@@ -11,16 +11,31 @@ public class MenuScript : MonoBehaviour {
 	
 	public void Play(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(sceneName);      //Load scene with string
     }
 
     public void Play(int sceneNumber)
     {
-        SceneManager.LoadScene(sceneNumber);
+        SceneManager.LoadScene(sceneNumber);    //Load scene with int
     }
 
     public void Quit()
     {
-        Application.Quit();
+        Application.Quit();                     //Quits game
+    }
+
+    public void OnePlayer()
+    {
+        PlayerManager.numberOfPlayers = 1;      //1 player
+    }
+
+    public void TwoPlayer()
+    {
+        PlayerManager.numberOfPlayers = 2;      //2 player
+    }
+
+    public void RaceAgainstTime()
+    {
+
     }
 }
