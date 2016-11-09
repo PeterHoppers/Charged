@@ -1,14 +1,25 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScrollbarIncrementer : MonoBehaviour
 {
     public RectTransform content;
+    public GameObject buttonPrefab;
+    public List<Sprite> backgroundSprites;
     bool scrolling;
     float stepAmount;
     float timer;
     Vector3 nextPos;
+
+    void Start()
+    {
+        for (int i = 0; i < backgroundSprites.Count; i++)
+        {
+            //GameObject clone = Instantiate(buttonPrefab, )
+        }
+    }
 
     void Update()
     {
