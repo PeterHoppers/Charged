@@ -14,7 +14,7 @@ public class DeathManager : MonoBehaviour {
         canvas = GameObject.Find("Canvas");
         if(PlayerManager.numberOfPlayers == 1)
         {
-            attempts = GameObject.Find("Attempts").GetComponent<Attempts>();     //References the scoreManager
+            attempts = GameObject.Find("Attempts/Time").GetComponent<Attempts>();     //References the scoreManager
         }
         p1CanShoot = true;
         p2CanShoot = true;
@@ -37,6 +37,8 @@ public class DeathManager : MonoBehaviour {
         trailRenderer.transform.position = currentPosition;
         Destroy(player.gameObject);                                                  //Destroyes the player and updates the score
         if(PlayerManager.numberOfPlayers == 1)
-        attempts.Attempted();
+        {
+            attempts.Attempted();
+        }
     }
 }
