@@ -12,12 +12,12 @@ public class Obstacle : MonoBehaviour
     {
         canvas = GameObject.Find("Canvas");
         attempts = GameObject.Find("Attempts").GetComponent<Attempts>();     //References the scoreManager
-        player = GameObject.FindGameObjectWithTag("Player");
-        trailRenderer = player.transform.FindChild("TrailRenderer").gameObject;
+        //player = GameObject.FindGameObjectWithTag("Player");
+        //trailRenderer = player.transform.FindChild("TrailRenderer").gameObject;
     }
     void OnTriggerEnter2D(Collider2D other)                                             //Checks for collision with the player
     {
-        if(other.gameObject == player)   
+        if(other.gameObject.tag == "Player")   
         {
             DeathManager.killProjectile();
         }
