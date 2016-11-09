@@ -3,15 +3,20 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class EndLevel : MonoBehaviour
-{ 
-    //Load the scene into the object then upon trigger, load next scene
-    public string NextLevel;
+{
+    ScoreManager scoreManager;
+
 	// Use this for initialization
+	void Start ()
+    {
+        scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
+	}
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(NextLevel);
+            Destroy(other.gameObject);
+            scoreManager.LevelCompleted();
         }
     }
 }

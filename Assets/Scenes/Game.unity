@@ -242,6 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingPower: 50
+  power: 0
 --- !u!114 &28547315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,6 +564,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013302453092, guid: b87a8326331acd147a1ddfca30f82dda,
+        type: 2}
+      propertyPath: levelCompletePanel
+      value: 
+      objectReference: {fileID: 1302808118}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b87a8326331acd147a1ddfca30f82dda, type: 2}
   m_IsPrefabParent: 0
@@ -1339,9 +1345,9 @@ MonoBehaviour:
   star1: {fileID: 1302808117}
   star2: {fileID: 1302808116}
   star3: {fileID: 1302808115}
-  oneStarAttempts: 1
+  oneStarAttempts: 3
   twoStarAttempts: 2
-  threeStarAttempts: 3
+  threeStarAttempts: 1
 --- !u!114 &865847528
 MonoBehaviour:
   m_ObjectHideFlags: 0
