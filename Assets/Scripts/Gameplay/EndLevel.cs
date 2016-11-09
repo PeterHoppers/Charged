@@ -4,21 +4,22 @@ using UnityEngine.SceneManagement;
 
 public class EndLevel : MonoBehaviour
 {
-    ScoreManager scoreManager;
+    //Grab the PlayerGo using the tag in the Start()
+    GameObject playerGO;
+
     //Load the scene into the object then upon trigger, load next scene
     public string NextLevel;
 
 	// Use this for initialization
 	void Start ()
     {
-        scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
+        playerGO = GameObject.FindGameObjectWithTag("Player");
 	}
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.gameObject == playerGO)
         {
-            Destroy(other.gameObject);
-            scoreManager.LevelCompleted();
+            SceneManager.LoadScene(NextLevel);
         }
     }
 }

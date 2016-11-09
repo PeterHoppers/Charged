@@ -12,12 +12,11 @@ public class NecessarySpawns : MonoBehaviour {
 
     GameObject canvas;                  //grabs canvas to make sure the transform is in the correct spot
 
-    public RectTransform background;    //will be private when Sam's code is implemented
+ //   public RectTransform background;    //will be private when Sam's code is implemented
     RectTransform startPoint;
     RectTransform endPoint;
 
     //WhateverScriptSamMade backgroundManager       grabs a copy of whatever Sam's background script is
-
     void Start()
     {
         //backgroundManager = GameObject.FindObjectWithTag("GameManager").GetComponent<WhateverScriptSamMade>();
@@ -26,11 +25,10 @@ public class NecessarySpawns : MonoBehaviour {
         if (canvas == null)
             Debug.LogError("The Canvas is not tagged.");
     }
-
-    public void activateObjects()
+    public void ActivateObjects(GameObject background)
     {
         //background = (RectTransform) backgroundManager.activebackground.transform;
-        startPoint = (RectTransform)background.FindChild("StartPoint");
+        startPoint = (RectTransform)background.transform.FindChild("StartPoint");
         if (startPoint == null)
         {
             startPoint.anchorMin = new Vector2(0, 0.5f);
@@ -38,7 +36,7 @@ public class NecessarySpawns : MonoBehaviour {
             startPoint.localPosition = new Vector3(60, 0, 0);
         }
 
-        endPoint = (RectTransform) background.FindChild("EndPoint");
+        endPoint = (RectTransform)background.transform.FindChild("EndPoint");
         if (endPoint == null)
         {
             endPoint.anchorMin = new Vector2(1, 0.5f);
