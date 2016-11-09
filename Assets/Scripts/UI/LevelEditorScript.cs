@@ -3,26 +3,40 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class LevelEditorScript : MonoBehaviour {
-
-    public static Sprite backgroundSprite;
-    Image levelBackground;
+    public static GameObject background;
+    static GameObject levelBackground;
+    public GameObject backgroundPrefab;
 
     void Start()
     {
-        levelBackground = GameObject.Find("LevelImage").GetComponent<Image>();
-        if (!levelBackground)
-            Debug.LogError("No level image componenet was found");
+        FindBackground();
     }
 
     public void SetBackground(Image target)
     {
-        backgroundSprite = GetComponent<Image>().sprite;
-        target.sprite = backgroundSprite;
+        Destroy(target);
+        background = backgroundPrefab;
+        GameObject clone = Instantiate(background, GameObject.Find("BackgroundContainer").transform) as GameObject;
+        clone.name = "Background";
+        clone.GetComponent<RectTransform>().localPosition = Vector3.zero;
+        clone.GetComponent<RectTransform>().localScale = Vector3.one;
     }
 
     public void SetBackground()
     {
-        backgroundSprite = GetComponent<Image>().sprite;
-        levelBackground.sprite = backgroundSprite;
+        Destroy(levelBackground);
+        background = backgroundPrefab;
+        GameObject clone = Instantiate(background, GameObject.Find("BackgroundContainer").transform) as GameObject;
+        clone.name = "Background";
+        clone.GetComponent<RectTransform>().localPosition = Vector3.zero;
+        clone.GetComponent<RectTransform>().localScale = Vector3.one;
+        levelBackground = clone;
+    }
+
+    void FindBackground()
+    {
+        levelBackground = GameObject.Find("Background");
+        if (!levelBackground)
+            Debug.LogError("No level image componenet was found");
     }
 }
