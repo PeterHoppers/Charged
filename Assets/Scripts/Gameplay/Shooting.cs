@@ -14,14 +14,36 @@ public class Shooting : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        if (Input.GetKeyDown("space") && DeathManager.canShoot == true)
+	void Update ()
+    {
+        if (tag == "P1Gun" && Input.GetKeyDown("space") && DeathManager.p1CanShoot == true)
+        {
+            Shoot();
+        }
+        else if (tag == "P2Gun" && Input.GetKeyDown("return") && DeathManager.p2CanShoot == true)
+        {
+            Shoot();
+        }
+    }
+
+    void Shoot()
+    {
+        if(PlayerManager.numberOfPlayers == 1)
         {
             scoreManager.UpdateScore();
-            Rigidbody2D clone = Instantiate(myBullet, transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
-            clone.velocity = transform.TransformDirection(Vector3.right * ControlScript.charge);
-            clone.transform.SetParent(canvas.transform);
-            DeathManager.canShoot = false;
         }
-	}
+        Rigidbody2D clone = Instantiate(myBullet, transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
+        clone.velocity = transform.TransformDirection(Vector3.right * ControlScript.charge);
+        clone.transform.SetParent(canvas.transform);
+
+        switch(tag)
+        {
+            case "P1Gun":
+                DeathManager.p1CanShoot = false;
+                break;
+            case "P2Gun":
+                DeathManager.p2CanShoot = false;
+                break;
+        }
+    }
 }

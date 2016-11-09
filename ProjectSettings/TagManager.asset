@@ -7,6 +7,12 @@ TagManager:
   - Empty
   - GameManager
   - Canvas
+  - PlayerOne
+  - PlayerTwo
+  - P1Gun
+  - P2Gun
+  - PlayerOneProjectile
+  - PlayerTwoProjectile
   layers:
   - Default
   - TransparentFX

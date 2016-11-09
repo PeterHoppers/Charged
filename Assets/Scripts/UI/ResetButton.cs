@@ -5,6 +5,6 @@ public class ResetButton : MonoBehaviour
 {
     public void resetProjectile()
     {
-        DeathManager.killProjectile();
+        //DeathManager.killProjectile();
     }
 }

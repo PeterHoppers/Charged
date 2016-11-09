@@ -23,7 +23,7 @@ GameObject:
   - 114: {fileID: 114000011677613246}
   - 114: {fileID: 114000010738444096}
   m_Layer: 5
-  m_Name: Cannon
+  m_Name: PlayerTwo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ GameObject:
   - 120: {fileID: 120000010174270860}
   m_Layer: 5
   m_Name: GunBarrel
-  m_TagString: Untagged
+  m_TagString: P2Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,9 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb05121ebc1b0e047aa3e580cab8e913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  capacity: 1
-  fireRate: 0
-  isActive: 0
   myBullet: {fileID: 50000010219490828, guid: 8fd69a8609e1c67469ee510fd62679f9, type: 2}
 --- !u!114 &114000010738444096
 MonoBehaviour:
@@ -78,6 +75,7 @@ MonoBehaviour:
   minRotation: -15
   note: 'Note: speed may affect the min and max rotation'
   speed: 2
+  maxCharge: 500
 --- !u!114 &114000011677613246
 MonoBehaviour:
   m_ObjectHideFlags: 1
