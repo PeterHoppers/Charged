@@ -317,23 +317,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb00850d5d4d47f42b5fcb135a4bebff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  maxLevels: 12
   locked: 000101010101010101010101
-  sceneLevel: 0
+  sceneLevel: 1
   error: {fileID: 82000013944413910}
-  hover: {fileID: 0}
+  content: {fileID: 0}
 --- !u!114 &114000010590938084
 MonoBehaviour:
   m_ObjectHideFlags: 1
