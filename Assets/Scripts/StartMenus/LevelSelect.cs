@@ -43,7 +43,6 @@ public class LevelSelect : MonoBehaviour
         //looping through all the levels from the (resource folder > Levels) and instantiating them as GameObjects
          foreach (GameObject go in levels)
         {
-			print (LevelSelect.locked [levelCount]);
             levelCount++;
             level = Instantiate(go);
 			CreateSlot();
@@ -70,20 +69,15 @@ public class LevelSelect : MonoBehaviour
     public void SelectLevel(int myLevel)
     {
         sceneLevel = myLevel;
-		print (LevelSelect.locked[sceneLevel]);
     }
 
     public void PlayLevel(string myScene)
     {
-		print (sceneLevel);
-		print (LevelSelect.locked [sceneLevel]);
-
 		//  checking to see if the level image was double clicked (CUZ DOUBLE CLICKING IS BETTER THAN SINGLE CLICKING!)
 		if (doubleClick <= Time.time)
 			doubleClick = Time.time + .2f;
         else
         {
-			print ("clicked");
             //if so, play scene level
 			if (!LevelSelect.locked[sceneLevel])
                 SceneManager.LoadScene(myScene);
