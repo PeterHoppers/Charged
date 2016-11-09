@@ -4,15 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Empty
-  - GameManager
-  - Canvas
   - PlayerOne
   - PlayerTwo
-  - P1Gun
-  - P2Gun
   - PlayerOneProjectile
   - PlayerTwoProjectile
+  - P1Gun
+  - P2Gun
   layers:
   - Default
   - TransparentFX
