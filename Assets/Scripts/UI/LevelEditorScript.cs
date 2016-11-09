@@ -8,10 +8,10 @@ public class LevelEditorScript : MonoBehaviour {
     public GameObject backgroundPrefab;
     GameObject folder;
 
-
     NecessarySpawns necessarySpawns;
     void Start()
     {
+        FindBackground();
         necessarySpawns = GameObject.Find("GameManager").GetComponent<NecessarySpawns>();
         folder = GameObject.Find("CloneFolder");
 
@@ -51,6 +51,30 @@ public class LevelEditorScript : MonoBehaviour {
         BoxCollider2D boxC = clone.AddComponent<BoxCollider2D>();           //adds a collider for trash
         boxC.isTrigger = true;                                              
         boxC.size = new Vector2(100, 100);
+    }
 
+    public void CreateNewObjectAtCursor()
+    {
+        GameObject clone = Instantiate(gameObject, folder.transform) as GameObject;
+        clone.AddComponent<GridSnapping>();                                 //allows for grid snapping
+        clone.tag = "Clone";
+        clone.GetComponent<Button>().enabled = false;                       //prevent it from being clicked
+        clone.GetComponent<RectTransform>().localPosition = CursorPosition();   //spawns at the cursor
+        BoxCollider2D boxC = clone.AddComponent<BoxCollider2D>();           //adds a collider for trash
+        boxC.isTrigger = true;
+        boxC.size = new Vector2(100, 100);
+    }
+
+    Vector2 CursorPosition()
+    {
+        Vector2 pos = Vector2.zero;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(ray.origin, Vector3.forward);
+        if(hit.transform.tag == "Background")
+        {
+            pos = hit.point;
+        }
+
+        return pos;
     }
 }
