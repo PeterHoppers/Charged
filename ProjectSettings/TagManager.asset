@@ -9,6 +9,8 @@ TagManager:
   - Canvas
   - Clone
   - Background
+  - Negative
+  - Positive
   layers:
   - Default
   - TransparentFX

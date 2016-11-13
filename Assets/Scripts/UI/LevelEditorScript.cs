@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using System.Collections;
 
 public class LevelEditorScript : MonoBehaviour {
@@ -7,8 +8,8 @@ public class LevelEditorScript : MonoBehaviour {
     static GameObject levelBackground;
     public GameObject backgroundPrefab;
     GameObject folder;
-
     NecessarySpawns necessarySpawns;
+
     void Start()
     {
         FindBackground();
@@ -21,6 +22,7 @@ public class LevelEditorScript : MonoBehaviour {
         }
     }
 
+    //Destroys the current background and replaces it with whichever background the player clicked on
     public void SetBackground()
     {
         Destroy(levelBackground);
@@ -33,6 +35,7 @@ public class LevelEditorScript : MonoBehaviour {
         necessarySpawns.ActivateObjects(background);
     }
 
+    //Finds the background...duh
     void FindBackground()
     {
         levelBackground = GameObject.Find("Background");
@@ -42,10 +45,11 @@ public class LevelEditorScript : MonoBehaviour {
 
     public void CreateNewObject()
     {
-        GameObject clone = Instantiate(gameObject, folder.transform) as GameObject;
+        GameObject clone = Instantiate(gameObject, GameObject.Find("Canvas").transform) as GameObject;
+        clone.GetComponent<RectTransform>().localScale = Vector3.one;
         clone.AddComponent<Draggable>();                                     //allows for dragging
-        clone.AddComponent<GridSnapping>();                                 //allows for grid snapping
-        clone.tag = "Clone";                    
+        clone.AddComponent<GridSnapping>();                                 //allows for grid snapping   
+        clone.tag = "Clone";
         clone.GetComponent<Button>().enabled = false;                       //prevent it from being clicked
         clone.GetComponent<RectTransform>().localPosition = Vector2.zero;   //spawns in the middle
         BoxCollider2D boxC = clone.AddComponent<BoxCollider2D>();           //adds a collider for trash
@@ -53,28 +57,35 @@ public class LevelEditorScript : MonoBehaviour {
         boxC.size = new Vector2(100, 100);
     }
 
-    public void CreateNewObjectAtCursor()
+    public GameObject CreateNewObjectAtCursor(GameObject aGameObject)
     {
-        GameObject clone = Instantiate(gameObject, folder.transform) as GameObject;
-        clone.AddComponent<GridSnapping>();                                 //allows for grid snapping
-        clone.tag = "Clone";
-        clone.GetComponent<Button>().enabled = false;                       //prevent it from being clicked
-        clone.GetComponent<RectTransform>().localPosition = CursorPosition();   //spawns at the cursor
-        BoxCollider2D boxC = clone.AddComponent<BoxCollider2D>();           //adds a collider for trash
+        GameObject clone = Instantiate(aGameObject, GameObject.Find("Canvas").transform) as GameObject;
+        clone.GetComponent<RectTransform>().localScale = Vector3.one;
+        clone.AddComponent<GridSnapping>();                                             //allows for grid snapping
+        clone.GetComponent<RectTransform>().localPosition = CursorPosition();           //spawns at the cursor
+        BoxCollider2D boxC = clone.AddComponent<BoxCollider2D>();                       //adds a collider for trash
         boxC.isTrigger = true;
         boxC.size = new Vector2(100, 100);
+        return clone;
     }
 
+    public GameObject CreateNewObjectAtCursor()
+    {
+        GameObject clone = Instantiate(gameObject, folder.transform) as GameObject;
+        clone.AddComponent<GridSnapping>();                                             //allows for grid snapping
+        clone.GetComponent<Button>().enabled = false;                                   //prevent it from being clicked
+        clone.GetComponent<RectTransform>().localPosition = CursorPosition();           //spawns at the cursor
+        BoxCollider2D boxC = clone.AddComponent<BoxCollider2D>();                       //adds a collider for trash
+        boxC.isTrigger = true;
+        boxC.size = new Vector2(100, 100);
+        return clone;
+    }
+
+    //Returns a position on the target rect transform basde on where the mouse is
     Vector2 CursorPosition()
     {
         Vector2 pos = Vector2.zero;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(ray.origin, Vector3.forward);
-        if(hit.transform.tag == "Background")
-        {
-            pos = hit.point;
-        }
-
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(levelBackground.GetComponent<RectTransform>(), Input.mousePosition, Camera.main, out pos);        
         return pos;
     }
 }
