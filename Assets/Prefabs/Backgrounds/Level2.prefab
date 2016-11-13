@@ -21,6 +21,9 @@ GameObject:
   - 224: {fileID: 224000010475516676}
   - 222: {fileID: 222000010310374592}
   - 114: {fileID: 114000012599965136}
+  - 114: {fileID: 114000013561144926}
+  - 68: {fileID: 68000011081141672}
+  - 61: {fileID: 61000011398709436}
   m_Layer: 5
   m_Name: Level2
   m_TagString: Untagged
@@ -62,6 +65,48 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!61 &61000011398709436
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010291785890}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -210.92395, y: -1.8588983}
+  serializedVersion: 2
+  m_Size: {x: 74.22529, y: 150.50781}
+--- !u!68 &68000011081141672
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010291785890}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -393.4796, y: -148.77412}
+  - {x: -397.39612, y: -89.1419}
+  - {x: -322.14575, y: -83.35975}
+  - {x: -323.41074, y: 143.29826}
+  - {x: -176.59883, y: 143.3976}
+  - {x: -173.09184, y: 217.96553}
+  - {x: 403.096, y: 221.16354}
+  - {x: 392.1946, y: -5.7945814}
+  - {x: 67.02639, y: -4.9798703}
+  - {x: 197.35767, y: -76.203964}
+  - {x: 196.95882, y: -152.39752}
+  - {x: 78.91779, y: -221.58089}
+  - {x: -174.528, y: -224.8821}
+  - {x: -174.94836, y: -151.43648}
+  - {x: -397.32523, y: -151.15765}
 --- !u!114 &114000010495925458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,6 +188,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000013561144926
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010291785890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be351c57fbf60fc488da017e8da3763e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &222000010310374592
 CanvasRenderer:
   m_ObjectHideFlags: 1

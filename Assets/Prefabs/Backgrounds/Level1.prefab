@@ -21,6 +21,8 @@ GameObject:
   - 224: {fileID: 224000010475516676}
   - 222: {fileID: 222000010310374592}
   - 114: {fileID: 114000012599965136}
+  - 68: {fileID: 68000011155739926}
+  - 114: {fileID: 114000011419865758}
   m_Layer: 5
   m_Name: Level1
   m_TagString: Untagged
@@ -62,6 +64,51 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!68 &68000011155739926
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010291785890}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: 387.13602, y: 123.71554}
+  - {x: 314.4514, y: 192.79918}
+  - {x: 229.10693, y: 195.91173}
+  - {x: 152.11436, y: 134.42593}
+  - {x: 82.11623, y: 223.88913}
+  - {x: -85.33562, y: 221.5861}
+  - {x: -154.95175, y: 134.20876}
+  - {x: -226.54886, y: 181.22665}
+  - {x: -304.32404, y: 180.7133}
+  - {x: -388.2076, y: 128.8438}
+  - {x: -391.13815, y: -127.73243}
+  - {x: -313.86023, y: -208.40504}
+  - {x: -227.25229, y: -209.90924}
+  - {x: -153.67578, y: -137.20583}
+  - {x: -79.201645, y: -222.55693}
+  - {x: 81.93279, y: -223.16481}
+  - {x: 151.00786, y: -143.27052}
+  - {x: 220.61327, y: -194.42162}
+  - {x: 299.3873, y: -193.25381}
+  - {x: 383.51804, y: -134.52072}
+  - {x: 388.7969, y: 126.31345}
+--- !u!114 &114000011419865758
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010291785890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be351c57fbf60fc488da017e8da3763e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000011571938034
 MonoBehaviour:
   m_ObjectHideFlags: 1
