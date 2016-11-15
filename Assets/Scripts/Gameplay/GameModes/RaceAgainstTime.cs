@@ -11,6 +11,10 @@ public class RaceAgainstTime : MonoBehaviour
     public static int playerTwoPoints;                      //The amount of points that player two has
 
     public GameObject results;
+    [Tooltip("How many points either player must score to win the game.")]
+    public int playerWinScore;
+
+    public static int winScore;
     public int timeBetweenScenes;
     public Text time;                                       //Reference to the text object that shows time
     public float matchTime;                                 //How long each round will last for
@@ -24,6 +28,7 @@ public class RaceAgainstTime : MonoBehaviour
     float nextRoundTimer;
 	void Start ()
     {
+        winScore = playerWinScore;
         timer = matchTime;                                  //Set our timer to the matchtime chosen
         nextRoundTimer = timeBetweenScenes;
         matchStarted = true;
@@ -57,16 +62,36 @@ public class RaceAgainstTime : MonoBehaviour
 
     void ShowResults()
     {
+        p1Points.text = "Player One Points " + playerOnePoints;
+        p2Points.text = "Player Two Points " + playerTwoPoints;
         timer = matchTime;
         results.SetActive(true);
         nextMatchCounter = true;
     }
     void StartNextMatch()
     {
-        int randomScene = Random.Range(1, (SceneManager.sceneCountInBuildSettings));
-        print(SceneManager.sceneCountInBuildSettings);
-        print(randomScene);
+        if(playerOnePoints >= winScore || playerTwoPoints >= winScore)
+        {
+            print(playerOnePoints);
+            print(playerTwoPoints);
+            SceneManager.LoadScene("RaceEndScene");
+        }
+        int randomScene = Random.Range(2, (SceneManager.sceneCountInBuildSettings));
         SceneManager.LoadScene(randomScene);
+    }
+
+    public void IncrementPoints(GameObject player)
+    {
+        if(player.tag == "PlayerOneProjectile")
+        {
+            playerOnePoints++;
+        }
+        else if(player.tag == "PlayerTwoProjectile")
+        {
+            playerTwoPoints++;
+        }
+        matchStarted = false;
+        ShowResults();
     }
 
     ////////To Do List/////////
