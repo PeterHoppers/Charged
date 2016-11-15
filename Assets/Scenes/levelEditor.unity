@@ -2303,7 +2303,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 865847524}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f61f2392350c6a49aa438ef0a66c672, type: 3}
   m_Name: 
@@ -2333,7 +2333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snapTo: 10
-  onlyStart: 1
+  onlyStart: 0
 --- !u!114 &865847528
 MonoBehaviour:
   m_ObjectHideFlags: 0
