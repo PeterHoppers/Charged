@@ -21,10 +21,10 @@ GameObject:
   - 224: {fileID: 224000010475516676}
   - 222: {fileID: 222000010310374592}
   - 114: {fileID: 114000012599965136}
-  - 61: {fileID: 61000012396258624}
+  - 68: {fileID: 68000014076940624}
   m_Layer: 5
   m_Name: Level2
-  m_TagString: Background
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,8 +63,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &61000012396258624
-BoxCollider2D:
+--- !u!68 &68000014076940624
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -72,11 +72,25 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 800, y: 450}
+  m_Points:
+  - {x: -176.99174, y: 219.68906}
+  - {x: -151.06241, y: 217.26791}
+  - {x: 395.57516, y: 217.63371}
+  - {x: 398.08975, y: -8.103365}
+  - {x: 74.946594, y: -8.081622}
+  - {x: 200.50409, y: -75.370804}
+  - {x: 200.08067, y: -149.8965}
+  - {x: 73.611206, y: -219.74318}
+  - {x: -392.3596, y: -220.0914}
+  - {x: -393.8433, y: -83.94525}
+  - {x: -389.22516, y: -70.345535}
+  - {x: -326.51862, y: -68.28482}
+  - {x: -329.268, y: 146.20654}
+  - {x: -178.85742, y: 147.77881}
+  - {x: -178.46019, y: 222.15746}
 --- !u!114 &114000010495925458
 MonoBehaviour:
   m_ObjectHideFlags: 1
