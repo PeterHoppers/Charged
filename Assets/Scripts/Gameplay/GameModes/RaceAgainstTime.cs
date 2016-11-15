@@ -70,12 +70,9 @@ public class RaceAgainstTime : MonoBehaviour
     }
     void StartNextMatch()
     {
-        if(playerOnePoints >= winScore || playerTwoPoints >= winScore)
-        {
-            print(playerOnePoints);
-            print(playerTwoPoints);
-            SceneManager.LoadScene("RaceEndScene");
-        }
+        print(playerOnePoints);
+        print(playerTwoPoints);
+  
         int randomScene = Random.Range(2, (SceneManager.sceneCountInBuildSettings));
         SceneManager.LoadScene(randomScene);
     }
@@ -92,6 +89,11 @@ public class RaceAgainstTime : MonoBehaviour
         }
         matchStarted = false;
         ShowResults();
+        if (playerOnePoints >= winScore || playerTwoPoints >= winScore)
+        {
+            print("Loading next scene" + playerOnePoints + playerTwoPoints);
+            SceneManager.LoadScene("RaceEndScene");
+        }
     }
 
     ////////To Do List/////////

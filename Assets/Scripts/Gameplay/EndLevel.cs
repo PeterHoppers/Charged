@@ -11,7 +11,7 @@ public class EndLevel : MonoBehaviour
 
 	// Use this for initialization
 	void Start ()
-    {
+    { 
         myCollider = GetComponent<BoxCollider2D>();
         myCollider.enabled = true;
         scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();

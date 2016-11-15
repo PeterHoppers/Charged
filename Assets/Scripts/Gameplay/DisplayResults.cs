@@ -21,8 +21,6 @@ public class DisplayResults : MonoBehaviour
                 playerWinText.text = "Player Two Wins!";
             }
         }
-        RaceAgainstTime.playerOnePoints = 0;
-        RaceAgainstTime.playerTwoPoints = 0;
     }
 	
 	// Update is called once per frame

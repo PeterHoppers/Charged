@@ -19,6 +19,7 @@ public class ScrollbarIncrementer : MonoBehaviour
         for (int i = 0; i < backgroundPrefabs.Count; i++)
         {
             GameObject clone = Instantiate(buttonPrefab, content.transform) as GameObject;
+            clone.GetComponent<RectTransform>().localPosition = Vector3.zero;
             clone.GetComponent<RectTransform>().localScale = Vector3.one;
             clone.GetComponent<Image>().sprite = backgroundPrefabs[i].GetComponent<Image>().sprite;
             clone.GetComponent<LevelEditorScript>().backgroundPrefab = backgroundPrefabs[i];
