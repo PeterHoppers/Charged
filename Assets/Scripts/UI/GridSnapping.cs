@@ -22,10 +22,6 @@ public class GridSnapping : MonoBehaviour {
             Debug.LogError("There is no rect Transform attached to this object.");
         }
 	}
-
-    
-	
-	// Update is called once per frame
 	void Update ()
     {
         if (!gridSystem.onlyStart)

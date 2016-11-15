@@ -10,6 +10,9 @@ TagManager:
   - PlayerTwoProjectile
   - P1Gun
   - P2Gun
+  - GameManager
+  - Positive
+  - Negative
   layers:
   - Default
   - TransparentFX
