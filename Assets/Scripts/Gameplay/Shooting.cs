@@ -35,6 +35,7 @@ public class Shooting : MonoBehaviour
         Rigidbody2D clone = Instantiate(myBullet, transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
         clone.velocity = transform.TransformDirection(Vector3.right * ControlScript.charge);
         clone.transform.SetParent(canvas.transform);
+        clone.GetComponent<RectTransform>().localScale = new Vector3(.4f, .4f, .4f);
 
         switch(tag)
         {

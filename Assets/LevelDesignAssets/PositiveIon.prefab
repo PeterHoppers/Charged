@@ -43,7 +43,7 @@ CircleCollider2D:
   m_UsedByEffector: 1
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 4.35
+  m_Radius: 180
 --- !u!114 &114000011035401016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -85,14 +85,14 @@ RectTransform:
   m_GameObject: {fileID: 1000011683224740}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -48, y: 95}
+  m_AnchoredPosition: {x: -48, y: 81}
   m_SizeDelta: {x: 140, y: 80}
   m_Pivot: {x: 0.4999984, y: 0.5000003}
 --- !u!250 &250000010403925634

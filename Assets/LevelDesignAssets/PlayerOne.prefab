@@ -75,7 +75,7 @@ MonoBehaviour:
   minRotation: -20
   note: 'Note: speed may affect the min and max rotation'
   speed: 2
-  maxCharge: 500
+  maxCharge: 250
 --- !u!114 &114000011677613246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -200,7 +200,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 39, y: -7}
+  m_AnchoredPosition: {x: 31.2, y: -3.1}
   m_SizeDelta: {x: 100, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000014129629700
@@ -219,6 +219,6 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -265, y: 0}
-  m_SizeDelta: {x: 161, y: 100}
+  m_AnchoredPosition: {x: -311.8, y: 0}
+  m_SizeDelta: {x: 80, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}

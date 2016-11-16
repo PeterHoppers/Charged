@@ -11,7 +11,7 @@ public class ControlScript : MonoBehaviour {
     [TextArea(0,2)]
     public string note = "Note: speed may affect the min and max rotation";
     public float speed = 2.0f;
-     [Header("Minimum Firepower")]
+     [Header("Max Firepower")]
     public int maxCharge = 500;
     [HideInInspector]
     public static float charge = 100f;
