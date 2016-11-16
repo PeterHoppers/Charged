@@ -71,11 +71,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2eacdab937b11743b1a764c022c0eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerLevel: {fileID: 0}
   maxRotation: 20
   minRotation: -20
-  note: 'Note: speed may affect the min and max rotation'
   speed: 2
   maxCharge: 500
+  chargeStepper: 50
 --- !u!114 &114000011677613246
 MonoBehaviour:
   m_ObjectHideFlags: 1
