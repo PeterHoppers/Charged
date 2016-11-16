@@ -33,9 +33,4 @@ public class MenuScript : MonoBehaviour {
     {
         PlayerManager.numberOfPlayers = 2;      //2 player
     }
-
-    public void RaceAgainstTime()
-    {
-
-    }
 }

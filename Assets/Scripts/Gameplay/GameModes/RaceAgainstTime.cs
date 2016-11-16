@@ -28,6 +28,10 @@ public class RaceAgainstTime : MonoBehaviour
     float nextRoundTimer;
 	void Start ()
     {
+        if(PlayerManager.numberOfPlayers == 1)
+        {
+            enabled = false;
+        }
         winScore = playerWinScore;
         timer = matchTime;                                  //Set our timer to the matchtime chosen
         nextRoundTimer = timeBetweenScenes;
