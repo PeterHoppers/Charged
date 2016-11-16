@@ -5,7 +5,7 @@ using System.Collections;
 
 public class LevelEditorScript : MonoBehaviour {
     public static GameObject background;
-    static GameObject levelBackground;
+    public static GameObject levelBackground;
     public GameObject backgroundPrefab;
     GameObject folder;
     NecessarySpawns necessarySpawns;
@@ -32,7 +32,7 @@ public class LevelEditorScript : MonoBehaviour {
         clone.GetComponent<RectTransform>().localPosition = Vector3.zero;
         clone.GetComponent<RectTransform>().localScale = Vector3.one;
         levelBackground = clone;
-        necessarySpawns.ActivateObjects(background);
+        //necessarySpawns.ActivateObjects();
     }
 
     //Finds the background...duh
@@ -40,7 +40,7 @@ public class LevelEditorScript : MonoBehaviour {
     {
         levelBackground = GameObject.Find("Background");
         if (!levelBackground)
-            Debug.LogError("No level image componenet was found");
+            Debug.LogError("No level background was found");
     }
 
     public void CreateNewObject()

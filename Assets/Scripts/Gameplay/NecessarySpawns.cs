@@ -11,6 +11,7 @@ public class NecessarySpawns : MonoBehaviour {
     GameObject inSceneExit;             //saves the exit object
 
     GameObject canvas;                  //grabs canvas to make sure the transform is in the correct spot
+    GameObject background;
 
  //   public RectTransform background;    //will be private when Sam's code is implemented
     RectTransform startPoint;
@@ -25,8 +26,10 @@ public class NecessarySpawns : MonoBehaviour {
         if (canvas == null)
             Debug.LogError("The Canvas is not tagged.");
     }
-    public void ActivateObjects(GameObject background)
+
+    public void ActivateObjects()
     {
+        FindBackground();
         //background = (RectTransform) backgroundManager.activebackground.transform;
         startPoint = (RectTransform)background.transform.FindChild("StartPoint");
         if (startPoint == null)
@@ -58,5 +61,13 @@ public class NecessarySpawns : MonoBehaviour {
         inSceneExit = (GameObject) Instantiate(exit, canvas.transform);
         inSceneExit.GetComponent<RectTransform>().localPosition = endPoint.localPosition;
         inSceneExit.transform.localScale = Vector3.one;
+    }
+
+    //Finds the background...duh
+    void FindBackground()
+    {
+        background = LevelEditorScript.levelBackground;
+        if (!LevelEditorScript.levelBackground)
+            Debug.LogError("No level background was found");
     }
 }
