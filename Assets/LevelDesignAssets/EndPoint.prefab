@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b13049e8d3fe2304ba12cf9f4036aed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextLevel: MainMenu
 --- !u!222 &222000010791993086
 CanvasRenderer:
   m_ObjectHideFlags: 1

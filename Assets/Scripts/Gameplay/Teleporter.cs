@@ -10,9 +10,17 @@ public class Teleporter : MonoBehaviour {
     {
         if (obj.tag.Equals("PlayerOneProjectile") || obj.tag.Equals("PlayerTwoProjectile"))
         {
-            obj.transform.position = newPosition.position;
-            GetComponent<AudioSource>().Play();
+            Wait(obj.gameObject);
         }
+    }
+
+    IEnumerator Wait(GameObject obj)
+    {
+        print("Collided with bullet");
+        yield return new WaitForSeconds(5);
+
+        obj.transform.position = newPosition.position;
+        GetComponent<AudioSource>().Play();
     }
 }
 

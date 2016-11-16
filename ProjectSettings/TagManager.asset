@@ -16,6 +16,7 @@ TagManager:
   - Canvas
   - Empty
   - Clone
+  - Portal
   layers:
   - Default
   - TransparentFX
