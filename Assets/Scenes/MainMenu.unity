@@ -1969,8 +1969,7 @@ GameObject:
 --- !u!114 &1320493838
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114000010419499872, guid: b4d17dafce35b7241bc72ca5e3de94b5,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1320493837}
   m_Enabled: 1
@@ -1979,10 +1978,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLevels: 12
-  levelLocked: 000101010101010101010101
-  sceneLevel: 0
+  starsNeeded: 00000000060000000200000003000000040000000500000006000000070000000800000009000000
   error: {fileID: 1148851192}
   content: {fileID: 1929158228}
+  stars: 5
+  levelObject: {fileID: 1000014047991108, guid: 1a467be717f1901419a7742a2ebd15c6,
+    type: 2}
 --- !u!114 &1320493839
 MonoBehaviour:
   m_ObjectHideFlags: 0
