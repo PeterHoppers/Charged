@@ -13,6 +13,9 @@ TagManager:
   - GameManager
   - Positive
   - Negative
+  - Canvas
+  - Empty
+  - Clone
   layers:
   - Default
   - TransparentFX

@@ -15,6 +15,7 @@ public class ScoreManager : MonoBehaviour
     public int twoStarAttempts;
     public int threeStarAttempts;
     int starsEarned;
+
     void Start()
     {
         if(PlayerManager.numberOfPlayers == 2)

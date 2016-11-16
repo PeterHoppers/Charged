@@ -32,6 +32,9 @@ public class RaceAgainstTime : MonoBehaviour
         timer = matchTime;                                  //Set our timer to the matchtime chosen
         nextRoundTimer = timeBetweenScenes;
         matchStarted = true;
+
+        if (PlayerManager.numberOfPlayers == 1)
+            this.enabled = false;
 	}
 	
 	void Update ()
