@@ -23,11 +23,9 @@ GameObject:
   - 114: {fileID: 114000014179656074}
   - 50: {fileID: 50000010219490828}
   - 61: {fileID: 61000011436344092}
-  - 114: {fileID: 114000013395484882}
-  - 114: {fileID: 114000013145367568}
   m_Layer: 5
   m_Name: PlayerOneProjectile
-  m_TagString: PlayerOneProjectile
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +76,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 0.05
   m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -96,9 +94,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.00025431314, y: 0.00018437703}
   serializedVersion: 2
-  m_Size: {x: 65, y: 65}
+  m_Size: {x: 66, y: 65.3}
 --- !u!95 &95000011618450328
 Animator:
   serializedVersion: 3
@@ -146,8 +144,8 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Time: 1e+37
-  m_StartWidth: 0.8
-  m_EndWidth: 0.8
+  m_StartWidth: 1.5
+  m_EndWidth: 1.5
   m_Colors:
     m_Color[0]:
       serializedVersion: 2
@@ -193,17 +191,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114000013145367568
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010371432556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 451f00193c62a214ba7574d5a1f5cefa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114000013244697786
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -231,18 +218,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114000013395484882
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010371432556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3988627d8fd05746843e9d1050263d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lightningAnim: {fileID: 95000011618450328}
 --- !u!114 &114000014179656074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -313,7 +288,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010371432556}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -467.6537}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -323,7 +298,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -5.196152}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1413.8984, y: 48.08723}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000013427040038
