@@ -9,7 +9,8 @@ public class PlayerManager : MonoBehaviour
     public GameObject playerTwo;            //Player Two prefab
 
     GameObject startPoint;                  //Where the player will spawn
-    GameObject p1Clone;             
+    [HideInInspector]
+    public GameObject p1Clone;             
     GameObject p2Clone;
     GameObject canvas;
     void Start()
@@ -23,6 +24,7 @@ public class PlayerManager : MonoBehaviour
                 p1Clone.transform.SetParent(canvas.transform);
                 p1Clone.GetComponent<RectTransform>().localScale = Vector3.one;
                 p1Clone.transform.tag = "PlayerOne";
+                print(p1Clone);
                 break;
             case 2:
                 p1Clone = Instantiate(playerOne, startPoint.transform.position, Quaternion.identity) as GameObject;

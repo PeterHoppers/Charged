@@ -22,13 +22,15 @@ public class EndLevel : MonoBehaviour
 	}
     void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(other.gameObject);
+        
         if (PlayerManager.numberOfPlayers == 1 && other.gameObject.tag == "PlayerOneProjectile")
         {
+            Destroy(other.gameObject);
             scoreManager.LevelCompleted();
         }
         else if (other.gameObject.tag == "PlayerOneProjectile" || other.gameObject.tag == "PlayerTwoProjectile")
         {
+            Destroy(other.gameObject);
             myCollider.enabled = false;
             raceAgainstTime.IncrementPoints(other.gameObject);
         }

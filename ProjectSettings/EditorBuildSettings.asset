@@ -10,8 +10,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RaceEndScene.unity
   - enabled: 1
+    path: Assets/Scenes/LevelOne.unity
+  - enabled: 1
     path: Assets/Scenes/Game.unity
   - enabled: 1
     path: Assets/Scenes/Level2Test 1.unity
   - enabled: 1
     path: Assets/Scenes/Level2Test.unity
+  - enabled: 1
+    path: Assets/LevelTwo.unity
