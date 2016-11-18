@@ -69,6 +69,19 @@ public class LevelEditorScript : MonoBehaviour {
         return clone;
     }
 
+    public GameObject CreateNewObjectAtCursor(GameObject aGameObject, string tag)
+    {
+        GameObject clone = Instantiate(aGameObject, folder.transform) as GameObject;
+        clone.GetComponent<RectTransform>().localScale = Vector3.one;
+        clone.AddComponent<GridSnapping>();                                             //allows for grid snapping
+        clone.GetComponent<RectTransform>().localPosition = CursorPosition();           //spawns at the cursor
+        clone.tag = tag;
+        BoxCollider2D boxC = clone.AddComponent<BoxCollider2D>();                       //adds a collider for trash
+        boxC.isTrigger = true;
+        boxC.size = new Vector2(100, 100);
+        return clone;
+    }
+
     public GameObject CreateNewObjectAtCursor()
     {
         GameObject clone = Instantiate(gameObject, folder.transform) as GameObject;

@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692492, g: 0.4967869, b: 0.57508546, a: 1}
+  m_IndirectSpecularColor: {r: 0.44692534, g: 0.4967872, b: 0.57508564, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -325,7 +325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -345,10 +345,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Reset
-
-
-    ~Sam'
+  m_Text: Reset
 --- !u!222 &35497449
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -471,7 +468,14 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114000012881901538, guid: 16152ae4d36b00e47ba1984a3a21db3f,
+        type: 2}
+      propertyPath: snapTo
+      value: 20
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114000011267219948, guid: 16152ae4d36b00e47ba1984a3a21db3f, type: 2}
+    - {fileID: 114000012668164988, guid: 16152ae4d36b00e47ba1984a3a21db3f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 16152ae4d36b00e47ba1984a3a21db3f, type: 2}
   m_IsPrefabParent: 0
 --- !u!114 &55793499 stripped
@@ -794,9 +798,9 @@ RectTransform:
   - {fileID: 35497447}
   m_Father: {fileID: 22648285}
   m_RootOrder: 3
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 251.9, y: -279.2}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -86.75, y: 32}
   m_SizeDelta: {x: 173.5, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &417771718
@@ -2671,6 +2675,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &1824064333 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000014150498538, guid: 16152ae4d36b00e47ba1984a3a21db3f,
+    type: 2}
+  m_PrefabInternal: {fileID: 55793498}
+--- !u!114 &1824064334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1824064333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d68840b922ceb447871263c3b034fee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundPrefab: {fileID: 0}
 --- !u!1 &2015740609
 GameObject:
   m_ObjectHideFlags: 0

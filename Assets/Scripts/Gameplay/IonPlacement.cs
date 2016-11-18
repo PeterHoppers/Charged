@@ -8,13 +8,14 @@ public class IonPlacement : MonoBehaviour {
     public GameObject negativeIonPrefab;
     public float availablePositiveIons;
     public float availableNegativeIons;
+    float doubleClick = 0;
     GameObject gameManager;
     LevelEditorScript levelEditor;
     List<GameObject> activeIons;
-    GameObject tempIon;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         activeIons = new List<GameObject>();
         gameManager = GameObject.Find("GameManager");
 
@@ -33,9 +34,28 @@ public class IonPlacement : MonoBehaviour {
         //Left click places positive ion
 	    if(Input.GetMouseButtonUp(0))
         {
+
+            RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+            if (hitInfo.collider != null)
+            {
+                if (hitInfo.collider.tag == "Positive")
+                {
+                    if (doubleClick <= Time.time)
+                        doubleClick = Time.time + .2f;
+                    else
+                    {
+                        DeleteIon(hitInfo.collider.gameObject);
+                    }
+
+                    print("Don't place new one" + hitInfo.collider.transform.position);
+                    return;
+                }
+            }
+
             if (availablePositiveIons > 0)
             {
-                activeIons.Add(levelEditor.CreateNewObjectAtCursor(positiveIonPrefab));
+                activeIons.Add(levelEditor.CreateNewObjectAtCursor(positiveIonPrefab, "Positive"));
                 availablePositiveIons--;
             }
         }
@@ -45,7 +65,7 @@ public class IonPlacement : MonoBehaviour {
         {
             if (availableNegativeIons > 0)
             {
-                activeIons.Add(levelEditor.CreateNewObjectAtCursor(negativeIonPrefab));
+                activeIons.Add(levelEditor.CreateNewObjectAtCursor(negativeIonPrefab, "Negative"));
                 availableNegativeIons--;
             }
         }
@@ -55,15 +75,21 @@ public class IonPlacement : MonoBehaviour {
         {
             if (activeIons.Count > 0)
             {
-                tempIon = activeIons[activeIons.Count - 1];
-                if(tempIon.tag == "Positive")
-                    availablePositiveIons++;
-                else if(tempIon.tag == "Negative")
-                    availableNegativeIons++;
-                
-                Destroy(activeIons[activeIons.Count - 1]);
-                activeIons.Remove(activeIons[activeIons.Count - 1]);
+                GameObject tempIon = activeIons[activeIons.Count - 1];
+                DeleteIon(tempIon);
             }
         }
+    }
+
+    void DeleteIon(GameObject tempIon)
+    {
+        if (tempIon.tag == "Positive")
+            availablePositiveIons++;
+        else if (tempIon.tag == "Negative")
+            availableNegativeIons++;
+
+        int index = activeIons.IndexOf(tempIon);
+        Destroy(activeIons[index]);
+        activeIons.Remove(activeIons[index]);
     }
 }
