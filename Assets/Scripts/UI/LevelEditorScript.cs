@@ -76,9 +76,6 @@ public class LevelEditorScript : MonoBehaviour {
         clone.AddComponent<GridSnapping>();                                             //allows for grid snapping
         clone.GetComponent<RectTransform>().localPosition = CursorPosition();           //spawns at the cursor
         clone.tag = tag;
-        BoxCollider2D boxC = clone.AddComponent<BoxCollider2D>();                       //adds a collider for trash
-        boxC.isTrigger = true;
-        boxC.size = new Vector2(100, 100);
         return clone;
     }
 

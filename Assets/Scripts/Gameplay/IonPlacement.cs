@@ -34,22 +34,17 @@ public class IonPlacement : MonoBehaviour {
         //Left click places positive ion
 	    if(Input.GetMouseButtonUp(0))
         {
-
             RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
             if (hitInfo.collider != null)
             {
                 if (hitInfo.collider.tag == "Positive")
                 {
-                    if (doubleClick <= Time.time)
-                        doubleClick = Time.time + .2f;
-                    else
+                    if (Input.GetKey(KeyCode.Delete))
                     {
                         DeleteIon(hitInfo.collider.gameObject);
+                        return;
                     }
-
-                    print("Don't place new one" + hitInfo.collider.transform.position);
-                    return;
                 }
             }
 
@@ -63,6 +58,20 @@ public class IonPlacement : MonoBehaviour {
         //Right click places negative ion
         if (Input.GetMouseButtonUp(1))
         {
+            RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+            if (hitInfo.collider != null)
+            {
+                if (hitInfo.collider.tag == "Negative")
+                {
+                    if (Input.GetKey(KeyCode.Delete))
+                    {
+                        DeleteIon(hitInfo.collider.gameObject);
+                        return;
+                    }
+                }
+            }
+
             if (availableNegativeIons > 0)
             {
                 activeIons.Add(levelEditor.CreateNewObjectAtCursor(negativeIonPrefab, "Negative"));

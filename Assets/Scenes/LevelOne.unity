@@ -395,13 +395,13 @@ Prefab:
         type: 2}
       propertyPath: positiveIonPrefab
       value: 
-      objectReference: {fileID: 1000011683224740, guid: a25e32ad3316a0641887b0dd1228fdd2,
+      objectReference: {fileID: 1000012113204868, guid: a25e32ad3316a0641887b0dd1228fdd2,
         type: 2}
     - target: {fileID: 114000014111438908, guid: 16152ae4d36b00e47ba1984a3a21db3f,
         type: 2}
       propertyPath: negativeIonPrefab
       value: 
-      objectReference: {fileID: 1000013264540046, guid: 7e8d8525f5ac24c45ac4625412fe8ebf,
+      objectReference: {fileID: 1000010488029264, guid: 7e8d8525f5ac24c45ac4625412fe8ebf,
         type: 2}
     - target: {fileID: 114000012331546456, guid: 16152ae4d36b00e47ba1984a3a21db3f,
         type: 2}
@@ -2035,7 +2035,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011895308204, guid: 5653f2912584ffd4395d008e77b996d1, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4000011895308204, guid: 5653f2912584ffd4395d008e77b996d1, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2234,7 +2234,7 @@ Prefab:
     - target: {fileID: 224000013668832552, guid: 67c8704dfcc2ddc4ab9118edfdd4369d,
         type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 224000013668832552, guid: 67c8704dfcc2ddc4ab9118edfdd4369d,
         type: 2}
