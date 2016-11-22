@@ -8,7 +8,6 @@ public class IonPlacement : MonoBehaviour {
     public GameObject negativeIonPrefab;
     public int availablePositiveIons = 5;
     public int availableNegativeIons = 5;
-    float doubleClick = 0;
     GameObject gameManager;
     LevelEditorScript levelEditor;
     List<GameObject> activePositiveIons;
