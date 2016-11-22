@@ -9,6 +9,7 @@ public static class BasicUtilities
 {
     static List<string> onlyOnceValues = new List<string>();
 
+    //==============Resets Transform=================
     public static void ResetTransformation(this Transform trans)
     {
         trans.position = Vector3.zero;
@@ -16,12 +17,13 @@ public static class BasicUtilities
         trans.localScale = new Vector3(1, 1, 1);
     }
 
+    //===============Reloads the Current Scene===========
     public static void RestartLevel()
     {
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
     }
-
+    //====Allows you to perform an action only once, without the need to create another bool in script==========
     public static bool onlyOnce(string checkValue)
     {
         if (!onlyOnceValues.Contains(checkValue))
@@ -32,7 +34,7 @@ public static class BasicUtilities
         else
             return false;
     }
-
+    //=============Resets the previous method=============
     public static void resetOnce(string checkValue)
     {
         if (onlyOnceValues.Contains(checkValue))
@@ -40,6 +42,48 @@ public static class BasicUtilities
         else
             Debug.LogError("You tried to remove something that hasn't been added.");
     }
+
+    public static GameObject findNearest(Vector3 checkDistance, GameObject[] objectChecking)
+    {
+        int closeIndex = 0;
+        float testDistance = Mathf.Infinity;
+
+        for (int index = 0; index < objectChecking.Length; index++)
+        {
+            Vector3 objectPosition = objectChecking[index].transform.position;
+            float distance = Vector3.Distance(checkDistance, objectPosition);
+
+            if (distance < testDistance)
+            {
+                testDistance = distance;
+                closeIndex = index;
+            }
+        }
+
+        return objectChecking[closeIndex];
+    }
+
+    public static GameObject findNearest(Vector3 checkDistance, List<GameObject> objectChecking)
+    {
+        int closeIndex = 0;
+        float testDistance = Mathf.Infinity;
+
+        for (int index = 0; index < objectChecking.Count; index++)
+        {
+            Vector3 objectPosition = objectChecking[index].transform.position;
+            float distance = Vector3.Distance(checkDistance, objectPosition);
+
+            if (distance < testDistance)
+            {
+                testDistance = distance;
+                closeIndex = index;
+            }
+        }
+
+        return objectChecking[closeIndex];
+    }
+
+
 
     //============Convert Into Time Based Format==========
     public static string textTime(float seconds)

@@ -471,7 +471,12 @@ Prefab:
     - target: {fileID: 114000012881901538, guid: 16152ae4d36b00e47ba1984a3a21db3f,
         type: 2}
       propertyPath: snapTo
-      value: 20
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012881901538, guid: 16152ae4d36b00e47ba1984a3a21db3f,
+        type: 2}
+      propertyPath: onlyStart
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114000011267219948, guid: 16152ae4d36b00e47ba1984a3a21db3f, type: 2}

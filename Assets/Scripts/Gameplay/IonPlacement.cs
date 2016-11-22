@@ -6,17 +6,20 @@ public class IonPlacement : MonoBehaviour {
 
     public GameObject positiveIonPrefab;
     public GameObject negativeIonPrefab;
-    public float availablePositiveIons;
-    public float availableNegativeIons;
+    public int availablePositiveIons = 5;
+    public int availableNegativeIons = 5;
     float doubleClick = 0;
     GameObject gameManager;
     LevelEditorScript levelEditor;
-    List<GameObject> activeIons;
+    List<GameObject> activePositiveIons;
+    List<GameObject> activeNegativeIons;
+    bool lastWasPositive = false;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
-        activeIons = new List<GameObject>();
+        activePositiveIons = new List<GameObject>();
+        activeNegativeIons = new List<GameObject>();
         gameManager = GameObject.Find("GameManager");
 
         if (gameManager == null)
@@ -29,76 +32,102 @@ public class IonPlacement : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 
         //Left click places positive ion
 	    if(Input.GetMouseButtonUp(0))
         {
-            RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-            if (hitInfo.collider != null)
+            if (Input.GetKey(KeyCode.Delete))
             {
-                if (hitInfo.collider.tag == "Positive")
+                if (activePositiveIons.Count > 0)
                 {
-                    if (Input.GetKey(KeyCode.Delete))
-                    {
-                        DeleteIon(hitInfo.collider.gameObject);
-                        return;
-                    }
+
+                    Vector3 mousePosition = Input.mousePosition;
+                    mousePosition.z = 100.0f;
+                    mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+                    GameObject closest = BasicUtilities.findNearest(mousePosition, activePositiveIons);
+                    DeletePositiveIon(closest);
+
                 }
             }
 
             if (availablePositiveIons > 0)
             {
-                activeIons.Add(levelEditor.CreateNewObjectAtCursor(positiveIonPrefab, "Positive"));
-                availablePositiveIons--;
+                if (!Input.GetKey(KeyCode.Delete))
+                {
+                    activePositiveIons.Add(levelEditor.CreateNewObjectAtCursor(positiveIonPrefab, "Positive"));
+                    lastWasPositive = true;
+                    availablePositiveIons--;
+                }
+                
             }
         }
 
         //Right click places negative ion
         if (Input.GetMouseButtonUp(1))
         {
-            RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-            if (hitInfo.collider != null)
+            if (activeNegativeIons.Count > 0)
             {
-                if (hitInfo.collider.tag == "Negative")
+                if (Input.GetKey(KeyCode.Delete))
                 {
-                    if (Input.GetKey(KeyCode.Delete))
-                    {
-                        DeleteIon(hitInfo.collider.gameObject);
-                        return;
-                    }
+                    Vector3 mousePosition = Input.mousePosition;
+                    mousePosition.z = 100.0f;
+                    mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+                    GameObject closest = BasicUtilities.findNearest(mousePosition, activeNegativeIons);
+                    DeleteNegativeIon(closest);
                 }
             }
 
+
             if (availableNegativeIons > 0)
             {
-                activeIons.Add(levelEditor.CreateNewObjectAtCursor(negativeIonPrefab, "Negative"));
-                availableNegativeIons--;
+                if (!Input.GetKey(KeyCode.Delete))
+                {
+                    activeNegativeIons.Add(levelEditor.CreateNewObjectAtCursor(negativeIonPrefab, "Negative"));
+                    lastWasPositive = false;
+                    availableNegativeIons--;
+                }
             }
         }
 
         //Escape checks to see if there are any ions active. If so, check the tag of the last one created, increment respective available ions, and destroy that ion
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if (activeIons.Count > 0)
+            if (lastWasPositive)
             {
-                GameObject tempIon = activeIons[activeIons.Count - 1];
-                DeleteIon(tempIon);
+                DeletePositiveIon(activePositiveIons[(activePositiveIons.Count - 1)]);
+            }
+            else
+            {
+                if (activeNegativeIons.Count > 0)
+                {
+                    DeleteNegativeIon(activeNegativeIons[(activeNegativeIons.Count - 1)]);
+                }
             }
         }
     }
 
-    void DeleteIon(GameObject tempIon)
+    void DeletePositiveIon(GameObject tempIon)
     {
-        if (tempIon.tag == "Positive")
-            availablePositiveIons++;
-        else if (tempIon.tag == "Negative")
-            availableNegativeIons++;
+        availablePositiveIons++;
 
-        int index = activeIons.IndexOf(tempIon);
-        Destroy(activeIons[index]);
-        activeIons.Remove(activeIons[index]);
+        int index = activePositiveIons.IndexOf(tempIon);
+        Destroy(activePositiveIons[index]);
+        activePositiveIons.Remove(activePositiveIons[index]);
     }
+
+    void DeleteNegativeIon(GameObject tempIon)
+    {
+        availableNegativeIons++;
+
+        int index = activeNegativeIons.IndexOf(tempIon);
+        Destroy(activeNegativeIons[index]);
+        activeNegativeIons.Remove(activeNegativeIons[index]);
+    }
+
+
+
 }
