@@ -43,6 +43,7 @@ public static class BasicUtilities
             Debug.LogError("You tried to remove something that hasn't been added.");
     }
 
+    //==========Returns the Gameobject that is the closest of a given Vector3=======
     public static GameObject findNearest(Vector3 checkDistance, GameObject[] objectChecking)
     {
         int closeIndex = 0;
@@ -63,6 +64,7 @@ public static class BasicUtilities
         return objectChecking[closeIndex];
     }
 
+    //==========Returns the Gameobject that is the closest of a given Vector3=======
     public static GameObject findNearest(Vector3 checkDistance, List<GameObject> objectChecking)
     {
         int closeIndex = 0;

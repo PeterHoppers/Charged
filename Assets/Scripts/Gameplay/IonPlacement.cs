@@ -39,9 +39,9 @@ public class IonPlacement : MonoBehaviour {
         {
             if (Input.GetKey(KeyCode.Delete))
             {
+                //==============If you are holding down delete, delete the nearest one============
                 if (activePositiveIons.Count > 0)
                 {
-
                     Vector3 mousePosition = Input.mousePosition;
                     mousePosition.z = 100.0f;
                     mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
@@ -54,6 +54,7 @@ public class IonPlacement : MonoBehaviour {
 
             if (availablePositiveIons > 0)
             {
+                //==============If you are not holding delete, place one=============
                 if (!Input.GetKey(KeyCode.Delete))
                 {
                     activePositiveIons.Add(levelEditor.CreateNewObjectAtCursor(positiveIonPrefab, "Positive"));
@@ -69,6 +70,7 @@ public class IonPlacement : MonoBehaviour {
         {
             if (activeNegativeIons.Count > 0)
             {
+                //==============If you are holding down delete, delete the nearest one============
                 if (Input.GetKey(KeyCode.Delete))
                 {
                     Vector3 mousePosition = Input.mousePosition;
@@ -83,6 +85,7 @@ public class IonPlacement : MonoBehaviour {
 
             if (availableNegativeIons > 0)
             {
+                //==============If you are not holding delete, place one=============
                 if (!Input.GetKey(KeyCode.Delete))
                 {
                     activeNegativeIons.Add(levelEditor.CreateNewObjectAtCursor(negativeIonPrefab, "Negative"));
@@ -109,6 +112,21 @@ public class IonPlacement : MonoBehaviour {
         }
     }
 
+    //==============Delete All Ions=================
+    public void DeleteAll()
+    {
+        for (int index = 0; index < activePositiveIons.Count; index++)
+        {
+            DeletePositiveIon(activePositiveIons[index]);
+        }
+
+        for (int index = 0; index < activeNegativeIons.Count; index++)
+        {
+            DeleteNegativeIon(activeNegativeIons[index]);
+        }
+    }
+
+    //=============Delete a positive ion===========
     void DeletePositiveIon(GameObject tempIon)
     {
         availablePositiveIons++;
@@ -118,6 +136,7 @@ public class IonPlacement : MonoBehaviour {
         activePositiveIons.Remove(activePositiveIons[index]);
     }
 
+    //============Delete a negative ion===========
     void DeleteNegativeIon(GameObject tempIon)
     {
         availableNegativeIons++;

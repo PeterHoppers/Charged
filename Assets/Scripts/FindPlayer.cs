@@ -5,18 +5,29 @@ public class FindPlayer : MonoBehaviour {
 
     GameObject player;
     GameObject gun;
+    GameObject ionButton;
     
-	void Start () {
+	void Start ()
+    {
         player = GameObject.Find("GameManager").GetComponent<PlayerManager>().p1Clone;
-        print(player);
         gun = player.transform.FindChild("GunBarrel").gameObject;
+        ionButton = GameObject.Find("IonButton");
 
         if (!player)
             Debug.LogError("No player found");
 
-        if(gun == null)
+        if (gun == null)
         {
             Debug.LogError("No gun barrel found");
+        }
+
+        if (ionButton == null)
+        {
+            Debug.LogError("No ion button found");
+        }
+        else
+        {
+            ionButton.SetActive(false);
         }
 	}
 
@@ -24,5 +35,6 @@ public class FindPlayer : MonoBehaviour {
     {
         player.GetComponent<ControlScript>().enabled = !player.GetComponent<ControlScript>().enabled;
         gun.GetComponent<Shooting>().enabled = !gun.GetComponent<Shooting>().enabled;
+        ionButton.SetActive(!ionButton.activeInHierarchy);
     }
 }
