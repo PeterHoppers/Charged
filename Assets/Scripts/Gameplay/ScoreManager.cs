@@ -5,7 +5,9 @@ public class ScoreManager : MonoBehaviour
 {
     [Tooltip("The canvas text object for the tries count.")]
     public Text triesText;
-    int tries;                                  //Keeps track of the number of tries.
+    [HideInInspector]//Hice públicaEsto! fue modificado por Cristóbal así puedo obtener esta información desde otro script
+    public int tries;                                  //Keeps track of the number of tries.
+    [HideInInspector]
     public GameObject gameManager;
     public GameObject levelCompletedPanel;
     [Header("Star Images")]
