@@ -110,19 +110,28 @@ public class IonPlacement : MonoBehaviour {
                 }
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            DeleteAll();
+        }
     }
 
     //==============Delete All Ions=================
     public void DeleteAll()
     {
-        for (int index = 0; index < activePositiveIons.Count; index++)
+        int posCnt = activePositiveIons.Count;
+
+        for (int index = 0; index < posCnt; index++)
         {
-            DeletePositiveIon(activePositiveIons[index]);
+            DeletePositiveIon(activePositiveIons[0]);
         }
 
-        for (int index = 0; index < activeNegativeIons.Count; index++)
+        int negCnt = activeNegativeIons.Count;
+
+        for (int index = 0; index < negCnt; index++)
         {
-            DeleteNegativeIon(activeNegativeIons[index]);
+            DeleteNegativeIon(activeNegativeIons[0]);
         }
     }
 
@@ -147,5 +156,5 @@ public class IonPlacement : MonoBehaviour {
     }
 
 
-
+    //~Peter and Sam
 }
