@@ -7,6 +7,6 @@ public class StarCount : MonoBehaviour {
 	public static int starCount;
 	void Start ()
     {
-        GetComponent<Text>().text = "x " + starCount;
+        GetComponent<Text>().text = ": " + starCount;
 	}
 }
