@@ -8,13 +8,22 @@ public class IonPlacement : MonoBehaviour {
     public GameObject negativeIonPrefab;
     public float availablePositiveIons;
     public float availableNegativeIons;
+    [HideInInspector]
+    public int numberOfNegatives;
+    [HideInInspector]
+    public int numberfPositives;
+
     GameObject gameManager;
     LevelEditorScript levelEditor;
     List<GameObject> activeIons;
     GameObject tempIon;
+    public IonTrackerScript ionTracker;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {//encontrar el gameobject y obtener la secuencia de comandos -Cristóbal
+        ionTracker = GameObject.Find("Canvas/ionTracker").GetComponent<IonTrackerScript>();
+
         activeIons = new List<GameObject>();
         gameManager = GameObject.Find("GameManager");
 
@@ -37,6 +46,8 @@ public class IonPlacement : MonoBehaviour {
             {
                 activeIons.Add(levelEditor.CreateNewObjectAtCursor(positiveIonPrefab));
                 availablePositiveIons--;
+                numberfPositives++;
+                ionTracker.ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
             }
         }
 
@@ -47,6 +58,8 @@ public class IonPlacement : MonoBehaviour {
             {
                 activeIons.Add(levelEditor.CreateNewObjectAtCursor(negativeIonPrefab));
                 availableNegativeIons--;
+                numberOfNegatives++;
+                ionTracker.ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
             }
         }
 
@@ -63,6 +76,7 @@ public class IonPlacement : MonoBehaviour {
                 
                 Destroy(activeIons[activeIons.Count - 1]);
                 activeIons.Remove(activeIons[activeIons.Count - 1]);
+                ionTracker.ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
             }
         }
     }

@@ -18,9 +18,11 @@ public class ScoreManager : MonoBehaviour
     public int twoStarAttempts;
     public int threeStarAttempts;
     int starsEarned;
+    public IonTrackerScript ionTracker;
 
     void Start()
     {
+        ionTracker = GameObject.Find("Canvas/IonTrackers").GetComponent<IonTrackerScript>();
         gameManager = GameObject.Find("GameManager");
         if (gameManager == null)
             Debug.LogError("No game manager found");
@@ -35,11 +37,13 @@ public class ScoreManager : MonoBehaviour
     {
         tries++;                                //Updates the try count
         triesText.text = "Attempts: " + tries;
+        ionTracker.ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
     }
     public void ResetScore()
     {
         tries = 0;
         triesText.text = "Attempts: " + tries;      //Resets the try count
+        ionTracker.ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
     }
     public void LevelCompleted()
     {
