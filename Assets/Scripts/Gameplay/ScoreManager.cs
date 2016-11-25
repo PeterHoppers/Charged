@@ -34,6 +34,11 @@ public class ScoreManager : MonoBehaviour
         tries++;                                //Updates the try count
         triesText.text = "Attempts: " + tries;
     }
+    public void UpdateScore(int numOfTries)
+    {
+        tries += numOfTries;                                //Updates the try count
+        triesText.text = "Attempts: " + tries;
+    }
     public void ResetScore()
     {
         tries = 0;

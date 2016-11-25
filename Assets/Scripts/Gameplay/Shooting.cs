@@ -28,10 +28,10 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
-        if(PlayerManager.numberOfPlayers == 1)
-        {
-            scoreManager.UpdateScore();
-        }
+        //if(PlayerManager.numberOfPlayers == 1)
+        //{
+        //    scoreManager.UpdateScore();
+        //}
         Rigidbody2D clone = Instantiate(myBullet, transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
         clone.velocity = transform.TransformDirection(Vector3.right * ControlScript.charge);
         clone.transform.SetParent(canvas.transform);

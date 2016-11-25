@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -6,8 +7,12 @@ public class IonPlacement : MonoBehaviour {
 
     public GameObject positiveIonPrefab;
     public GameObject negativeIonPrefab;
+    public Text positiveIonText;
+    public Text negativeIonText;
     public float availablePositiveIons;
+    float positiveIonsUsed;
     public float availableNegativeIons;
+    float negativeIonsUsed;
     GameObject gameManager;
     LevelEditorScript levelEditor;
     List<GameObject> activeIons;
@@ -25,7 +30,18 @@ public class IonPlacement : MonoBehaviour {
 
         if (levelEditor == null)
             Debug.LogError("No level editor script found on the GameManager");
-	}
+
+        if (positiveIonText == null)
+            Debug.LogError("Give me the text box for positive ions used");
+        else
+            positiveIonText.text = "Positive ions used: " + positiveIonsUsed;
+
+        if (positiveIonText == null)
+            Debug.LogError("Give me the text box for positive ions used");
+        else
+            negativeIonText.text = "Negative ions used: " + negativeIonsUsed;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -35,8 +51,11 @@ public class IonPlacement : MonoBehaviour {
         {
             if (availablePositiveIons > 0)
             {
-                activeIons.Add(levelEditor.CreateNewObjectAtCursor(positiveIonPrefab));
+                activeIons.Add(levelEditor.CreateNewObjectAtCursor(positiveIonPrefab, "Positive"));
                 availablePositiveIons--;
+                positiveIonsUsed++;
+                positiveIonText.text = "Positive ions used: " + positiveIonsUsed;
+                gameManager.GetComponent<ScoreManager>().UpdateScore(1);
             }
         }
 
@@ -45,8 +64,11 @@ public class IonPlacement : MonoBehaviour {
         {
             if (availableNegativeIons > 0)
             {
-                activeIons.Add(levelEditor.CreateNewObjectAtCursor(negativeIonPrefab));
+                activeIons.Add(levelEditor.CreateNewObjectAtCursor(negativeIonPrefab, "Negative"));
                 availableNegativeIons--;
+                negativeIonsUsed++;
+                negativeIonText.text = "Negative ions used: " + negativeIonsUsed;
+                gameManager.GetComponent<ScoreManager>().UpdateScore(1);
             }
         }
 
@@ -56,11 +78,20 @@ public class IonPlacement : MonoBehaviour {
             if (activeIons.Count > 0)
             {
                 tempIon = activeIons[activeIons.Count - 1];
-                if(tempIon.tag == "Positive")
+                if (tempIon.tag == "Positive")
+                {
                     availablePositiveIons++;
-                else if(tempIon.tag == "Negative")
+                    positiveIonsUsed--;
+                    positiveIonText.text = "Positive ions used: " + positiveIonsUsed;
+                }
+                else if (tempIon.tag == "Negative")
+                {
                     availableNegativeIons++;
-                
+                    negativeIonsUsed--;
+                    negativeIonText.text = "Negative ions used: " + negativeIonsUsed;
+                }
+
+                gameManager.GetComponent<ScoreManager>().UpdateScore(-1);
                 Destroy(activeIons[activeIons.Count - 1]);
                 activeIons.Remove(activeIons[activeIons.Count - 1]);
             }
