@@ -6,8 +6,7 @@ public class Buttons : MonoBehaviour
 {
     public void NextLevel()
     {
-        //This will require a sceneManager.
-        //SceneManager.LoadScene();
+        BasicUtilities.NextLevel();
     }
 
     public void MainMenu()

@@ -35,7 +35,7 @@ public class IonPlacement : MonoBehaviour {
         {
             if (availablePositiveIons > 0)
             {
-                activeIons.Add(levelEditor.CreateNewObjectAtCursor(positiveIonPrefab));
+                activeIons.Add(levelEditor.CreateNewObjectAtCursor(positiveIonPrefab, "Positive"));
                 availablePositiveIons--;
             }
         }
@@ -45,7 +45,7 @@ public class IonPlacement : MonoBehaviour {
         {
             if (availableNegativeIons > 0)
             {
-                activeIons.Add(levelEditor.CreateNewObjectAtCursor(negativeIonPrefab));
+                activeIons.Add(levelEditor.CreateNewObjectAtCursor(negativeIonPrefab, "Negative"));
                 availableNegativeIons--;
             }
         }

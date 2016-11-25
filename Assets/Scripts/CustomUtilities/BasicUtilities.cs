@@ -22,6 +22,13 @@ public static class BasicUtilities
         SceneManager.LoadScene(currentScene.name);
     }
 
+    public static void NextLevel()
+    {
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        currentScene++;
+        SceneManager.LoadScene(currentScene);
+    }
+
     public static bool onlyOnce(string checkValue)
     {
         if (!onlyOnceValues.Contains(checkValue))
