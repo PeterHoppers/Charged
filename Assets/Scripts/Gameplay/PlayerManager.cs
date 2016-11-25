@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerManager : MonoBehaviour
 {
     [HideInInspector]
-    public static int numberOfPlayers;      
+    public static int numberOfPlayers = 1;      
     public GameObject playerOne;            //Player One prefab
     public GameObject playerTwo;            //Player Two prefab
 
