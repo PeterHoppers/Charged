@@ -73,6 +73,8 @@ public class ScoreManager : MonoBehaviour
             star1.SetActive(true);
             starsEarned = 1;
         }
+        ionTracker.points += (IonPlacement.numberOfPositives + IonPlacement.numberOfNegatives)*100;
+        ionTracker.ScoreTracker();
         StarCount.starCount += starsEarned;
     }
 }

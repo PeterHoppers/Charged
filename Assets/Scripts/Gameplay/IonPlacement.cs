@@ -9,9 +9,9 @@ public class IonPlacement : MonoBehaviour {
     public float availablePositiveIons;
     public float availableNegativeIons;
     [HideInInspector]
-    public int numberOfNegatives;
+    public static int numberOfNegatives;
     [HideInInspector]
-    public int numberfPositives;
+    public static int numberOfPositives;
 
     GameObject gameManager;
     LevelEditorScript levelEditor;
@@ -34,7 +34,11 @@ public class IonPlacement : MonoBehaviour {
 
         if (levelEditor == null)
             Debug.LogError("No level editor script found on the GameManager");
-	}
+
+        //starting the ions at 0 or else the ion values would leave off where they last left (because they are static)
+        numberOfNegatives = 0;
+        numberOfPositives = 0;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -46,7 +50,7 @@ public class IonPlacement : MonoBehaviour {
             {
                 activeIons.Add(levelEditor.CreateNewObjectAtCursor(positiveIonPrefab));
                 availablePositiveIons--;
-                numberfPositives++;
+                numberOfPositives++;
                 ionTracker.ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
             }
         }
@@ -69,10 +73,16 @@ public class IonPlacement : MonoBehaviour {
             if (activeIons.Count > 0)
             {
                 tempIon = activeIons[activeIons.Count - 1];
-                if(tempIon.tag == "Positive")
+                if (tempIon.tag == "Positive")
+                {
                     availablePositiveIons++;
-                else if(tempIon.tag == "Negative")
+                    numberOfPositives--; //changing potential score due to removal of ion
+                }
+                else if (tempIon.tag == "Negative")
+                {
                     availableNegativeIons++;
+                    numberOfNegatives--; //changing potential score due to removal of ion
+                }
                 
                 Destroy(activeIons[activeIons.Count - 1]);
                 activeIons.Remove(activeIons[activeIons.Count - 1]);
