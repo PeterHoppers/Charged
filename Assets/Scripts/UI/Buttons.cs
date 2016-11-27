@@ -4,10 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
+    public static int nextLevel = 2;
     public void NextLevel()
     {
+        
         //This will require a sceneManager.
-        //SceneManager.LoadScene();
+        SceneManager.LoadScene(nextLevel);
+        nextLevel++;
     }
 
     public void MainMenu()
