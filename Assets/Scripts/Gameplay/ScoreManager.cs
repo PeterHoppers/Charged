@@ -18,11 +18,13 @@ public class ScoreManager : MonoBehaviour
     public int twoStarAttempts;
     public int threeStarAttempts;
     int starsEarned;
-    public IonTrackerScript ionTracker;
+    public IonTrackerScript ionTracker; //getting the script
+    public IonPlacement ionPlacement; //getting the script
 
     void Start()
     {
         ionTracker = GameObject.Find("Canvas/IonTrackers").GetComponent<IonTrackerScript>();
+        ionPlacement = GameObject.Find("GameManager").GetComponent<IonPlacement>();
         gameManager = GameObject.Find("GameManager");
         if (gameManager == null)
             Debug.LogError("No game manager found");
@@ -73,7 +75,8 @@ public class ScoreManager : MonoBehaviour
             star1.SetActive(true);
             starsEarned = 1;
         }
-        ionTracker.points += (IonPlacement.numberOfPositives + IonPlacement.numberOfNegatives)*100;
+        //tallying up the score after the goal was hit. Sorry for the extra long statement. I blame Peter.
+        ionTracker.points += 100 +(((int)ionPlacement.availablePositiveIons + (int)ionPlacement.availableNegativeIons) * 25) - (((int)IonPlacement.numberOfPositives + (int)IonPlacement.numberOfNegatives) * 25);
         ionTracker.ScoreTracker();
         StarCount.starCount += starsEarned;
     }
