@@ -77,7 +77,7 @@ GameObject:
   - 222: {fileID: 222000011490789026}
   m_Layer: 0
   m_Name: PositiveIon
-  m_TagString: Untagged
+  m_TagString: Positive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

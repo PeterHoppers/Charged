@@ -60,7 +60,7 @@ GameObject:
   - 222: {fileID: 222000012681505956}
   m_Layer: 0
   m_Name: NegativeIon
-  m_TagString: Untagged
+  m_TagString: Negative
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
