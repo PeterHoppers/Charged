@@ -58,6 +58,7 @@ GameObject:
   - 58: {fileID: 58000012577464274}
   - 250: {fileID: 250000012759469288}
   - 222: {fileID: 222000012681505956}
+  - 95: {fileID: 95000011872046592}
   m_Layer: 0
   m_Name: NegativeIon
   m_TagString: Negative
@@ -89,6 +90,23 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: c9926d8c14d131a409d64bab97233c35, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95000011872046592
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013264540046}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a51461457d222374b85e08f4cde243f8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

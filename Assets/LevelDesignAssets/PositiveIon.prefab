@@ -75,6 +75,7 @@ GameObject:
   - 58: {fileID: 58000013361349708}
   - 250: {fileID: 250000010403925634}
   - 222: {fileID: 222000011490789026}
+  - 95: {fileID: 95000012987652448}
   m_Layer: 0
   m_Name: PositiveIon
   m_TagString: Positive
@@ -176,6 +177,23 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 908066d71e9aae443bd37f476e8efa8b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95000012987652448
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011683224740}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 466c9a558d87ee5429a204becd09e29b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
