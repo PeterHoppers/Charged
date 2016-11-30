@@ -8,14 +8,17 @@ public class ScoreManager : MonoBehaviour
     int tries;                                  //Keeps track of the number of tries.
     public GameObject gameManager;
     public GameObject levelCompletedPanel;
+    public GameObject nextLevelButton;
     [Header("Star Images")]
     public GameObject star1;
     public GameObject star2;
     public GameObject star3;
+    public int starsNeededToCont;
     public int oneStarAttempts;
     public int twoStarAttempts;
     public int threeStarAttempts;
     int starsEarned;
+    public static bool canContinue = false;
 
     void Start()
     {
@@ -46,6 +49,7 @@ public class ScoreManager : MonoBehaviour
             gameManager.GetComponent<IonPlacement>().enabled = false;
 
         levelCompletedPanel.SetActive(true);
+        
         if (tries <= oneStarAttempts)
         {
             print("3 stars earned");
@@ -66,6 +70,15 @@ public class ScoreManager : MonoBehaviour
             print("2 stars earned");
             star1.SetActive(true);
             starsEarned = 1;
+        }
+        if (starsEarned >= starsNeededToCont)                   // If enough earned, allow to continue
+        {
+            GameObject.Find("StarsNeeded").SetActive(false);
+            canContinue = true;
+            nextLevelButton.SetActive(true);
+        }
+        else {                                                  // Otherwise, show amount needed to cont.
+            GameObject.Find("StarsNeeded").GetComponent<Text>().text = "Stars Needed to Continue: " + starsNeededToCont;
         }
         StarCount.starCount += starsEarned;
     }
