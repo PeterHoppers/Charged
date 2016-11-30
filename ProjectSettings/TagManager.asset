@@ -4,7 +4,23 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - XML
+=======
+  - PlayerOne
+  - PlayerTwo
+  - PlayerOneProjectile
+  - PlayerTwoProjectile
+  - P1Gun
+  - P2Gun
+  - GameManager
+  - Positive
+  - Negative
+  - Canvas
+  - Empty
+  - Clone
+  - Portal
+>>>>>>> refs/remotes/origin/Development
   layers:
   - Default
   - TransparentFX
