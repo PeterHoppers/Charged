@@ -148,9 +148,9 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 14
+    m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -396,12 +396,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 794312302}
-        m_MethodName: LevelButtonSelected
+      - m_Target: {fileID: 794312297}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -450,10 +450,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 794312297}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e8ad98e956a04d43982b0b02a9e5ab3, type: 3}
+  m_Script: {fileID: 11500000, guid: ae186b3534a34f243aa1917088cd7f6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mySceneBuilder: {fileID: 0}
+  StartPrefab: {fileID: 0}
+  EndPrefab: {fileID: 0}
+  PositivePrefab: {fileID: 0}
+  NegativePrefab: {fileID: 0}
+  WallPrefab: {fileID: 0}
+  WormholePrefab: {fileID: 0}
+  blankSceneName: Blank
+  xmlFile: 
 --- !u!1 &935840633
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,10 +532,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1702675093}
-  - 114: {fileID: 1702675094}
   m_Layer: 0
   m_Name: SceneBuilder
-  m_TagString: XML
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -546,25 +552,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
---- !u!114 &1702675094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1702675092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae186b3534a34f243aa1917088cd7f6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartPrefab: {fileID: 0}
-  EndPrefab: {fileID: 0}
-  PositivePrefab: {fileID: 0}
-  NegativePrefab: {fileID: 0}
-  WallPrefab: {fileID: 0}
-  WormholePrefab: {fileID: 0}
-  blankSceneName: Blank
-  xmlFile: 
 --- !u!1 &1811380250
 GameObject:
   m_ObjectHideFlags: 0

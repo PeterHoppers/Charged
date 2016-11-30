@@ -1,7 +1,7 @@
 <Level>
     <id> 001 </id>
     <authorID> 002 </authorID>
-    <start x = "-230" y = "1.788" z = "0"></start>
+    <start x = "-230" y = "1.788" z = "0" width = "161" height = "100"></start>
     <end x = "0" y = "0" z = "0"></end>
     <obstacles>
         <obstacle>

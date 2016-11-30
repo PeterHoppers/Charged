@@ -27,31 +27,23 @@ public class XMLoader
 
     string levelPath;
 
-    SceneBuilder myBuilder;
-    List<ObstacleCreation> creationList;
+    public List<ObstacleCreation> creationList;
 
     ObstacleCreation myObstacleCreation;
     public void MainMethod(string path)
     {
-        //Debug.Log("File name is: " + path);
-        //levelPath = Application.dataPath + "/" + path + ".xml";
-
-        //Debug.Log("Path is: " + levelPath);
-        
-
-        //Debug.Log(levelPath);
+        levelPath = Application.dataPath + "/" + path + ".xml";
+        creationList = new List<ObstacleCreation>();
+        //LoadXMLFile(levelPath);
+        Debug.Log(levelPath);
         LoadXMLFile(levelPath);
-        //Debug.Log(creationList.Count);
     }
-    public List<ObstacleCreation> LoadXMLFile(string path)
+    void LoadXMLFile(string path)
     {
-        //Debug.Log(path);
-        XmlTextReader myReader = new XmlTextReader(path);
+        XmlTextReader myReader = new XmlTextReader(levelPath);
         myDocument.Load(myReader);
 
-        creationList = new List<ObstacleCreation>();
-
-        for (int i = 0; i < myDocument.ChildNodes.Count; i++)
+        for(int i = 0; i < myDocument.ChildNodes.Count; i++)
         {
             if (myDocument.ChildNodes[i].Name == "Level")
             {
@@ -121,9 +113,8 @@ public class XMLoader
         //Testing nodes / names
         foreach(var OC in creationList)
         {
-            //Debug.Log("Obstacle Position: " + OC.Position + " Type of: " + OC.Type);
+            Debug.Log("Obstacle Position: " + OC.Position + " Type of: " + OC.Type);
         }
-        return creationList;
     }
 }
 
