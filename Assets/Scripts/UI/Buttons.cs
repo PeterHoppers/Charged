@@ -13,4 +13,8 @@ public class Buttons : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void ResetLevel() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
