@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class ScoreManager : MonoBehaviour
 {
     [Tooltip("The canvas text object for the tries count.")]
@@ -8,14 +9,17 @@ public class ScoreManager : MonoBehaviour
     int tries;                                  //Keeps track of the number of tries.
     public GameObject gameManager;
     public GameObject levelCompletedPanel;
+    public GameObject nextLevelButton;
     [Header("Star Images")]
     public GameObject star1;
     public GameObject star2;
     public GameObject star3;
+    int starsNeededToCont;
     public int oneStarAttempts;
     public int twoStarAttempts;
     public int threeStarAttempts;
     int starsEarned;
+    public static bool canContinue = false;
 
     void Start()
     {
@@ -27,7 +31,13 @@ public class ScoreManager : MonoBehaviour
         {
             enabled = false;
         }
-        triesText.text = "Attempts: " + tries;      //Change the text at the start to make sure it says the correct text.
+        triesText.text = "Attempts: " + tries;      //Change the text at the start to make sure it says the correct text.S
+
+        if (LevelSelect.staticStarsNeeded != null)
+        {
+            int scene = SceneManager.GetActiveScene().buildIndex;
+            starsNeededToCont = LevelSelect.staticStarsNeeded[scene];
+        }
     }
     public void UpdateScore()
     {
@@ -67,7 +77,20 @@ public class ScoreManager : MonoBehaviour
             star1.SetActive(true);
             starsEarned = 1;
         }
+
         StarCount.starCount += starsEarned;
+
+        if (StarCount.starCount >= starsNeededToCont)                   // If enough earned, allow to continue
+        {
+            GameObject.Find("StarsNeeded").SetActive(false);
+            canContinue = true;
+            nextLevelButton.GetComponent<Button>().interactable = true;
+        }
+        else
+        {                                                  // Otherwise, show amount needed to cont.
+            GameObject.Find("StarsNeeded").GetComponent<Text>().text = "Stars Needed to Continue: " + (starsNeededToCont - StarCount.starCount);
+            nextLevelButton.GetComponent<Button>().interactable = false;
+        }
     }
 }
 

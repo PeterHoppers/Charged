@@ -2842,7 +2842,7 @@ Prefab:
     - target: {fileID: 114000012719406128, guid: bd59be903bfb6144eb4c56d245cd6756,
         type: 2}
       propertyPath: starsNeeded.Array.data[1]
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000012719406128, guid: bd59be903bfb6144eb4c56d245cd6756,
         type: 2}

@@ -6,7 +6,8 @@ public class FindPlayer : MonoBehaviour {
     GameObject player;
     GameObject gun;
     
-	void Start () {
+	void Start ()
+    {
         player = GameObject.Find("GameManager").GetComponent<PlayerManager>().p1Clone;
         print(player);
         gun = player.transform.FindChild("GunBarrel").gameObject;

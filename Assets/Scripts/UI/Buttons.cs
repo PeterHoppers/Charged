@@ -6,7 +6,15 @@ public class Buttons : MonoBehaviour
 {
     public void NextLevel()
     {
-        BasicUtilities.NextLevel();
+        if (ScoreManager.canContinue == true)           // Have enough stars been earned?
+        {
+            BasicUtilities.NextLevel();
+        }
+    }
+
+    public void RestartLevel()
+    {
+        BasicUtilities.RestartLevel();
     }
 
     public void MainMenu()

@@ -488,6 +488,11 @@ Prefab:
       propertyPath: layerMask.m_Bits
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012331546456, guid: 16152ae4d36b00e47ba1984a3a21db3f,
+        type: 2}
+      propertyPath: nextLevelButton
+      value: 
+      objectReference: {fileID: 1302808119}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 16152ae4d36b00e47ba1984a3a21db3f, type: 2}
   m_IsPrefabParent: 0
@@ -2121,6 +2126,11 @@ GameObject:
 --- !u!1 &1302808118 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000011345433722, guid: 67c8704dfcc2ddc4ab9118edfdd4369d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1302808113}
+--- !u!1 &1302808119 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010297789680, guid: 67c8704dfcc2ddc4ab9118edfdd4369d,
     type: 2}
   m_PrefabInternal: {fileID: 1302808113}
 --- !u!1 &1359402930

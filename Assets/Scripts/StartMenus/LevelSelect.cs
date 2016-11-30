@@ -16,6 +16,7 @@ public class LevelSelect : MonoBehaviour
     //displayed like so "if (!LevelSelect.locked[0])"
     //if we wanted to unlocked level 1, we would do "locked[1] = false;"
     public int[] starsNeeded;
+    public static int[] staticStarsNeeded;
     public AudioSource error;
     int levelCount = 0;
     int xPos = 0;
@@ -27,9 +28,17 @@ public class LevelSelect : MonoBehaviour
     public GameObject levelObject;
 
     // setting this object's activeness, 
+
     void OnEnable()
     {
         stars = StarCount.starCount;
+
+        staticStarsNeeded = new int[starsNeeded.Length];
+
+        for (int index = 0; index < starsNeeded.Length; index++)
+        {
+            staticStarsNeeded[index] = starsNeeded[index];
+        }
 
         //looping through all the level where stars are needed and checking to see if the stars aqcuired is greater than the stars needed
 

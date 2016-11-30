@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
     GameObject canvas;
     void Start()
     {
+        print(p1Clone);
         canvas = GameObject.Find("Canvas");
         startPoint = GameObject.Find("StartPoint");
         switch (numberOfPlayers)            //If one player spawn p1, if two spawn p1 and p2
