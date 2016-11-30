@@ -29,7 +29,7 @@ public class ScoreManager : MonoBehaviour
         if (gameManager == null)
             Debug.LogError("No game manager found");
 
-        if(PlayerManager.numberOfPlayers == 2)
+        if (PlayerManager.numberOfPlayers == 2)
         {
             enabled = false;
         }
@@ -49,12 +49,17 @@ public class ScoreManager : MonoBehaviour
     }
     public void LevelCompleted()
     {
+        //tallying up the score after the goal was hit. Sorry for the extra long statement. I blame Peter.
+        ionTracker.points += 100 + (((int)ionPlacement.availablePositiveIons + (int)ionPlacement.availableNegativeIons) * 25) - (((int)IonPlacement.numberOfPositives + (int)IonPlacement.numberOfNegatives) * 25);
+        ionTracker.ScoreTracker();
+        //using this temp variable as a means to compare the actual score to a percentage of to its max (otherwise the statement would, again, be long)
+        float temp = 100 + (((int)ionPlacement.availablePositiveIons + (int)ionPlacement.availableNegativeIons) * 25);
         print("Level completed called");
         if (gameManager != null)
             gameManager.GetComponent<IonPlacement>().enabled = false;
 
         levelCompletedPanel.SetActive(true);
-        if (tries <= oneStarAttempts)
+        if ((float)ionTracker.points >= temp * .9f)
         {
             print("3 stars earned");
             star1.SetActive(true);
@@ -62,22 +67,19 @@ public class ScoreManager : MonoBehaviour
             star3.SetActive(true);
             starsEarned = 3;
         }
-        else if (tries <= twoStarAttempts && tries >= oneStarAttempts)
+        else if ((float)ionTracker.points >= temp * .75f && (float)ionTracker.points < temp * .9f)
         {
             print("2 stars earned");
             star1.SetActive(true);
             star2.SetActive(true);
             starsEarned = 2;
         }
-        else if (tries <= threeStarAttempts && tries >= twoStarAttempts)
+        else if ((float)ionTracker.points >= temp * .6f && (float)ionTracker.points < temp * .75f)
         {
             print("2 stars earned");
             star1.SetActive(true);
             starsEarned = 1;
         }
-        //tallying up the score after the goal was hit. Sorry for the extra long statement. I blame Peter.
-        ionTracker.points += 100 +(((int)ionPlacement.availablePositiveIons + (int)ionPlacement.availableNegativeIons) * 25) - (((int)IonPlacement.numberOfPositives + (int)IonPlacement.numberOfNegatives) * 25);
-        ionTracker.ScoreTracker();
         StarCount.starCount += starsEarned;
     }
 }
