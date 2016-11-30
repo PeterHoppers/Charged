@@ -9,6 +9,8 @@ public class IonPlacement : MonoBehaviour
     public GameObject negativeIonPrefab;
     public int availablePositiveIons = 5;
     public int availableNegativeIons = 5;
+    public bool cannotPlacePositive;
+    public bool cannotPlaceNegative;
     GameObject gameManager;
     LevelEditorScript levelEditor;
     List<GameObject> activePositiveIons;
@@ -34,72 +36,80 @@ public class IonPlacement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //Left click places positive ion
-        if (Input.GetMouseButtonUp(0))
+        if(!cannotPlacePositive)
         {
-            if (Input.GetKey(KeyCode.Delete))
+            //Left click places positive ion
+            if (Input.GetMouseButtonUp(0))
             {
-                //==============If you are holding down delete, delete the nearest one============
-                if (activePositiveIons.Count > 0)
+                if (Input.GetKey(KeyCode.Delete))
                 {
-                    Vector3 mousePosition = Input.mousePosition;
-                    mousePosition.z = 100.0f;
-                    mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+                    //==============If you are holding down delete, delete the nearest one============
+                    if (activePositiveIons.Count > 0)
+                    {
+                        Vector3 mousePosition = Input.mousePosition;
+                        mousePosition.z = 100.0f;
+                        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-                    GameObject closest = BasicUtilities.findNearest(mousePosition, activePositiveIons);
-                    DeletePositiveIon(closest);
+                        GameObject closest = BasicUtilities.findNearest(mousePosition, activePositiveIons);
+                        DeletePositiveIon(closest);
 
-                }
-            }
-
-            if (availablePositiveIons > 0)
-            {
-                //==============If you are not holding delete, place one=============
-                if (!Input.GetKey(KeyCode.Delete))
-                {
-                    activePositiveIons.Add(levelEditor.CreateNewObjectAtCursor(positiveIonPrefab, "Positive"));
-                    lastWasPositive = true;
-                    availablePositiveIons--;
+                    }
                 }
 
+                if (availablePositiveIons > 0)
+                {
+                    //==============If you are not holding delete, place one=============
+                    if (!Input.GetKey(KeyCode.Delete))
+                    {
+                        activePositiveIons.Add(levelEditor.CreateNewObjectAtCursor(positiveIonPrefab, "Positive"));
+                        lastWasPositive = true;
+                        availablePositiveIons--;
+                    }
+
+                }
             }
         }
 
-        //Right click places negative ion
-        if (Input.GetMouseButtonUp(1))
+        if (!cannotPlaceNegative)
         {
-            if (activeNegativeIons.Count > 0)
+            //Right click places negative ion
+            if (Input.GetMouseButtonUp(1))
             {
-                //==============If you are holding down delete, delete the nearest one============
-                if (Input.GetKey(KeyCode.Delete))
+                if (activeNegativeIons.Count > 0)
                 {
-                    Vector3 mousePosition = Input.mousePosition;
-                    mousePosition.z = 100.0f;
-                    mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+                    //==============If you are holding down delete, delete the nearest one============
+                    if (Input.GetKey(KeyCode.Delete))
+                    {
+                        Vector3 mousePosition = Input.mousePosition;
+                        mousePosition.z = 100.0f;
+                        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-                    GameObject closest = BasicUtilities.findNearest(mousePosition, activeNegativeIons);
-                    DeleteNegativeIon(closest);
+                        GameObject closest = BasicUtilities.findNearest(mousePosition, activeNegativeIons);
+                        DeleteNegativeIon(closest);
+                    }
                 }
-            }
 
 
-            if (availableNegativeIons > 0)
-            {
-                //==============If you are not holding delete, place one=============
-                if (!Input.GetKey(KeyCode.Delete))
+                if (availableNegativeIons > 0)
                 {
-                    activeNegativeIons.Add(levelEditor.CreateNewObjectAtCursor(negativeIonPrefab, "Negative"));
-                    lastWasPositive = false;
-                    availableNegativeIons--;
+                    //==============If you are not holding delete, place one=============
+                    if (!Input.GetKey(KeyCode.Delete))
+                    {
+                        activeNegativeIons.Add(levelEditor.CreateNewObjectAtCursor(negativeIonPrefab, "Negative"));
+                        lastWasPositive = false;
+                        availableNegativeIons--;
+                    }
                 }
             }
         }
 
         //Escape checks to see if there are any ions active. If so, check the tag of the last one created, increment respective available ions, and destroy that ion
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Backspace))
         {
-            if (lastWasPositive)
+            if (activeNegativeIons.Count <= 0)
+                lastWasPositive = true;
+
+            if (lastWasPositive && activePositiveIons.Count > 0)
             {
                 DeletePositiveIon(activePositiveIons[(activePositiveIons.Count - 1)]);
             }
