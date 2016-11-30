@@ -71,6 +71,7 @@ public class ScoreManager : MonoBehaviour
             star1.SetActive(true);
             starsEarned = 1;
         }
+
         if (starsEarned >= starsNeededToCont)                   // If enough earned, allow to continue
         {
             GameObject.Find("StarsNeeded").SetActive(false);
@@ -80,6 +81,7 @@ public class ScoreManager : MonoBehaviour
         else {                                                  // Otherwise, show amount needed to cont.
             GameObject.Find("StarsNeeded").GetComponent<Text>().text = "Stars Needed to Continue: " + starsNeededToCont;
         }
+
         StarCount.starCount += starsEarned;
     }
 }
