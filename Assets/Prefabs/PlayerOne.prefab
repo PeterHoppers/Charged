@@ -77,7 +77,7 @@ MonoBehaviour:
   speed: 0.5
   minCharge: 10
   maxCharge: 100
-  chargeStepper: 10
+  chargeStepper: 5
 --- !u!114 &114000011677613246
 MonoBehaviour:
   m_ObjectHideFlags: 1
