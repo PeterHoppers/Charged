@@ -23,7 +23,7 @@ public class ControlScript : MonoBehaviour
 
     void Start()
     {
-        charge = minCharge;
+        charge = maxCharge * 0.5f;
         powerLevel = GameObject.Find("Power").GetComponent<Slider>();
         if (powerLevel == null)
             Debug.LogError("I DON'T HAVE THE POWER!!!!!!!!");
@@ -113,7 +113,7 @@ public class ControlScript : MonoBehaviour
     void ChargingUp()
     {
         // charging up
-        if (ControlScript.charge + chargeStepper < maxCharge)
+        if (ControlScript.charge + chargeStepper <= maxCharge)
         {
             ControlScript.charge += chargeStepper;
             UpdateSlider();
@@ -123,7 +123,7 @@ public class ControlScript : MonoBehaviour
     void CoolingDown()
     {
         // cooling down
-        if (ControlScript.charge - chargeStepper > minCharge)
+        if (ControlScript.charge - chargeStepper >= minCharge)
         {
             ControlScript.charge -= chargeStepper;
             UpdateSlider();
