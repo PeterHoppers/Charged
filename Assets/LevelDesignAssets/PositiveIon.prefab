@@ -22,7 +22,7 @@ GameObject:
   - 222: {fileID: 222000011467661708}
   - 114: {fileID: 114000012231337978}
   - 95: {fileID: 95000013545051660}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - 224: {fileID: 224000010096155604}
   - 222: {fileID: 222000013380519500}
   - 114: {fileID: 114000012762931952}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Base (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - 222: {fileID: 222000010780779188}
   - 114: {fileID: 114000014075994426}
   - 95: {fileID: 95000010986010684}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - 250: {fileID: 250000010403925634}
   - 222: {fileID: 222000011490789026}
   - 95: {fileID: 95000012987652448}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PositiveIon
   m_TagString: Positive
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - 224: {fileID: 224000012888281830}
   - 222: {fileID: 222000012820935526}
   - 114: {fileID: 114000010203173350}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Outer Sprocket (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - 222: {fileID: 222000010814775920}
   - 114: {fileID: 114000011190936506}
   - 95: {fileID: 95000012101915084}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Inner Rotating Sprocket (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - 222: {fileID: 222000012573328718}
   - 114: {fileID: 114000011794429498}
   - 95: {fileID: 95000013869575344}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Torus (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

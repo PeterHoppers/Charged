@@ -2,13 +2,16 @@
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LevelEditorScript : MonoBehaviour {
     public static GameObject background;
     static GameObject levelBackground;
     public GameObject backgroundPrefab;
+    public LayerMask layerMask;
     GameObject folder;
     NecessarySpawns necessarySpawns;
+    PointerEventData eventData;
 
     void Start()
     {
@@ -94,8 +97,32 @@ public class LevelEditorScript : MonoBehaviour {
     //Returns a position on the target rect transform basde on where the mouse is
     Vector2 CursorPosition()
     {
-        Vector2 pos = Vector2.zero;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(levelBackground.GetComponent<RectTransform>(), Input.mousePosition, Camera.main, out pos);        
+        Vector2 pos = Vector2.zero;            
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(levelBackground.GetComponent<RectTransform>(), Input.mousePosition, Camera.main, out pos);
         return pos;
+    }
+
+    //return true if the raycast hits an object with the given tag
+    public bool CheckForObject(string tag)
+    {
+        Vector3 mousePos = (Input.mousePosition);
+        mousePos.z = 100f;
+        Vector3 screenPoint = Camera.main.ScreenToWorldPoint(mousePos);
+
+        Ray2D ray = new Ray2D(new Vector2(screenPoint.x, screenPoint.y), Vector2.zero);
+        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, layerMask);
+        if (hit.collider != null)
+        {
+            if (hit.collider.tag == tag)
+            {
+                return true;
+            }
+            else if (hit.collider.tag != tag)
+            {
+                return false;
+            }
+        }
+
+        return false;
     }
 }
