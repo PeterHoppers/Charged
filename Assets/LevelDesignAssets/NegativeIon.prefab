@@ -22,7 +22,7 @@ GameObject:
   - 222: {fileID: 222000013405617534}
   - 114: {fileID: 114000012954506274}
   - 95: {fileID: 95000012483012176}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Neg Spinner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - 222: {fileID: 222000011691846330}
   - 114: {fileID: 114000010174332780}
   - 95: {fileID: 95000010727241540}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pounder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - 222: {fileID: 222000010374209362}
   - 114: {fileID: 114000012627676168}
   - 95: {fileID: 95000010131863904}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Outer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   - 250: {fileID: 250000012759469288}
   - 222: {fileID: 222000012681505956}
   - 212: {fileID: 212000012406260342}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: NegativeIon
   m_TagString: Negative
   m_Icon: {fileID: 0}

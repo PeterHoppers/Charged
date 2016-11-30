@@ -244,7 +244,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: LevelSeven
+          m_StringArgument: Level7
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 114000011328740936, guid: 0d812114a13bd744381d18864742e898,

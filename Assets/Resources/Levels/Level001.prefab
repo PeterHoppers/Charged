@@ -57,7 +57,7 @@ GameObject:
   - 114: {fileID: 114000014201414420}
   - 114: {fileID: 114000012299473896}
   - 114: {fileID: 114000010399941302}
-  - 114: {fileID: 114000012982507952}
+  - 114: {fileID: 114000013239062770}
   m_Layer: 5
   m_Name: Level001
   m_TagString: Untagged
@@ -107,33 +107,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114000012719406128, guid: bd59be903bfb6144eb4c56d245cd6756,
-          type: 2}
-        m_MethodName: SelectLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 114000012719406128, guid: bd59be903bfb6144eb4c56d245cd6756,
-          type: 2}
+      - m_Target: {fileID: 114000013239062770}
         m_MethodName: PlayLevel
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: LevelOne
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 114000011328740936, guid: 0d812114a13bd744381d18864742e898,
-          type: 2}
-        m_MethodName: OnePlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -197,7 +172,7 @@ MonoBehaviour:
   m_PreferredHeight: 100
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
---- !u!114 &114000012982507952
+--- !u!114 &114000013239062770
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -205,9 +180,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000014047991108}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea92fcf41c19874590dd922db0ccb1e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f6430c25c6554d4da965041c70bdca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  starsNeeded: 0
+  myLevel: 0
 --- !u!114 &114000013281948462
 MonoBehaviour:
   m_ObjectHideFlags: 1
