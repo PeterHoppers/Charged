@@ -11,8 +11,8 @@ public class IonPlacement : MonoBehaviour
     public bool cannotPlaceNegative;
     GameObject gameManager;
     LevelEditorScript levelEditor;
-    List<GameObject> activePositiveIons;
-    List<GameObject> activeNegativeIons;
+    public static List<GameObject> activePositiveIons;
+    public static List<GameObject> activeNegativeIons;
     bool lastWasPositive = false;
 
     // Use this for initialization

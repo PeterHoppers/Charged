@@ -29,8 +29,8 @@ public class IonTrackerScript : MonoBehaviour {
 
         //  para evitar que el texto null
       //  total.text = "Total Ions: " + (IonPlacement.numberfPositives + IonPlacement.numberOfNegatives).ToString();
-        negatives.text = "Negatives Ions: " + IonPlacement.numberOfPositives.ToString();
-        positives.text = "Positives Ions: " + IonPlacement.numberOfNegatives.ToString();
+        negatives.text = "Negatives Ions: " + IonPlacement.activeNegativeIons.Count.ToString();
+        positives.text = "Positives Ions: " + IonPlacement.activePositiveIons.Count.ToString();
         score.text = "Points: " + points.ToString();
     }
 
@@ -40,8 +40,8 @@ public class IonTrackerScript : MonoBehaviour {
       //  public IonTrackerScript track = new IonTrackerScript();
         //escribir las cuentas de ion
        // total.text = "Total Ions: " + (IonPlacement.numberfPositives + IonPlacement.numberOfNegatives).ToString();
-        negatives.text = "Negatives Ions: " + IonPlacement.numberOfPositives.ToString();
-        positives.text = "Positives Ions: " + IonPlacement.numberOfNegatives.ToString();
+        negatives.text = "Negatives Ions: " + IonPlacement.activeNegativeIons.Count.ToString();
+        positives.text = "Positives Ions: " + IonPlacement.activePositiveIons.Count.ToString();
         score.text = "Points: " + points.ToString();
     }
 }

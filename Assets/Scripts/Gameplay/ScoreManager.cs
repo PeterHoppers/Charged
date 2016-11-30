@@ -59,7 +59,7 @@ public class ScoreManager : MonoBehaviour
     }
     public void LevelCompleted()
     {
-        ionTracker.points += 100 + (((int)ionPlacement.availablePositiveIons + (int)ionPlacement.availableNegativeIons) * 25) - (((int)IonPlacement.numberOfPositives + (int)IonPlacement.numberOfNegatives) * 25);
+        ionTracker.points += 100 + (((int)ionPlacement.availablePositiveIons + (int)ionPlacement.availableNegativeIons) * 25) - (((int)IonPlacement.activePositiveIons.Count + (int)IonPlacement.activeNegativeIons.Count) * 25);
         ionTracker.ScoreTracker();
         //using this temp variable as a means to compare the actual score to a percentage of to its max (otherwise the statement would, again, be long)
         float temp = 100 + (((int)ionPlacement.availablePositiveIons + (int)ionPlacement.availableNegativeIons) * 25);
