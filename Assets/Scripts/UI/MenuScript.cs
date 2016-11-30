@@ -4,33 +4,23 @@ using System.Collections;
 
 public class MenuScript : MonoBehaviour {
 
-    // Use this for initialization
-    void Start () {
-
+	// Use this for initialization
+	void Start () {
+	
 	}
 	
 	public void Play(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);      //Load scene with string
+        SceneManager.LoadScene(sceneName);
     }
 
     public void Play(int sceneNumber)
     {
-        SceneManager.LoadScene(sceneNumber);    //Load scene with int
+        SceneManager.LoadScene(sceneNumber);
     }
 
     public void Quit()
     {
-        Application.Quit();                     //Quits game
-    }
-
-    public void OnePlayer()
-    {
-        PlayerManager.numberOfPlayers = 1;      //1 player
-    }
-
-    public void TwoPlayer()
-    {
-        PlayerManager.numberOfPlayers = 2;      //2 player
+        Application.Quit();
     }
 }

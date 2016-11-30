@@ -20,6 +20,7 @@ public class SceneBuilder : MonoBehaviour
     bool levelLoaded = false;
     public List<ObstacleCreation> myCreationList;
     XMLoader myLoader = new XMLoader();
+    
 
     void Awake()
     {
@@ -57,11 +58,15 @@ public class SceneBuilder : MonoBehaviour
         LoadXMLScene();
         //print("LoadedXMLScene");
         //print(myCreationList.Count);
-        foreach(ObstacleCreation go in myCreationList)
+        if (!levelLoaded)
         {
-            print(go.Type + " " + go.Position);
-            InstantiateEachPrefab(go.Type, go.Position);
+            foreach (ObstacleCreation go in myCreationList)
+            {
+                print(go.Type + " " + go.Position);
+                InstantiateEachPrefab(go.Type, go.Position);
+            }
         }
+        levelLoaded = true;
     }
     void InstantiateEachPrefab(string type, Vector3 newPos)
     {
@@ -74,10 +79,10 @@ public class SceneBuilder : MonoBehaviour
             case "Negative":
                 Instantiate(NegativePrefab, newPos, Quaternion.identity, GameObject.Find("Canvas").gameObject.transform);
                 break;
-            case "Start":
+            case "start":
                 Instantiate(StartPrefab, newPos, Quaternion.identity, GameObject.Find("Canvas").gameObject.transform);
                 break;
-            case "End":
+            case "end":
                 Instantiate(EndPrefab, newPos, Quaternion.identity, GameObject.Find("Canvas").gameObject.transform);
                 break;
             case "BlackHole":
