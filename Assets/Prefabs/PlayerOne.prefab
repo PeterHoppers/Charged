@@ -71,11 +71,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2eacdab937b11743b1a764c022c0eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRotation: 20
-  minRotation: -20
-  note: 'Note: speed may affect the min and max rotation'
-  speed: 2
-  maxCharge: 250
+  powerLevel: {fileID: 0}
+  maxRotation: 90
+  minRotation: -90
+  speed: 0.5
+  minCharge: 10
+  maxCharge: 100
+  chargeStepper: 10
 --- !u!114 &114000011677613246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,11 +163,11 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 100, y: 0, z: 0}
-  - {x: 0, y: 0, z: -1}
+  - {x: 80, y: 0, z: 0}
+  - {x: 0, y: 0, z: -0.1}
   m_Parameters:
-    startWidth: 1
-    endWidth: 1
+    startWidth: 0.05
+    endWidth: 0.5
     m_StartColor:
       serializedVersion: 2
       rgba: 4294967295

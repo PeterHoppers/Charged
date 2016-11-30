@@ -6,6 +6,7 @@ public class ScoreManager : MonoBehaviour
     [Tooltip("The canvas text object for the tries count.")]
     public Text triesText;
     int tries;                                  //Keeps track of the number of tries.
+    public GameObject gameManager;
     public GameObject levelCompletedPanel;
     [Header("Star Images")]
     public GameObject star1;
@@ -18,6 +19,10 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
+        gameManager = GameObject.Find("GameManager");
+        if (gameManager == null)
+            Debug.LogError("No game manager found");
+
         if(PlayerManager.numberOfPlayers == 2)
         {
             enabled = false;
@@ -26,10 +31,8 @@ public class ScoreManager : MonoBehaviour
     }
     public void UpdateScore()
     {
-        print("Happens");
         tries++;                                //Updates the try count
         triesText.text = "Attempts: " + tries;
-        print(tries);
     }
     public void ResetScore()
     {
@@ -39,6 +42,9 @@ public class ScoreManager : MonoBehaviour
     public void LevelCompleted()
     {
         print("Level completed called");
+        if (gameManager != null)
+            gameManager.GetComponent<IonPlacement>().enabled = false;
+
         levelCompletedPanel.SetActive(true);
         if (tries <= oneStarAttempts)
         {
