@@ -14,9 +14,9 @@ public class ScoreManager : MonoBehaviour
     public GameObject star1;
     public GameObject star2;
     public GameObject star3;
-    public int oneStarAttempts;
-    public int twoStarAttempts;
-    public int threeStarAttempts;
+    public int oneStarScore;
+    public int twoStarScore;
+    public int threeStarScore;
     int starsEarned;
     public IonTrackerScript ionTracker; //getting the script
     public IonPlacement ionPlacement; //getting the script
@@ -59,7 +59,7 @@ public class ScoreManager : MonoBehaviour
             gameManager.GetComponent<IonPlacement>().enabled = false;
 
         levelCompletedPanel.SetActive(true);
-        if ((float)ionTracker.points >= temp * .9f)
+        if (ionTracker.points >= threeStarScore)
         {
             print("3 stars earned");
             star1.SetActive(true);
@@ -67,16 +67,16 @@ public class ScoreManager : MonoBehaviour
             star3.SetActive(true);
             starsEarned = 3;
         }
-        else if ((float)ionTracker.points >= temp * .75f && (float)ionTracker.points < temp * .9f)
+        else if (ionTracker.points < threeStarScore && ionTracker.points >= twoStarScore)
         {
             print("2 stars earned");
             star1.SetActive(true);
             star2.SetActive(true);
             starsEarned = 2;
         }
-        else if ((float)ionTracker.points >= temp * .6f && (float)ionTracker.points < temp * .75f)
+        else if (ionTracker.points < twoStarScore && ionTracker.points >= oneStarScore)
         {
-            print("2 stars earned");
+            print("1 stars earned");
             star1.SetActive(true);
             starsEarned = 1;
         }

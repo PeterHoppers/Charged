@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692534, g: 0.49678725, b: 0.57508564, a: 1}
+  m_IndirectSpecularColor: {r: 0.44692534, g: 0.4967872, b: 0.57508564, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -476,6 +476,21 @@ Prefab:
         type: 2}
       propertyPath: spreadCustomCurve.m_RotationOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012331546456, guid: 16152ae4d36b00e47ba1984a3a21db3f,
+        type: 2}
+      propertyPath: oneStarScore
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012331546456, guid: 16152ae4d36b00e47ba1984a3a21db3f,
+        type: 2}
+      propertyPath: twoStarScore
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012331546456, guid: 16152ae4d36b00e47ba1984a3a21db3f,
+        type: 2}
+      propertyPath: threeStarScore
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 16152ae4d36b00e47ba1984a3a21db3f, type: 2}

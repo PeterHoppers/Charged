@@ -22,7 +22,7 @@ public class IonPlacement : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {//encontrar el gameobject y obtener la secuencia de comandos -Cristóbal
-        ionTracker = GameObject.Find("Canvas/ionTracker").GetComponent<IonTrackerScript>();
+        ionTracker = GameObject.Find("Canvas/IonTrackers").GetComponent<IonTrackerScript>();
 
         activeIons = new List<GameObject>();
         gameManager = GameObject.Find("GameManager");
