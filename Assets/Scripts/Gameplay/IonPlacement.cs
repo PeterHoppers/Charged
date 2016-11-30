@@ -49,7 +49,6 @@ public class IonPlacement : MonoBehaviour
                             Vector3 mousePosition = Input.mousePosition;
                             mousePosition.z = 100.0f;
                             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-
                             GameObject closest = BasicUtilities.findNearest(mousePosition, activePositiveIons);
                             DeletePositiveIon(closest);
                         }
@@ -63,6 +62,7 @@ public class IonPlacement : MonoBehaviour
                             activePositiveIons.Add(levelEditor.CreateNewObjectAtCursor(positiveIonPrefab, "Positive"));
                             lastWasPositive = true;
                             availablePositiveIons--;
+                            gameManager.GetComponent<IonTrackerScript>().ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
                         }
                     }
                 }
@@ -74,6 +74,8 @@ public class IonPlacement : MonoBehaviour
             //Right click places negative ion
             if (Input.GetMouseButtonUp(1))
             {
+
+                print(IonPlacement.activePositiveIons.Count);
                 if (!levelEditor.CheckForObject("Button"))
                 {
                     if (activeNegativeIons.Count > 0)
@@ -84,7 +86,6 @@ public class IonPlacement : MonoBehaviour
                             Vector3 mousePosition = Input.mousePosition;
                             mousePosition.z = 100.0f;
                             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-
                             GameObject closest = BasicUtilities.findNearest(mousePosition, activeNegativeIons);
                             DeleteNegativeIon(closest);
                         }
@@ -99,6 +100,8 @@ public class IonPlacement : MonoBehaviour
                             activeNegativeIons.Add(levelEditor.CreateNewObjectAtCursor(negativeIonPrefab, "Negative"));
                             lastWasPositive = false;
                             availableNegativeIons--;
+
+                            gameManager.GetComponent<IonTrackerScript>().ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
                         }
                     }
                 }
@@ -156,6 +159,7 @@ public class IonPlacement : MonoBehaviour
         int index = activePositiveIons.IndexOf(tempIon);
         Destroy(activePositiveIons[index]);
         activePositiveIons.Remove(activePositiveIons[index]);
+        gameManager.GetComponent<IonTrackerScript>().ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
     }
 
     //============Delete a negative ion===========
@@ -166,6 +170,7 @@ public class IonPlacement : MonoBehaviour
         int index = activeNegativeIons.IndexOf(tempIon);
         Destroy(activeNegativeIons[index]);
         activeNegativeIons.Remove(activeNegativeIons[index]);
+        gameManager.GetComponent<IonTrackerScript>().ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
     }
 
 
