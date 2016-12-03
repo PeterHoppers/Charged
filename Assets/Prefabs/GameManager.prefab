@@ -28,6 +28,7 @@ GameObject:
   - 114: {fileID: 114000014111438908}
   - 114: {fileID: 114000012668164988}
   - 114: {fileID: 114000012881901538}
+  - 114: {fileID: 114000010510226238}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -122,6 +123,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114000010510226238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014150498538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 721fa567d42467e48a88f3f98c8d6ae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000011267219948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -164,7 +176,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267922ef83a95604799dd5eb817e4f46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableScore: 0
   triesText: {fileID: 0}
+  tries: 0
   gameManager: {fileID: 0}
   levelCompletedPanel: {fileID: 0}
   nextLevelButton: {fileID: 1000010297789680, guid: 67c8704dfcc2ddc4ab9118edfdd4369d,
@@ -172,9 +186,9 @@ MonoBehaviour:
   star1: {fileID: 0}
   star2: {fileID: 0}
   star3: {fileID: 0}
-  oneStarAttempts: 1
-  twoStarAttempts: 2
-  threeStarAttempts: 3
+  oneStarScore: 0
+  twoStarScore: 0
+  threeStarScore: 0
 --- !u!114 &114000012668164988
 MonoBehaviour:
   m_ObjectHideFlags: 1

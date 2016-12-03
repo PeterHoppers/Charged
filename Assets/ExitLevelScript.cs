@@ -16,10 +16,7 @@ public class ExitLevelScript : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        //finding el menu
-        pauseMenu = GameObject.Find("Canvas/PauseMenu/PauseBox");
-        menu = GameObject.Find("Canvas/PauseMenu");
-        doubleCheck = GameObject.Find("Canvas/PauseMenu/DoubleCheckBox");
+        FindMenu();
         doubleCheck.SetActive(false);
         menu.SetActive(false);
     }
@@ -54,8 +51,19 @@ public class ExitLevelScript : MonoBehaviour {
         }
 	}
 
+    void FindMenu()
+    {
+        //finding el menu
+        pauseMenu = GameObject.Find("Canvas/PauseMenu/PauseBox");
+        menu = GameObject.Find("Canvas/PauseMenu");
+        doubleCheck = GameObject.Find("Canvas/PauseMenu/DoubleCheckBox");
+    }
+
     public void DoubleCheck()
     {
+        if (menu == null)
+            FindMenu();
+
         doubleCheck.SetActive(true);
         pauseMenu.SetActive(false);
     }
@@ -73,7 +81,10 @@ public class ExitLevelScript : MonoBehaviour {
     }
 
     public void Resume()
-    {//resuming the game
+    {
+        if (menu == null)
+            FindMenu();
+
         if (wasEnabled)
         {//recalling if the game object was last enabled
             gameObject.GetComponent<IonPlacement>().enabled = true;

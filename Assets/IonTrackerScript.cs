@@ -13,22 +13,31 @@ public class IonTrackerScript : MonoBehaviour {
     Text score;
     [HideInInspector]
     public int points;
-    public ScoreManager myScore;
-    public IonPlacement myIons;
+    ScoreManager myScore;
+    IonPlacement myIons;
 
     //Utilícelo para la inicialización
     void Start ()
     {
+        myIons = GameObject.Find("GameManager").GetComponent<IonPlacement>();
+
+        if (myIons == null)
+            Debug.LogError("There are no \"ion placement\" attached to GameManager");
+
         //encontrar todos los textos
         negatives = GameObject.Find("Canvas/IonTrackers/Negatives").GetComponent<Text>(); 
         positives = GameObject.Find("Canvas/IonTrackers/Positives").GetComponent<Text>();
-    //    total = GameObject.Find("Canvas/IonTrackers/Total").GetComponent<Text>();
-        score = GameObject.Find("Canvas/IonTrackers/Score").GetComponent<Text>();
+
+        if (myIons.cannotPlaceNegative)
+            negatives.gameObject.SetActive(false);
+
+        if (myIons.cannotPlacePositive)
+            positives.gameObject.SetActive(false);
+
         myScore = GameObject.Find("GameManager").GetComponent<ScoreManager>(); //obtener la puntuación de puntuación manager
-        myIons = GameObject.Find("GameManager").GetComponent<IonPlacement>();
+        score = myScore.levelCompletedPanel.transform.FindChild("Score").GetComponent<Text>();
 
         //  para evitar que el texto null
-      //  total.text = "Total Ions: " + (IonPlacement.numberfPositives + IonPlacement.numberOfNegatives).ToString();
         negatives.text = "Negatives Ions: " + IonPlacement.activeNegativeIons.Count;
         positives.text = "Positives Ions: " + IonPlacement.activePositiveIons.Count;
         score.text = "Points: " + points.ToString();
@@ -39,7 +48,6 @@ public class IonTrackerScript : MonoBehaviour {
     {
       //  public IonTrackerScript track = new IonTrackerScript();
         //escribir las cuentas de ion
-       // total.text = "Total Ions: " + (IonPlacement.numberfPositives + IonPlacement.numberOfNegatives).ToString();
         negatives.text = "Negatives Ions: " + IonPlacement.activeNegativeIons.Count;
         positives.text = "Positives Ions: " + IonPlacement.activePositiveIons.Count;
         score.text = "Points: " + points.ToString();

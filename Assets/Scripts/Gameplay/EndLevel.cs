@@ -7,6 +7,8 @@ public class EndLevel : MonoBehaviour
     ScoreManager scoreManager;
     RaceAgainstTime raceAgainstTime;
 
+    GameObject gameManager;
+
     Collider2D myCollider;
 
 	// Use this for initialization
@@ -14,7 +16,10 @@ public class EndLevel : MonoBehaviour
     { 
         myCollider = GetComponent<BoxCollider2D>();
         myCollider.enabled = true;
-        scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
+        gameManager = GameObject.Find("GameManager");
+
+        scoreManager = gameManager.GetComponent<ScoreManager>();
+
         if(PlayerManager.numberOfPlayers == 2)
         {
             raceAgainstTime = GameObject.Find("GameManager").GetComponent<RaceAgainstTime>();
@@ -22,11 +27,11 @@ public class EndLevel : MonoBehaviour
 	}
     void OnTriggerEnter2D(Collider2D other)
     {
-        
         if (PlayerManager.numberOfPlayers == 1 && other.gameObject.tag == "PlayerOneProjectile")
         {
             Destroy(other.gameObject);
             scoreManager.LevelCompleted();
+            gameManager.GetComponent<ExitLevelScript>().enabled = false;
         }
         else if (other.gameObject.tag == "PlayerOneProjectile" || other.gameObject.tag == "PlayerTwoProjectile")
         {
