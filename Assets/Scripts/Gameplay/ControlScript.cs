@@ -4,7 +4,7 @@ using System.Collections;
 
 public class ControlScript : MonoBehaviour
 {
-    public Slider powerLevel;
+    Slider powerLevel;
     [Header("Minimum and Maximum rotation")]
     [Range(0, 180)]
     public float maxRotation = 15;
@@ -21,14 +21,35 @@ public class ControlScript : MonoBehaviour
     float wait;
     float curTurn = 0;
 
+    GameObject power;
+    bool disablePower = false;
+
     void Start()
     {
         charge = maxCharge * 0.5f;
         powerLevel = GameObject.Find("Power").GetComponent<Slider>();
+
         if (powerLevel == null)
             Debug.LogError("I DON'T HAVE THE POWER!!!!!!!!");
 
-        UpdateSlider();
+        print(disablePower);
+        power = GameObject.Find("Power");
+        disablePower = power.GetComponent<PowerInfo>().disablePower;
+        print(disablePower);
+
+        if (GameObject.Find("Power").GetComponent<PowerInfo>() == null)
+        {
+            Debug.LogError("No powerInfo attached to the power");
+        }
+
+        if (!disablePower)
+        {
+            UpdateSlider();
+        }
+        else
+        {
+            powerLevel.gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -38,10 +59,14 @@ public class ControlScript : MonoBehaviour
             AimingUp();
         if (Input.GetAxis("Vertical") < 0)
             AimingDown();
-        if (Input.GetAxis("Horizontal") > 0 && Time.time > wait + .2f)
-            ChargingUp();
-        if (Input.GetAxis("Horizontal") < 0 && Time.time > wait + .2f)
-            CoolingDown();
+
+        if (!disablePower)
+        {
+            if (Input.GetAxis("Horizontal") > 0 && Time.time > wait + .2f)
+                ChargingUp();
+            if (Input.GetAxis("Horizontal") < 0 && Time.time > wait + .2f)
+                CoolingDown();
+        }
         ////aiming up
         //if (transform.tag == "PlayerOne" && Input.GetKey("w"))
         //{
@@ -133,7 +158,6 @@ public class ControlScript : MonoBehaviour
 
     void UpdateSlider()
     {
-        print("Slider updated");
         powerLevel.value = ControlScript.charge / maxCharge;
     }
 }

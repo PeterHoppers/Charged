@@ -341,6 +341,16 @@ Prefab:
       propertyPath: cannotPlaceNegative
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012331546456, guid: 16152ae4d36b00e47ba1984a3a21db3f,
+        type: 2}
+      propertyPath: disableScore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012331546456, guid: 16152ae4d36b00e47ba1984a3a21db3f,
+        type: 2}
+      propertyPath: hideStarsPanel
+      value: 
+      objectReference: {fileID: 291365884}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 16152ae4d36b00e47ba1984a3a21db3f, type: 2}
   m_IsPrefabParent: 0
@@ -524,6 +534,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!1 &291365884 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012583949008, guid: 67c8704dfcc2ddc4ab9118edfdd4369d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1302808113}
 --- !u!224 &417771717 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224000013373246576, guid: 4440233088f3dad4daf9c79e9075f880,
@@ -1037,10 +1052,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1000011345433722, guid: 67c8704dfcc2ddc4ab9118edfdd4369d, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 67c8704dfcc2ddc4ab9118edfdd4369d, type: 2}
   m_IsPrefabParent: 0
@@ -1171,6 +1182,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1000014277192668, guid: 4440233088f3dad4daf9c79e9075f880, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4440233088f3dad4daf9c79e9075f880, type: 2}
   m_IsPrefabParent: 0
@@ -1280,6 +1295,11 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 0.44444445
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010522470384, guid: e0447a66c9183354188da0c7bf8d90ab,
+        type: 2}
+      propertyPath: disablePower
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0447a66c9183354188da0c7bf8d90ab, type: 2}

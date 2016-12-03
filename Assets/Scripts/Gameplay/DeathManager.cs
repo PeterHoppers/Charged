@@ -36,9 +36,5 @@ public class DeathManager : MonoBehaviour {
         trailRenderer.transform.SetParent(canvas.transform);
         trailRenderer.transform.position = currentPosition;
         Destroy(player.gameObject);                                                  //Destroyes the player and updates the score
-        if(PlayerManager.numberOfPlayers == 1)
-        {
-            attempts.Attempted();
-        }
     }
 }

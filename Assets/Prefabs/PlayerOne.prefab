@@ -71,10 +71,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2eacdab937b11743b1a764c022c0eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerLevel: {fileID: 0}
   maxRotation: 90
   minRotation: -90
   speed: 0.5
+  disablePower: 1
   minCharge: 10
   maxCharge: 100
   chargeStepper: 5

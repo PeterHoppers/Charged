@@ -3,12 +3,21 @@ using UnityEngine.UI;
 
 public class Power : MonoBehaviour {
 
+    public bool disablePower = false;
     public float startingPower = 0.5f;
     public float power;
     private Slider theSlider;
-    void Start() {
+    void Start()
+    {
         power = startingPower;                              // The power it starts at.
         theSlider = gameObject.GetComponent<Slider>();      // The power reps the fill ammount
+
+        if (disablePower)
+        {
+            this.gameObject.SetActive(false);
+            this.enabled = false;
+        }
+
     }
     float thePower {
         get { return power; }

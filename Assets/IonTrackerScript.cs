@@ -9,7 +9,6 @@ using UnityEngine.UI;
 public class IonTrackerScript : MonoBehaviour {
     Text negatives;
     Text positives;
-   // Text total;
     Text score;
     [HideInInspector]
     public int points;
