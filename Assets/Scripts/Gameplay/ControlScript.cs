@@ -32,10 +32,8 @@ public class ControlScript : MonoBehaviour
         if (powerLevel == null)
             Debug.LogError("I DON'T HAVE THE POWER!!!!!!!!");
 
-        print(disablePower);
         power = GameObject.Find("Power");
         disablePower = power.GetComponent<PowerInfo>().disablePower;
-        print(disablePower);
 
         if (GameObject.Find("Power").GetComponent<PowerInfo>() == null)
         {
