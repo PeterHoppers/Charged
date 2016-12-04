@@ -4,12 +4,14 @@ using System.Collections;
 public class Shooting : MonoBehaviour
 {
     GameObject canvas;
+    GameObject preplacedObj;
     [SerializeField]
     Rigidbody2D myBullet;
     ScoreManager scoreManager;
 	// Use this for initialization
 	void Start () {
         canvas = GameObject.Find("Canvas");
+        preplacedObj = canvas.transform.FindChild("PreplacedObj").gameObject;
         scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
 	}
 	
@@ -34,7 +36,7 @@ public class Shooting : MonoBehaviour
         }
         Rigidbody2D clone = Instantiate(myBullet, transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
         clone.velocity = transform.TransformDirection(Vector3.right * ControlScript.charge);
-        clone.transform.SetParent(canvas.transform);
+        clone.transform.SetParent(preplacedObj.transform);
         clone.GetComponent<RectTransform>().localScale = new Vector3(.4f, .4f, .4f);
 
         switch(tag)
