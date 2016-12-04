@@ -21,12 +21,21 @@ public class ControlScript : MonoBehaviour
     float wait;
     float curTurn = 0;
 
+    void Awake()
+    {
+        //curTurn = gameObject.transform.rotation.z;
+        //print(gameObject.transform.rotation.z);
+        //minRotation = +(0 - (int)curTurn);
+        //maxRotation = -(maxRotation + (int)curTurn);
+    }
+
     void Start()
     {
+
         charge = minCharge;
         powerLevel = GameObject.Find("Power").GetComponent<Slider>();
         if (powerLevel == null)
-            Debug.LogError("I DON'T HAVE THE POWER!!!!!!!!");
+            Debug.LogError("I DON'T HAVE THE POWER!!!!!!!!");//<--since when does HEMAN not have the powr?
 
         UpdateSlider();
     }
@@ -34,10 +43,8 @@ public class ControlScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis("Vertical") > 0)
-            AimingUp();
-        if (Input.GetAxis("Vertical") < 0)
-            AimingDown();
+        if (Input.GetAxis("Vertical") != 0)
+            Aiming();
         if (Input.GetAxis("Horizontal") > 0 && Time.time > wait + .2f)
             ChargingUp();
         if (Input.GetAxis("Horizontal") < 0 && Time.time > wait + .2f)
@@ -82,33 +89,11 @@ public class ControlScript : MonoBehaviour
         //Incase we go back to two players ^
     }
 
-    void AimingUp()
+    void Aiming()
     {
-        // clamping up
-        if (curTurn + speed < maxRotation)
-        {
-            transform.Rotate(Vector3.forward * speed);
-            curTurn += speed;
-        }
-        else if (curTurn + speed >= maxRotation)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, maxRotation);
-            curTurn = maxRotation;
-        }
-    }
-    void AimingDown()
-    {
-        // clamping up
-        if (curTurn - speed > minRotation)
-        {
-            transform.Rotate(-Vector3.forward * speed);
-            curTurn -= speed;
-        }
-        else if (curTurn - speed <= minRotation)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, minRotation);
-            curTurn = minRotation;
-        }
+        curTurn += Input.GetAxis("Vertical") * speed;
+        curTurn = Mathf.Clamp(curTurn, minRotation, maxRotation);
+        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, curTurn);
     }
     void ChargingUp()
     {
