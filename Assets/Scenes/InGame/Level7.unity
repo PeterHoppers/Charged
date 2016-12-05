@@ -601,6 +601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keys: 44010000
   delay: 2.5
+  minTrans: 80
 --- !u!114 &484791170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -837,6 +838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keys: 
   delay: 1
+  minTrans: 80
 --- !u!114 &633453144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2233,8 +2235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fed525ad30835e4eb36e4236a9ac516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keys: 7f000000
+  keys: 300100002f010000
   delay: 4.5
+  minTrans: 80
 --- !u!114 &2023469980
 MonoBehaviour:
   m_ObjectHideFlags: 0

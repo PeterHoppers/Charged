@@ -3,7 +3,6 @@ using System.Collections;
 
 public class DeathManager : MonoBehaviour {
 
-    static Attempts attempts;                                                          //References the scoreManager
     static Vector3 currentPosition;
     static GameObject trailRenderer;
     static GameObject canvas;
@@ -14,10 +13,6 @@ public class DeathManager : MonoBehaviour {
     {
         isFinished = false;
         canvas = GameObject.Find("Canvas");
-        if(PlayerManager.numberOfPlayers == 1)
-        {
-            attempts = GameObject.Find("Attempts/Time").GetComponent<Attempts>();     //References the scoreManager
-        }
         p1CanShoot = true;
         p2CanShoot = true;
     }

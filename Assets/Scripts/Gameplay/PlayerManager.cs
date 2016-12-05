@@ -26,7 +26,6 @@ public class PlayerManager : MonoBehaviour
                 p1Clone.transform.SetParent(preplacedObjs.transform);
                 p1Clone.GetComponent<RectTransform>().localScale = Vector3.one;
                 p1Clone.transform.tag = "PlayerOne";
-                print(p1Clone);
                 break;
             case 2:
                 p1Clone = Instantiate(playerOne, startPoint.transform.position, startPoint.transform.rotation) as GameObject;
