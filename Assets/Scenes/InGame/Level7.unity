@@ -316,7 +316,7 @@ Prefab:
     - target: {fileID: 114000014111438908, guid: 16152ae4d36b00e47ba1984a3a21db3f,
         type: 2}
       propertyPath: cannotPlacePositive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000014111438908, guid: 16152ae4d36b00e47ba1984a3a21db3f,
         type: 2}
@@ -2267,7 +2267,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Delete and Right Click to Delete
+  m_Text: Shift and Right Click to Delete
 --- !u!222 &2023469981
 CanvasRenderer:
   m_ObjectHideFlags: 0
