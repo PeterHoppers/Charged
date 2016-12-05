@@ -429,6 +429,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keys: 1101000077000000
   delay: 2
+  minTrans: 80
+  fadeInRate: 2
+  fadeOutRate: 0.5
 --- !u!114 &199890388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,6 +535,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keys: 
   delay: 5.5
+  minTrans: 80
+  fadeInRate: 2
+  fadeOutRate: 0.5
 --- !u!114 &218298839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -792,8 +798,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -729.99994}
-  m_SizeDelta: {x: 1330, y: 280}
+  m_AnchoredPosition: {x: 65, y: -720}
+  m_SizeDelta: {x: 1220, y: 280}
   m_Pivot: {x: 0.5, y: 0.5000001}
 --- !u!114 &529846452
 MonoBehaviour:
@@ -832,7 +838,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 190
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
     m_MaxSize: 190
     m_Alignment: 1
@@ -861,6 +867,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keys: 20000000
   delay: 0
+  minTrans: 80
+  fadeInRate: 2
+  fadeOutRate: 0.5
 --- !u!1 &615646179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1712,6 +1721,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keys: 1201000073000000
   delay: 2.5
+  minTrans: 80
+  fadeInRate: 2
+  fadeOutRate: 0.5
 --- !u!114 &1697373500
 MonoBehaviour:
   m_ObjectHideFlags: 0
