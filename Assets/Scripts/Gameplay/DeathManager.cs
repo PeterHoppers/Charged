@@ -9,8 +9,10 @@ public class DeathManager : MonoBehaviour {
     static GameObject canvas;
     public static bool p1CanShoot;
     public static bool p2CanShoot;
+    public static bool isFinished = false;
     void Start()
     {
+        isFinished = false;
         canvas = GameObject.Find("Canvas");
         if(PlayerManager.numberOfPlayers == 1)
         {

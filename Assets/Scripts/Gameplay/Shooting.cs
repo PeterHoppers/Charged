@@ -4,12 +4,16 @@ using System.Collections;
 public class Shooting : MonoBehaviour
 {
     GameObject canvas;
+
+    //GameObject preplacedObj;
     [SerializeField]
     Rigidbody2D myBullet;
     ScoreManager scoreManager;
+ 
 	// Use this for initialization
 	void Start () {
         canvas = GameObject.Find("Canvas");
+       // preplacedObj = canvas.transform.FindChild("PreplacedObj").gameObject;
         scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
 	}
 	

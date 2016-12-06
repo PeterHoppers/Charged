@@ -32,6 +32,7 @@ public class EndLevel : MonoBehaviour
             Destroy(other.gameObject);
             scoreManager.LevelCompleted();
             gameManager.GetComponent<ExitLevelScript>().enabled = false;
+            DeathManager.isFinished = true;
         }
         else if (other.gameObject.tag == "PlayerOneProjectile" || other.gameObject.tag == "PlayerTwoProjectile")
         {
