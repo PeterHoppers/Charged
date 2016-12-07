@@ -17,6 +17,8 @@ public class PlayerManager : MonoBehaviour
     {
         canvas = GameObject.Find("Canvas");
         startPoint = GameObject.Find("StartPoint");
+        ControlScript.startRotation = (int)startPoint.GetComponent<RectTransform>().eulerAngles.z;
+
         switch (numberOfPlayers)            //If one player spawn p1, if two spawn p1 and p2
         {
             case 1:

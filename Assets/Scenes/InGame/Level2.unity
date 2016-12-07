@@ -323,6 +323,11 @@ Prefab:
       propertyPath: cannotPlaceNegative
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012331546456, guid: 16152ae4d36b00e47ba1984a3a21db3f,
+        type: 2}
+      propertyPath: disableScore
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 16152ae4d36b00e47ba1984a3a21db3f, type: 2}
   m_IsPrefabParent: 0
@@ -945,7 +950,7 @@ RectTransform:
   m_GameObject: {fileID: 615646179}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.87, y: 0.87, z: 0.87}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 22648285}
@@ -1854,12 +1859,12 @@ Prefab:
     - target: {fileID: 224000011854071502, guid: e0447a66c9183354188da0c7bf8d90ab,
         type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.435
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000011854071502, guid: e0447a66c9183354188da0c7bf8d90ab,
         type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.43500018
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000011854071502, guid: e0447a66c9183354188da0c7bf8d90ab,
         type: 2}
@@ -2045,7 +2050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keys: 
-  delay: 0
+  delay: 0.5
   minTrans: 80
   fadeInRate: 2
   fadeOutRate: 0.5
@@ -2141,7 +2146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keys: 
-  delay: 0
+  delay: 1.5
   minTrans: 80
   fadeInRate: 2
   fadeOutRate: 0.5
