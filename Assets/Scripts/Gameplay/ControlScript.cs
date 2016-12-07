@@ -17,6 +17,8 @@ public class ControlScript : MonoBehaviour
     public float chargeStepper;
     public static float charge;
     public static int startRotation;
+    bool disablePower = false;
+    GameObject power;
     float wait;
     float curTurn = 0;
 
@@ -26,11 +28,24 @@ public class ControlScript : MonoBehaviour
         maxRotation += startRotation;
         curTurn = startRotation;
         charge = maxCharge * 0.5f;
-        powerLevel = GameObject.Find("Power").GetComponent<Slider>();
+
+        power = GameObject.Find("Power");
+        powerLevel = power.GetComponent<Slider>();
         if (powerLevel == null)
             Debug.LogError("I DON'T HAVE THE POWER!!!!!!!!");
 
-        UpdateSlider();
+        
+        disablePower = power.GetComponent<PowerInfo>().disablePower;
+
+
+        if (!disablePower)
+        {
+            UpdateSlider();
+        }
+        else
+        {
+            powerLevel.gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame

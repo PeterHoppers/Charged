@@ -1195,7 +1195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b36e11cd7bc5bfc4db768ff972b47224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keys: 
+  keys: 20000000
   delay: 0.5
   minTrans: 80
   fadeInRate: 2
@@ -1417,7 +1417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b36e11cd7bc5bfc4db768ff972b47224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keys: 
+  keys: 1201000073000000
   delay: 2
   minTrans: 80
   fadeInRate: 2
@@ -1641,7 +1641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b36e11cd7bc5bfc4db768ff972b47224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keys: 
+  keys: 7700000011010000
   delay: 2
   minTrans: 80
   fadeInRate: 2
