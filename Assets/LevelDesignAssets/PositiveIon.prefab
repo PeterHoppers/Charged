@@ -164,6 +164,7 @@ GameObject:
   - 224: {fileID: 224000012871425794}
   - 222: {fileID: 222000011097098314}
   - 114: {fileID: 114000013620843616}
+  - 95: {fileID: 95000012615473298}
   m_Layer: 2
   m_Name: Circle Image
   m_TagString: Untagged
@@ -229,6 +230,23 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 908066d71e9aae443bd37f476e8efa8b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95000012615473298
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013568488176}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e8d6a2781a6721d4797aa011d6f7f927, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -451,7 +469,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1c2401e0111a5ae4091e49afd7ea05be, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b3b0e228fae08eb4e9ee7eb70944f65c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -635,7 +653,7 @@ RectTransform:
   m_GameObject: {fileID: 1000011683224740}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8699999, y: 0.8699999, z: 0.8699999}
+  m_LocalScale: {x: 0.85585785, y: 0.85585785, z: 0.85585785}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 224000012871425794}
@@ -650,7 +668,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.479998, y: 36.54}
+  m_AnchoredPosition: {x: -30.81088, y: -6.8468623}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.4999984, y: 0.5000003}
 --- !u!224 &224000012415463324
