@@ -55,10 +55,14 @@ public class ControlScript : MonoBehaviour
             AimingUp();
         if (Input.GetAxis("Vertical") < 0)
             AimingDown();
-        if (Input.GetAxis("Horizontal") > 0 && Time.time > wait + .2f)
-            ChargingUp();
-        if (Input.GetAxis("Horizontal") < 0 && Time.time > wait + .2f)
-            CoolingDown();
+
+        if (!disablePower)
+        {
+            if (Input.GetAxis("Horizontal") > 0 && Time.time > wait + .2f)
+                ChargingUp();
+            if (Input.GetAxis("Horizontal") < 0 && Time.time > wait + .2f)
+                CoolingDown();
+        }
         ////aiming up
         //if (transform.tag == "PlayerOne" && Input.GetKey("w"))
         //{

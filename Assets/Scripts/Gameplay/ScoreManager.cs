@@ -12,7 +12,7 @@ public class ScoreManager : MonoBehaviour
     [HideInInspector]
     public GameObject gameManager;
     public GameObject levelCompletedPanel;
-    public GameObject nextLevelButton;
+    GameObject nextLevelButton;
     GameObject hideStarsPanel;
     GameObject myRenderer;
     [Header("Star Images")]
@@ -27,6 +27,7 @@ public class ScoreManager : MonoBehaviour
     public static bool canContinue = false;
     IonTrackerScript ionTracker; //getting the script
     IonPlacement ionPlacement; //getting the script
+    GameObject player;
 
     void Start()
     {
@@ -35,6 +36,8 @@ public class ScoreManager : MonoBehaviour
 
         if (hideStarsPanel == null)
             Debug.LogError("No ignore stars panel attached to the level complete panel.");
+
+        nextLevelButton = levelCompletedPanel.transform.FindChild("NextLevel").gameObject;
 
         levelCompletedPanel.SetActive(false);
         ionPlacement = GameObject.Find("GameManager").GetComponent<IonPlacement>();
@@ -66,9 +69,16 @@ public class ScoreManager : MonoBehaviour
     }
     public void LevelCompleted()
     {
+        player = GameObject.FindGameObjectWithTag("PlayerOneProjectile");
         gameManager.GetComponent<IonPlacement>().enabled = false;
         levelCompletedPanel.SetActive(true);
         myRenderer.GetComponent<LineRenderer>().enabled = false;
+
+        //keeping the trail renderer
+        DeathManager.trailRenderer = player.transform.FindChild("TrailRenderer").gameObject;
+        DeathManager.currentPosition = DeathManager.trailRenderer.transform.position;
+        DeathManager.trailRenderer.transform.SetParent(DeathManager.canvas.transform);
+        DeathManager.trailRenderer.transform.position = DeathManager.currentPosition;
 
         if (!disableScore)
         {

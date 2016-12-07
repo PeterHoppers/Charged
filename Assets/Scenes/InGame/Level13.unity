@@ -1800,7 +1800,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000010706862820, guid: 5653f2912584ffd4395d008e77b996d1, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5653f2912584ffd4395d008e77b996d1, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1605284037 stripped
@@ -2138,7 +2139,7 @@ Prefab:
     - target: {fileID: 224000013170850570, guid: e0447a66c9183354188da0c7bf8d90ab,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0.44444445
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0447a66c9183354188da0c7bf8d90ab, type: 2}
