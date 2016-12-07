@@ -19,8 +19,16 @@ EditorBuildSettings:
     path: Assets/Scenes/InGame/Level5.unity
   - enabled: 1
     path: Assets/Scenes/InGame/Level6.unity
-  - enabled: 0
-    path: Assets/Scenes/InGame/LevelSeven.unity
+  - enabled: 1
+    path: Assets/Scenes/InGame/Level7.unity
+  - enabled: 1
+    path: Assets/Scenes/InGame/Level8.unity
+  - enabled: 1
+    path: Assets/Scenes/InGame/Level9.unity
+  - enabled: 1
+    path: Assets/Scenes/InGame/Level10.unity
+  - enabled: 1
+    path: Assets/Scenes/InGame/Level11.unity
   - enabled: 1
     path: Assets/Scenes/InGame/Level12.unity
   - enabled: 1

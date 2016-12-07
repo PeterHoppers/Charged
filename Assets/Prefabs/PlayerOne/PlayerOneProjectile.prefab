@@ -22,7 +22,7 @@ GameObject:
   - 222: {fileID: 222000011351095486}
   - 114: {fileID: 114000014179656074}
   - 50: {fileID: 50000010219490828}
-  - 61: {fileID: 61000011436344092}
+  - 61: {fileID: 61000012877532114}
   m_Layer: 5
   m_Name: PlayerOneProjectile
   m_TagString: PlayerOneProjectile
@@ -83,7 +83,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61000011436344092
+--- !u!61 &61000012877532114
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
