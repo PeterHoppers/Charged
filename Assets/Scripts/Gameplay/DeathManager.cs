@@ -7,6 +7,9 @@ public class DeathManager : MonoBehaviour {
     public static Vector3 currentPosition;
     public static GameObject trailRenderer;
     public static GameObject canvas;
+    private static IonPlacement ionPlacement;
+    private static bool origPosIon;
+    private static bool origNegIon;
     public static bool p1CanShoot;
     public static bool p2CanShoot;
     public static bool isFinished = false;
@@ -17,6 +20,9 @@ public class DeathManager : MonoBehaviour {
         if(PlayerManager.numberOfPlayers == 1)
         {
             attempts = GameObject.Find("Attempts/Time").GetComponent<Attempts>();     //References the scoreManager
+            ionPlacement = gameObject.GetComponentInChildren<IonPlacement>();
+            origPosIon = ionPlacement.cannotPlacePositive;                              // What is it set to originally?
+            origNegIon = ionPlacement.cannotPlaceNegative;
         }
         p1CanShoot = true;
         p2CanShoot = true;
@@ -28,6 +34,8 @@ public class DeathManager : MonoBehaviour {
         {
             case "PlayerOneProjectile":
                 p1CanShoot = true;
+                ionPlacement.cannotPlacePositive = origPosIon;                          // After the the shot is done,
+                ionPlacement.cannotPlaceNegative = origNegIon;                          // Return placement to original.
                 break;
             case "PlayerTwoProjectile":
                 p2CanShoot = true;
