@@ -26,6 +26,6 @@ public class PlayerManager : MonoBehaviour
         playerClone = Instantiate(playerOne, startPoint.transform.position, startPoint.transform.rotation) as GameObject;
         playerClone.transform.SetParent(canvas.transform);
         playerClone.GetComponent<RectTransform>().localScale = Vector3.one;
-        playerClone.transform.tag = "Player";
+        playerClone.transform.tag = "PlayerOne";
     }
 }

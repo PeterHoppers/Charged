@@ -6,22 +6,31 @@ public class TutorialText : MonoBehaviour {
 
     [Tooltip("The keys needed to be pressed to reset the brightness")]
     public KeyCode[] keys;
+
     [Tooltip("How long before the text fades in")]
     public float delay;
+
     [Header("Transperncy Related Variables"), Tooltip("How low the alpha can be set")]
     public int minTrans = 80;
+
     [Tooltip("How fast the alpha increases per frame")]
     public double fadeInRate = 2;
+
     [Tooltip("How fast the alpha decreases per frame")]
     public double fadeOutRate = .5;
-    Text text;
-    double alpha = 0;           //used to keep track of the alpha value
-    int fadeStage = 0;          //used to manage the different stages
+
+    private Text text;
+    private double alpha = 0;           //used to keep track of the alpha value
+    private int fadeStage = 0;          //used to manage the different stages
+
     // Use this for initialization
     void Start ()
     {
         text = GetComponent<Text>();
-        text.color = new Color32(255, 255, 255, (byte)alpha); //text starts as transparent
+        if (text == null)
+            Debug.LogError("No text component for the Tutorial");
+
+        text.color = new Color32(255, 255, 255, (byte)alpha);   //text starts as transparent
     }
 	
 	// Update is called once per frame

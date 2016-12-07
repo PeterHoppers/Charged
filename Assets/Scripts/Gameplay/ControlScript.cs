@@ -36,9 +36,11 @@ public class ControlScript : MonoBehaviour
         charge = maxCharge * 0.5f;
 
         power = GameObject.Find("Power");
+        if (power == null)
+            Debug.LogError("No Power found.");
         powerLevel = power.GetComponent<Slider>();
         if (powerLevel == null)
-            Debug.LogError("I DON'T HAVE THE POWER!!!!!!!!");
+            Debug.LogError("No Power level found");
 
         
         disablePower = power.GetComponent<PowerInfo>().disablePower;

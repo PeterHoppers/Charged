@@ -17,7 +17,7 @@ public class IonTrackerScript : MonoBehaviour {
     private IonPlacement myIons;
 
     // Use for initialization
-    void Start ()
+    public void Start ()
     {
         myIons = GameObject.Find("GameManager").GetComponent<IonPlacement>();
         if (myIons == null)
@@ -47,11 +47,8 @@ public class IonTrackerScript : MonoBehaviour {
         score = myScore.levelCompletedPanel.transform.FindChild("Score").GetComponent<Text>();
         if (score == null)
             Debug.LogError("No Score text component found on the Level Completed Panel");
-
-        ScoreTracker();
     }
 
-    // Update is called once per frame
     public void ScoreTracker ()
     {
         // Assign the count / score

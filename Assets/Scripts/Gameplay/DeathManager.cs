@@ -29,7 +29,7 @@ public class DeathManager : MonoBehaviour {
 
     public static void killProjectile(GameObject player)
     {
-        if(player.tag == "Projectile")
+        if(player.tag == "PlayerOneProjectile")
         {
             canShoot = true;
         }

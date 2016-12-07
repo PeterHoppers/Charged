@@ -43,7 +43,7 @@ GameObject:
   - 120: {fileID: 120000010174270860}
   m_Layer: 5
   m_Name: GunBarrel
-  m_TagString: Gun
+  m_TagString: P1Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

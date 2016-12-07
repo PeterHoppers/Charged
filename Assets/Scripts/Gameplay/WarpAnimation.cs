@@ -19,9 +19,6 @@ public class WarpAnimation : MonoBehaviour
 
     IEnumerator Wait()  //Causes a pause between each animation
     {
-
-
-        print("Collided with portal");
         yield return new WaitForSeconds(1);
     }
 }

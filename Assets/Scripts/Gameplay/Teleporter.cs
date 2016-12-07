@@ -8,10 +8,10 @@ public class Teleporter : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D obj)
     {
-        if (obj.tag.Equals("PlayerOneProjectile") || obj.tag.Equals("PlayerTwoProjectile"))
+        if (obj.tag.Equals("PlayerOneProjectile"))
         {
-            obj.transform.position = newPosition.position;
-            GetComponent<AudioSource>().Play();
+            obj.transform.position = newPosition.position;              // Move it to the new position.
+            GetComponent<AudioSource>().Play();                         // Play the sound fx
         }
     }
 }
