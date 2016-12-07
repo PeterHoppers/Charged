@@ -246,7 +246,7 @@ Prefab:
         type: 2}
       propertyPath: triesText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 290527553}
     - target: {fileID: 114000012331546456, guid: 16152ae4d36b00e47ba1984a3a21db3f,
         type: 2}
       propertyPath: levelCompletedPanel
@@ -320,6 +320,11 @@ Prefab:
     - target: {fileID: 114000014111438908, guid: 16152ae4d36b00e47ba1984a3a21db3f,
         type: 2}
       propertyPath: cannotPlaceNegative
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012331546456, guid: 16152ae4d36b00e47ba1984a3a21db3f,
+        type: 2}
+      propertyPath: disableScore
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -668,6 +673,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224000013469237776, guid: f9b1e63934360314d96cb84c990813b4,
     type: 2}
   m_PrefabInternal: {fileID: 290527551}
+--- !u!114 &290527553 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000013296697670, guid: f9b1e63934360314d96cb84c990813b4,
+    type: 2}
+  m_PrefabInternal: {fileID: 290527551}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &475235313
 Prefab:
   m_ObjectHideFlags: 0
