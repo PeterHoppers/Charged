@@ -6,10 +6,10 @@ public class ControlScript : MonoBehaviour
 {
     public Slider powerLevel;
     [Header("Minimum and Maximum rotation")]
-    [Range(0, 180)]
-    public float maxRotation = 15;
-    [Range(-180, 0)]
-    public int minRotation = -15;
+    //[Range(0, 180)]
+    public int maxRotation = 90;
+    //[Range(-180, 0)]
+    public int minRotation = -90;
     [Header("How fast the object spins")]
     public float speed = 2.0f;
     [Header("Min Firepower")]
@@ -18,17 +18,20 @@ public class ControlScript : MonoBehaviour
     public int maxCharge = 250;
     public float chargeStepper;
     public static float charge;
+    public static int startRotation;
     float wait;
     float curTurn = 0;
 
     void Awake()
     {
-        Aiming();
+        
     }
 
     void Start()
     {
-
+        minRotation += startRotation;
+        maxRotation += startRotation;
+        curTurn = startRotation;
         charge = minCharge;
         powerLevel = GameObject.Find("Power").GetComponent<Slider>();
         if (powerLevel == null)

@@ -17,10 +17,12 @@ public class PlayerManager : MonoBehaviour
     {
         canvas = GameObject.Find("Canvas");
         startPoint = GameObject.Find("StartPoint");
+        ControlScript.startRotation = (int)startPoint.GetComponent<RectTransform>().eulerAngles.z;
+
         switch (numberOfPlayers)            //If one player spawn p1, if two spawn p1 and p2
         {
             case 1:
-                p1Clone = Instantiate(playerOne, startPoint.transform.position, Quaternion.identity) as GameObject;
+                p1Clone = Instantiate(playerOne, startPoint.transform.position, startPoint.transform.rotation) as GameObject;
                 p1Clone.transform.SetParent(canvas.transform);
                 p1Clone.GetComponent<RectTransform>().localScale = Vector3.one;
                 p1Clone.transform.tag = "PlayerOne";
