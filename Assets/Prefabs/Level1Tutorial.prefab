@@ -22,7 +22,6 @@ GameObject:
   - 222: {fileID: 222000010777730776}
   - 114: {fileID: 114000012864164932}
   - 114: {fileID: 114000010595102076}
-  - 114: {fileID: 114000013432723072}
   m_Layer: 5
   m_Name: Shoot (1)
   m_TagString: Untagged
@@ -41,7 +40,6 @@ GameObject:
   - 222: {fileID: 222000012112180904}
   - 114: {fileID: 114000013867930564}
   - 114: {fileID: 114000010275665176}
-  - 114: {fileID: 114000013294793112}
   m_Layer: 5
   m_Name: Shoot
   m_TagString: Untagged
@@ -75,7 +73,6 @@ GameObject:
   - 222: {fileID: 222000011528532596}
   - 114: {fileID: 114000013830604188}
   - 114: {fileID: 114000012104283322}
-  - 114: {fileID: 114000012526752196}
   m_Layer: 5
   m_Name: Shoot (2)
   m_TagString: Untagged
@@ -94,7 +91,6 @@ GameObject:
   - 222: {fileID: 222000012765108622}
   - 114: {fileID: 114000013683786342}
   - 114: {fileID: 114000011121260878}
-  - 114: {fileID: 114000013381984294}
   m_Layer: 5
   m_Name: Shoot (3)
   m_TagString: Untagged
@@ -158,17 +154,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
---- !u!114 &114000012526752196
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012837212214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114000012864164932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -202,39 +187,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Press Up/W
---- !u!114 &114000013294793112
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011041272534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114000013381984294
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013635535364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114000013432723072
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010257039608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114000013683786342
 MonoBehaviour:
   m_ObjectHideFlags: 1

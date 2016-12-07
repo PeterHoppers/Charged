@@ -3,11 +3,6 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class MenuScript : MonoBehaviour {
-
-    // Use this for initialization
-    void Start () {
-
-	}
 	
 	public void Play(string sceneName)
     {
@@ -22,15 +17,5 @@ public class MenuScript : MonoBehaviour {
     public void Quit()
     {
         Application.Quit();                     //Quits game
-    }
-
-    public void OnePlayer()
-    {
-        PlayerManager.numberOfPlayers = 1;      //1 player
-    }
-
-    public void TwoPlayer()
-    {
-        PlayerManager.numberOfPlayers = 2;      //2 player
     }
 }

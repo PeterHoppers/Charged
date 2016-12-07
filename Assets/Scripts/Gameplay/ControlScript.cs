@@ -5,22 +5,28 @@ using System.Collections;
 public class ControlScript : MonoBehaviour
 {
     public Slider powerLevel;
+
     [Header("Minimum and Maximum rotation")]
     public float maxRotation = 90;
     public int minRotation = -90;
+
     [Header("How fast the object spins")]
     public float speed = 2.0f;
+
     [Header("Min Firepower")]
     public int minCharge = 10;
+
     [Header("Max Firepower")]
     public int maxCharge = 250;
+    
     public float chargeStepper;
     public static float charge;
     public static int startRotation;
-    bool disablePower = false;
-    GameObject power;
-    float wait;
-    float curTurn = 0;
+
+    private bool disablePower = false;
+    private GameObject power;
+    private float wait;
+    private float curTurn = 0;
 
     void Start()
     {
@@ -51,52 +57,14 @@ public class ControlScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis("Vertical") > 0)
+        if (Input.GetAxis("Vertical") > 0)                                  // Up
             AimingUp();
-        if (Input.GetAxis("Vertical") < 0)
+        if (Input.GetAxis("Vertical") < 0)                                  // Down
             AimingDown();
-        if (Input.GetAxis("Horizontal") > 0 && Time.time > wait + .2f)
+        if (Input.GetAxis("Horizontal") > 0 && Time.time > wait + .2f)      // More charge   
             ChargingUp();
-        if (Input.GetAxis("Horizontal") < 0 && Time.time > wait + .2f)
+        if (Input.GetAxis("Horizontal") < 0 && Time.time > wait + .2f)      // Less Charge          
             CoolingDown();
-        ////aiming up
-        //if (transform.tag == "PlayerOne" && Input.GetKey("w"))
-        //{
-        //    AimingUp();
-        //}
-        //else if (transform.tag == "PlayerTwo" && Input.GetKey("up"))        //Aiming up for both players
-        //{
-        //    AimingUp();
-        //}
-        /////////////////////////////////////////////////////////////////
-        //if (transform.tag == "PlayerOne" && Input.GetKey("s"))
-        //{
-        //    AimingDown();
-        //}
-        //else if (transform.tag == "PlayerTwo" && Input.GetKey("down"))      //Aim down for both players
-        //{
-        //    AimingDown();
-        //}
-        /////////////////////////////////////////////////////////////////
-        //if (transform.tag == "PlayerOne" && Input.GetKey("d") && Time.time > wait + .2f)
-        //{
-        //    ChargingUp();
-        //}
-        //else if(transform.tag == "PlayerTwo" && Input.GetKey("right") && Time.time > wait + .2f)      //charge up for both players
-        //{
-        //    ChargingUp();
-        //}
-        /////////////////////////////////////////////////////////////////
-        //if (transform.tag == "PlayerOne" && Input.GetKey("a") && Time.time > wait + .2f)
-        //{
-        //    CoolingDown();
-        //}
-        //else if (transform.tag == "PlayerTwo" && Input.GetKey("left") && Time.time > wait + .2f)      //charge down for both players
-        //{
-        //    CoolingDown();
-        //}
-
-        //Incase we go back to two players ^
     }
 
     void AimingUp()
@@ -115,7 +83,7 @@ public class ControlScript : MonoBehaviour
     }
     void AimingDown()
     {
-        // clamping up
+        // clamping down
         if (curTurn - speed > minRotation)
         {
             transform.Rotate(-Vector3.forward * speed);
@@ -150,7 +118,6 @@ public class ControlScript : MonoBehaviour
 
     void UpdateSlider()
     {
-        print("Slider updated");
         powerLevel.value = ControlScript.charge / maxCharge;
     }
 }

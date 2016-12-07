@@ -1,53 +1,60 @@
-﻿//Cristóbal
-//CSG asignación de ion
-//Noviembre 2016
+﻿// Cristopher
+// CSG
+// Nov 2016
 
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
 public class IonTrackerScript : MonoBehaviour {
-    Text negatives;
-    Text positives;
-   // Text total;
-    Text score;
+    private Text negatives;
+    private Text positives;
+    private Text score;
+
     [HideInInspector]
     public int points;
-    ScoreManager myScore;
-    IonPlacement myIons;
+    private ScoreManager myScore;
+    private IonPlacement myIons;
 
-    //Utilícelo para la inicialización
+    // Use for initialization
     void Start ()
     {
         myIons = GameObject.Find("GameManager").GetComponent<IonPlacement>();
-
         if (myIons == null)
-            Debug.LogError("There are no \"ion placement\" attached to GameManager");
+            Debug.LogError("No IonPlacement script found on GameManager");
 
-        //encontrar todos los textos
-        negatives = GameObject.Find("Canvas/IonTrackers/Negatives").GetComponent<Text>(); 
+        // Find all the text components
+        negatives = GameObject.Find("Canvas/IonTrackers/Negatives").GetComponent<Text>();
+        if (negatives == null) 
+            Debug.LogError(" No Negative text component found on IonTrackers on the canvas");
+
         positives = GameObject.Find("Canvas/IonTrackers/Positives").GetComponent<Text>();
+        if (positives == null)
+            Debug.LogError(" No Positive text component found on IonTrackers on the canvas");
 
+        // The player can place Ions
         if (myIons.cannotPlaceNegative)
             negatives.gameObject.SetActive(false);
 
         if (myIons.cannotPlacePositive)
             positives.gameObject.SetActive(false);
 
-        myScore = GameObject.Find("GameManager").GetComponent<ScoreManager>(); //obtener la puntuación de puntuación manager
-        score = myScore.levelCompletedPanel.transform.FindChild("Score").GetComponent<Text>();
+        // Find score and score text
+        myScore = GameObject.Find("GameManager").GetComponent<ScoreManager>();
+        if (myScore == null)
+            Debug.LogError("No ScoreManager script found on GameManager");
 
-        //  para evitar que el texto null
-        negatives.text = "Negatives Ions: " + IonPlacement.activeNegativeIons.Count;
-        positives.text = "Positives Ions: " + IonPlacement.activePositiveIons.Count;
-        score.text = "Points: " + points.ToString();
+        score = myScore.levelCompletedPanel.transform.FindChild("Score").GetComponent<Text>();
+        if (score == null)
+            Debug.LogError("No Score text component found on the Level Completed Panel");
+
+        ScoreTracker();
     }
 
-    //Actualización se llama una vez por fotograma
+    // Update is called once per frame
     public void ScoreTracker ()
     {
-      //  public IonTrackerScript track = new IonTrackerScript();
-        //escribir las cuentas de ion
+        // Assign the count / score
         negatives.text = "Negatives Ions: " + IonPlacement.activeNegativeIons.Count;
         positives.text = "Positives Ions: " + IonPlacement.activePositiveIons.Count;
         score.text = "Points: " + points.ToString();

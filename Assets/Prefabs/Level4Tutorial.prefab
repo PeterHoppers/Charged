@@ -21,7 +21,6 @@ GameObject:
   - 224: {fileID: 224000011597314302}
   - 222: {fileID: 222000013972401024}
   - 114: {fileID: 114000011808337504}
-  - 114: {fileID: 114000014120411818}
   m_Layer: 5
   m_Name: Header
   m_TagString: Untagged
@@ -39,7 +38,6 @@ GameObject:
   - 224: {fileID: 224000014290799072}
   - 222: {fileID: 222000011387625806}
   - 114: {fileID: 114000013386557218}
-  - 114: {fileID: 114000011887806472}
   m_Layer: 5
   m_Name: Left
   m_TagString: Untagged
@@ -57,7 +55,6 @@ GameObject:
   - 224: {fileID: 224000010470303902}
   - 222: {fileID: 222000012807059700}
   - 114: {fileID: 114000011045641172}
-  - 114: {fileID: 114000012224355212}
   m_Layer: 5
   m_Name: Right
   m_TagString: Untagged
@@ -146,28 +143,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Look at you. You now can place those blue ions you saw before.
---- !u!114 &114000011887806472
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011694836408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114000012224355212
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012872476286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114000013386557218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,17 +176,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Left Click to Place Them
---- !u!114 &114000014120411818
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010447587148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &222000011387625806
 CanvasRenderer:
   m_ObjectHideFlags: 1

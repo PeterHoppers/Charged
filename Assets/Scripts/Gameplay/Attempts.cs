@@ -12,7 +12,7 @@ public class Attempts : MonoBehaviour {
 
     // Call when there is another attempt
     public void Attempted() {
-        attempts++;                         // Call to increase attempt
+        attempts++;                                                        
         gameObject.GetComponent<Text>().text = " Attempts: " + attempts;    // Update Attempt text
     }
 }

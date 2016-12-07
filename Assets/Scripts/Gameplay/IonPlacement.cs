@@ -2,31 +2,31 @@
 using System.Collections.Generic;
 public class IonPlacement : MonoBehaviour
 {
-
+    // Set up Negative and Positive Ions
     public GameObject positiveIonPrefab;
     public GameObject negativeIonPrefab;
     public int availablePositiveIons = 5;
     public int availableNegativeIons = 5;
     public bool cannotPlacePositive;
     public bool cannotPlaceNegative;
-    GameObject gameManager;
-    LevelEditorScript levelEditor;
     public static List<GameObject> activePositiveIons;
     public static List<GameObject> activeNegativeIons;
-    bool lastWasPositive = false;
+
+    private GameObject gameManager;
+    private LevelEditorScript levelEditor;
+    private bool lastWasPositive = false;
 
     // Use this for initialization
     void Start()
     {
         activePositiveIons = new List<GameObject>();
         activeNegativeIons = new List<GameObject>();
-        gameManager = GameObject.Find("GameManager");
 
+        gameManager = GameObject.Find("GameManager");
         if (gameManager == null)
             Debug.LogError("No GameManager found");
 
         levelEditor = gameManager.GetComponent<LevelEditorScript>();
-
         if (levelEditor == null)
             Debug.LogError("No level editor script found on the GameManager");
     }
@@ -74,8 +74,6 @@ public class IonPlacement : MonoBehaviour
             //Right click places negative ion
             if (Input.GetMouseButtonUp(1))
             {
-
-                print(IonPlacement.activePositiveIons.Count);
                 if (!levelEditor.CheckForObject("Button"))
                 {
                     if (activeNegativeIons.Count > 0)
@@ -91,7 +89,6 @@ public class IonPlacement : MonoBehaviour
                         }
                     }
 
-
                     if (availableNegativeIons > 0)
                     {
                         //==============If you are not holding delete, place one=============
@@ -101,14 +98,14 @@ public class IonPlacement : MonoBehaviour
                             lastWasPositive = false;
                             availableNegativeIons--;
 
-                            gameManager.GetComponent<IonTrackerScript>().ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
+                            gameManager.GetComponent<IonTrackerScript>().ScoreTracker(); // Refreshes the score on the IonTrackerScript
                         }
                     }
                 }
             }
         }
 
-        //Escape checks to see if there are any ions active. If so, check the tag of the last one created, increment respective available ions, and destroy that ion
+        //Backspace checks to see if there are any ions active. If so, check the tag of the last one created, increment respective available ions, and destroy that ion
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
             if (activeNegativeIons.Count <= 0)
@@ -138,11 +135,13 @@ public class IonPlacement : MonoBehaviour
     {
         int posCnt = activePositiveIons.Count;
 
+        // Increment through list and delete all positive ions.
         for (int index = 0; index < posCnt; index++)
         {
             DeletePositiveIon(activePositiveIons[0]);
         }
 
+        // Same, but for Negative Ions
         int negCnt = activeNegativeIons.Count;
 
         for (int index = 0; index < negCnt; index++)
@@ -159,7 +158,7 @@ public class IonPlacement : MonoBehaviour
         int index = activePositiveIons.IndexOf(tempIon);
         Destroy(activePositiveIons[index]);
         activePositiveIons.Remove(activePositiveIons[index]);
-        gameManager.GetComponent<IonTrackerScript>().ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
+        gameManager.GetComponent<IonTrackerScript>().ScoreTracker(); //Refreshing the score in the IonTrackerScript
     }
 
     //============Delete a negative ion===========
@@ -170,7 +169,7 @@ public class IonPlacement : MonoBehaviour
         int index = activeNegativeIons.IndexOf(tempIon);
         Destroy(activeNegativeIons[index]);
         activeNegativeIons.Remove(activeNegativeIons[index]);
-        gameManager.GetComponent<IonTrackerScript>().ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
+        gameManager.GetComponent<IonTrackerScript>().ScoreTracker(); // Refreshing the score in the IonTrackerScript
     }
 
 

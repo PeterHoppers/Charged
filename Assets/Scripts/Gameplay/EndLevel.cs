@@ -5,10 +5,7 @@ using UnityEngine.SceneManagement;
 public class EndLevel : MonoBehaviour
 {
     ScoreManager scoreManager;
-    RaceAgainstTime raceAgainstTime;
-
     GameObject gameManager;
-
     Collider2D myCollider;
 
 	// Use this for initialization
@@ -16,29 +13,26 @@ public class EndLevel : MonoBehaviour
     { 
         myCollider = GetComponent<BoxCollider2D>();
         myCollider.enabled = true;
+
         gameManager = GameObject.Find("GameManager");
+        if (gameManager == null) {
+            Debug.LogError("No Game Manager Found.");
+        }
 
         scoreManager = gameManager.GetComponent<ScoreManager>();
-
-        if(PlayerManager.numberOfPlayers == 2)
-        {
-            raceAgainstTime = GameObject.Find("GameManager").GetComponent<RaceAgainstTime>();
+        if (scoreManager == null) {
+            Debug.LogError("No Score Manager found on Game Manager");
         }
 	}
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (PlayerManager.numberOfPlayers == 1 && other.gameObject.tag == "PlayerOneProjectile")
+        if (other.gameObject.tag == "PlayerOneProjectile")                  // When the projectile hits the end point, end the level.
         {
             Destroy(other.gameObject);
             scoreManager.LevelCompleted();
             gameManager.GetComponent<ExitLevelScript>().enabled = false;
-            DeathManager.isFinished = true;
-        }
-        else if (other.gameObject.tag == "PlayerOneProjectile" || other.gameObject.tag == "PlayerTwoProjectile")
-        {
-            Destroy(other.gameObject);
-            myCollider.enabled = false;
-            raceAgainstTime.IncrementPoints(other.gameObject);
+            DeathManager.isFinished = true;                                 // Level is finished
         }
     }
 }

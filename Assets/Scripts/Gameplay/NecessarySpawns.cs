@@ -5,29 +5,25 @@ public class NecessarySpawns : MonoBehaviour {
 
     [Tooltip("The prefab or gameobject of the launcher")]
     public GameObject launcher;
+
     [Tooltip("The prefab or gameobject of the exit")]
     public GameObject exit;
-    GameObject inSceneLauncher;         //saves the launcher object
-    GameObject inSceneExit;             //saves the exit object
+    private GameObject inSceneLauncher;         // saves the launcher object
+    private GameObject inSceneExit;             // saves the exit object
 
-    GameObject canvas;                  //grabs canvas to make sure the transform is in the correct spot
+    private GameObject canvas;                  // grabs canvas to make sure the transform is in the correct spot
+    private RectTransform startPoint;
+    private RectTransform endPoint;
 
- //   public RectTransform background;    //will be private when Sam's code is implemented
-    RectTransform startPoint;
-    RectTransform endPoint;
-
-    //WhateverScriptSamMade backgroundManager       grabs a copy of whatever Sam's background script is
     void Start()
     {
-        //backgroundManager = GameObject.FindObjectWithTag("GameManager").GetComponent<WhateverScriptSamMade>();
         canvas = GameObject.FindGameObjectWithTag("Canvas");
-
         if (canvas == null)
-            Debug.LogError("The Canvas is not tagged.");
+            Debug.LogError("The Canvas is not tagged or does not exist.");
     }
     public void ActivateObjects(GameObject background)
     {
-        //background = (RectTransform) backgroundManager.activebackground.transform;
+        // If point exists, select it; otherwise, create the point;
         startPoint = (RectTransform)background.transform.FindChild("StartPoint");
         if (startPoint == null)
         {
@@ -35,7 +31,7 @@ public class NecessarySpawns : MonoBehaviour {
             startPoint.anchorMax = new Vector2(0, 0.5f);
             startPoint.localPosition = new Vector3(60, 0, 0);
         }
-
+        // If point exists, select it; otherwise, create the point;
         endPoint = (RectTransform)background.transform.FindChild("EndPoint");
         if (endPoint == null)
         {
@@ -44,17 +40,18 @@ public class NecessarySpawns : MonoBehaviour {
             endPoint.localPosition = new Vector3(-60, 0, 0);
         }
 
-
         if (inSceneLauncher != null)        //if it already exists, destory that previous object
             Destroy(inSceneLauncher);
 
         if (inSceneExit != null)
             Destroy(inSceneExit);
 
+        // ========  Spawn Launcher ============
         inSceneLauncher = (GameObject) Instantiate(launcher, canvas.transform);
         inSceneLauncher.GetComponent<RectTransform>().localPosition = startPoint.localPosition;
         inSceneLauncher.transform.localScale = Vector3.one;
         
+        // ======== Spawn Exit ================
         inSceneExit = (GameObject) Instantiate(exit, canvas.transform);
         inSceneExit.GetComponent<RectTransform>().localPosition = endPoint.localPosition;
         inSceneExit.transform.localScale = Vector3.one;

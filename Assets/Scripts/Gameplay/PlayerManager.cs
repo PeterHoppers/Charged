@@ -4,41 +4,28 @@ using System.Collections;
 public class PlayerManager : MonoBehaviour
 {
     [HideInInspector]
-    public static int numberOfPlayers = 1;      
-    public GameObject playerOne;            //Player One prefab
-    public GameObject playerTwo;            //Player Two prefab
-
-    GameObject startPoint;                  //Where the player will spawn
+    public GameObject playerOne;                    //Player One prefab
     [HideInInspector]
-    public GameObject p1Clone;             
-    GameObject p2Clone;
-    GameObject canvas;
+    public GameObject playerClone;             
+    private GameObject canvas;
+    private GameObject startPoint;                  //Where the player will spawn
+
     void Start()
     {
         canvas = GameObject.Find("Canvas");
+        if (canvas == null) 
+            Debug.LogError("No canvas found");
+
         startPoint = GameObject.Find("StartPoint");
+        if (startPoint == null)
+            Debug.LogError("No Start Point found");
+
         ControlScript.startRotation = (int)startPoint.GetComponent<RectTransform>().eulerAngles.z;
 
-        switch (numberOfPlayers)            //If one player spawn p1, if two spawn p1 and p2
-        {
-            case 1:
-                p1Clone = Instantiate(playerOne, startPoint.transform.position, startPoint.transform.rotation) as GameObject;
-                p1Clone.transform.SetParent(canvas.transform);
-                p1Clone.GetComponent<RectTransform>().localScale = Vector3.one;
-                p1Clone.transform.tag = "PlayerOne";
-                print(p1Clone);
-                break;
-            case 2:
-                p1Clone = Instantiate(playerOne, startPoint.transform.position, startPoint.transform.rotation) as GameObject;
-                p1Clone.transform.SetParent(canvas.transform);
-                p1Clone.GetComponent<RectTransform>().localScale = Vector3.one;
-                p1Clone.transform.tag = "PlayerOne";
-
-                p2Clone = Instantiate(playerTwo, startPoint.transform.position, startPoint.transform.rotation) as GameObject;
-                p2Clone.transform.SetParent(canvas.transform);
-                p2Clone.GetComponent<RectTransform>().localScale = Vector3.one;
-                p2Clone.transform.tag = "PlayerTwo";
-                break;
-        }
+        // ==================== Create the player when the level begins ===============================
+        playerClone = Instantiate(playerOne, startPoint.transform.position, startPoint.transform.rotation) as GameObject;
+        playerClone.transform.SetParent(canvas.transform);
+        playerClone.GetComponent<RectTransform>().localScale = Vector3.one;
+        playerClone.transform.tag = "Player";
     }
 }
