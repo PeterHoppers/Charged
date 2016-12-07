@@ -261,7 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positiveIonPrefab: {fileID: 0}
   negativeIonPrefab: {fileID: 0}
-  availablePositiveIons: 5
-  availableNegativeIons: 5
+  availablePositiveIons: 15
+  availableNegativeIons: 15
   cannotPlacePositive: 0
   cannotPlaceNegative: 0

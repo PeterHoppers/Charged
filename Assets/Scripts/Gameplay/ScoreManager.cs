@@ -13,6 +13,7 @@ public class ScoreManager : MonoBehaviour
     public GameObject gameManager;
     public GameObject levelCompletedPanel;
     public GameObject nextLevelButton;
+    GameObject hideStarsPanel;
     [Header("Star Images")]
     public GameObject star1;
     public GameObject star2;
@@ -28,6 +29,12 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
+        hideStarsPanel = levelCompletedPanel.transform.FindChild("IgnoreStarsPanel").gameObject;
+
+        if (hideStarsPanel == null)
+            Debug.LogError("No ignore stars panel attached to the level complete panel.");
+
+        levelCompletedPanel.SetActive(false);
         ionPlacement = GameObject.Find("GameManager").GetComponent<IonPlacement>();
         gameManager = GameObject.Find("GameManager");
         if (gameManager == null)
@@ -35,10 +42,6 @@ public class ScoreManager : MonoBehaviour
 
         ionTracker = gameManager.GetComponent<IonTrackerScript>();
 
-        if (PlayerManager.numberOfPlayers == 2)
-        {
-            enabled = false;
-        }
         triesText.text = "Attempts: " + tries;      //Change the text at the start to make sure it says the correct text.S
 
         if (LevelSelect.staticStarsNeeded != null)
@@ -66,6 +69,7 @@ public class ScoreManager : MonoBehaviour
 
         if (!disableScore)
         {
+            hideStarsPanel.SetActive(false);
             //======================Calculate Score=================================
             ionTracker.points += 100 + (((int)ionPlacement.availablePositiveIons + (int)ionPlacement.availableNegativeIons) * 25) - (((int)IonPlacement.activePositiveIons.Count + (int)IonPlacement.activeNegativeIons.Count) * 25);
             ionTracker.ScoreTracker();
@@ -106,6 +110,11 @@ public class ScoreManager : MonoBehaviour
                 GameObject.Find("StarsNeeded").GetComponent<Text>().text = "Stars Needed to Continue: " + (starsNeededToCont - StarCount.starCount);
                 nextLevelButton.GetComponent<Button>().interactable = false;
             }
+        }
+        else
+        {
+            canContinue = true;
+            hideStarsPanel.SetActive(true);
         }
     }
 }
