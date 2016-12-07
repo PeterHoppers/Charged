@@ -1805,7 +1805,7 @@ Prefab:
     - target: {fileID: 224000010172667298, guid: 67c8704dfcc2ddc4ab9118edfdd4369d,
         type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 224000013668832552, guid: 67c8704dfcc2ddc4ab9118edfdd4369d,
         type: 2}
@@ -1821,6 +1821,16 @@ Prefab:
         type: 2}
       propertyPath: m_LocalScale.z
       value: 0.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011887218024, guid: 67c8704dfcc2ddc4ab9118edfdd4369d,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010219444656, guid: 67c8704dfcc2ddc4ab9118edfdd4369d,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 67c8704dfcc2ddc4ab9118edfdd4369d, type: 2}
@@ -2757,6 +2767,10 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013991919732, guid: f9b1e63934360314d96cb84c990813b4, type: 2}
+      propertyPath: m_Name
+      value: Attempts/Time
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9b1e63934360314d96cb84c990813b4, type: 2}

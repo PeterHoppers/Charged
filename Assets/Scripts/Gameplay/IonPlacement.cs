@@ -41,7 +41,7 @@ public class IonPlacement : MonoBehaviour
             {
                 if (!levelEditor.CheckForObject("Button"))
                 {
-                    if (Input.GetKey(KeyCode.Delete))
+                    if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
                     {
                         //==============If you are holding down delete, delete the nearest one============
                         if (activePositiveIons.Count > 0)
@@ -57,7 +57,7 @@ public class IonPlacement : MonoBehaviour
                     if (availablePositiveIons > 0)
                     {
                         //==============If you are not holding delete, place one=============
-                        if (!Input.GetKey(KeyCode.Delete))
+                        if (!Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
                         {
                             activePositiveIons.Add(levelEditor.CreateNewObjectAtCursor(positiveIonPrefab, "Positive"));
                             lastWasPositive = true;
@@ -81,7 +81,7 @@ public class IonPlacement : MonoBehaviour
                     if (activeNegativeIons.Count > 0)
                     {
                         //==============If you are holding down delete, delete the nearest one============
-                        if (Input.GetKey(KeyCode.Delete))
+                        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
                         {
                             Vector3 mousePosition = Input.mousePosition;
                             mousePosition.z = 100.0f;
@@ -95,7 +95,7 @@ public class IonPlacement : MonoBehaviour
                     if (availableNegativeIons > 0)
                     {
                         //==============If you are not holding delete, place one=============
-                        if (!Input.GetKey(KeyCode.Delete))
+                        if (!Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
                         {
                             activeNegativeIons.Add(levelEditor.CreateNewObjectAtCursor(negativeIonPrefab, "Negative"));
                             lastWasPositive = false;
