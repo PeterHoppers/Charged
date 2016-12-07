@@ -4,9 +4,9 @@ using System.Collections;
 public class DeathManager : MonoBehaviour {
 
     static Attempts attempts;                                                          //References the scoreManager
-    static Vector3 currentPosition;
-    static GameObject trailRenderer;
-    static GameObject canvas;
+    static public Vector3 currentPosition;
+    static public GameObject trailRenderer;
+    static public GameObject canvas;
     public static bool p1CanShoot;
     public static bool p2CanShoot;
     public static bool isFinished = false;

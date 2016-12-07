@@ -25,9 +25,16 @@ public class ScoreManager : MonoBehaviour
     public static bool canContinue = false;
     IonTrackerScript ionTracker; //getting the script
     IonPlacement ionPlacement; //getting the script
+    GameObject myRenderer;
+    GameObject player;
+
+
 
     void Start()
     {
+        myRenderer = GameObject.Find("Canvas/PlayerOne(Clone)/GunBarrel");
+        print (myRenderer);
+
         ionPlacement = GameObject.Find("GameManager").GetComponent<IonPlacement>();
         gameManager = GameObject.Find("GameManager");
         if (gameManager == null)
@@ -61,8 +68,17 @@ public class ScoreManager : MonoBehaviour
     }
     public void LevelCompleted()
     {
+        player = GameObject.FindGameObjectWithTag ("PlayerOneProjectile");
         gameManager.GetComponent<IonPlacement>().enabled = false;
         levelCompletedPanel.SetActive(true);
+        myRenderer.GetComponent<LineRenderer>().enabled = false;
+
+        //keeping the trail renderer
+        DeathManager.trailRenderer = player.transform.FindChild("TrailRenderer").gameObject;
+        DeathManager.currentPosition = DeathManager.trailRenderer.transform.position;
+        DeathManager.trailRenderer.transform.SetParent(DeathManager.canvas.transform);
+        DeathManager.trailRenderer.transform.position = DeathManager.currentPosition;
+        Destroy(player.gameObject);
 
         if (!disableScore)
         {
@@ -71,7 +87,6 @@ public class ScoreManager : MonoBehaviour
             ionTracker.ScoreTracker();
             //using this temp variable as a means to compare the actual score to a percentage of to its max (otherwise the statement would, again, be long)
             float temp = 100 + (((int)ionPlacement.availablePositiveIons + (int)ionPlacement.availableNegativeIons) * 25);
-
             //========================Show the Stars Earned===========================
             if (ionTracker.points >= threeStarScore)
             {
@@ -99,7 +114,6 @@ public class ScoreManager : MonoBehaviour
             {
                 GameObject.Find("StarsNeeded").SetActive(false);
                 canContinue = true;
-                nextLevelButton.GetComponent<Button>().interactable = true;
             }
             else
             {                                                  // Otherwise, show amount needed to cont.
