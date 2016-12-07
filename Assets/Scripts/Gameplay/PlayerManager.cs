@@ -13,9 +13,11 @@ public class PlayerManager : MonoBehaviour
     public GameObject p1Clone;             
     GameObject p2Clone;
     GameObject canvas;
+    GameObject preplacedObj;
     void Start()
     {
         canvas = GameObject.Find("Canvas");
+
         startPoint = GameObject.Find("StartPoint");
         ControlScript.startRotation = (int)startPoint.GetComponent<RectTransform>().eulerAngles.z;
 
