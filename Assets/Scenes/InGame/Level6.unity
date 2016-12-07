@@ -180,8 +180,8 @@ RectTransform:
   - {fileID: 915023190}
   - {fileID: 1099578894}
   - {fileID: 352559680}
-  - {fileID: 59127142}
   - {fileID: 418489778}
+  - {fileID: 59127142}
   - {fileID: 1302808114}
   - {fileID: 1547402044}
   m_Father: {fileID: 0}
@@ -433,6 +433,10 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013991919732, guid: f9b1e63934360314d96cb84c990813b4, type: 2}
+      propertyPath: m_Name
+      value: Attempts/Time
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9b1e63934360314d96cb84c990813b4, type: 2}
