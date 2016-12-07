@@ -23,10 +23,7 @@ public class ControlScript : MonoBehaviour
 
     void Awake()
     {
-        //curTurn = gameObject.transform.rotation.z;
-        //print(gameObject.transform.rotation.z);
-        //minRotation = +(0 - (int)curTurn);
-        //maxRotation = -(maxRotation + (int)curTurn);
+        Aiming();
     }
 
     void Start()
