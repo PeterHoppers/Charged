@@ -10,11 +10,7 @@ public class LevelSelect : MonoBehaviour
     GameObject level;
     [Header("How many levels?"), Tooltip("Anything more than the starNeeded array will appear as custom levels")]
     public int maxLevels;
-    //***   Important
-    //public static 
-    //this represents the level locked. For example, if level 1 is not locked, it would be 
-    //displayed like so "if (!LevelSelect.locked[0])"
-    //if we wanted to unlocked level 1, we would do "locked[1] = false;"
+    
     public int[] starsNeeded;
     public static int[] staticStarsNeeded;
     public AudioSource error;
@@ -26,6 +22,10 @@ public class LevelSelect : MonoBehaviour
     LevelButtonScript myScript;
 
     public GameObject levelObject;
+    public Sprite unlockedFrame;
+    public Sprite lockedFrame;
+    public Sprite unlockLock;
+    public Sprite lockLock;
 
     // setting this object's activeness, 
 
@@ -49,6 +49,7 @@ public class LevelSelect : MonoBehaviour
         {
             level = Instantiate(levelObject);
             GameObject child = level.transform.Find("Locked").gameObject;
+            child.SetActive(true);
 
             if (child != null)
             {
@@ -56,11 +57,13 @@ public class LevelSelect : MonoBehaviour
                 {
                     if (starsNeeded[levelCount] <= stars)
                     {
-                        child.SetActive(false);
+                        level.GetComponent<Image>().sprite = unlockedFrame;
+                        child.GetComponent<Image>().sprite = unlockLock;
                     }
                     else
                     {
-                        child.SetActive(true);
+                        level.GetComponent<Image>().sprite = lockedFrame;
+                        child.GetComponent<Image>().sprite = lockLock;
                     }
                 }
             }
