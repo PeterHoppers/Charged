@@ -9,13 +9,15 @@ public class Shooting : MonoBehaviour
     [SerializeField]
     Rigidbody2D myBullet;
     ScoreManager scoreManager;
+    private IonPlacement ionPlacement;
  
 	// Use this for initialization
 	void Start () {
         canvas = GameObject.Find("Canvas");
        // preplacedObj = canvas.transform.FindChild("PreplacedObj").gameObject;
         scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
-	}
+        ionPlacement = GameObject.Find("GameManager").GetComponent<IonPlacement>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -45,6 +47,8 @@ public class Shooting : MonoBehaviour
         {
             case "P1Gun":
                 DeathManager.p1CanShoot = false;
+                ionPlacement.cannotPlacePositive = true;            // Cannot place during shot
+                ionPlacement.cannotPlaceNegative = true;
                 break;
             case "P2Gun":
                 DeathManager.p2CanShoot = false;
