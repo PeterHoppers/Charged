@@ -14,6 +14,7 @@ public class ScoreManager : MonoBehaviour
     public GameObject levelCompletedPanel;
     public GameObject nextLevelButton;
     GameObject hideStarsPanel;
+    GameObject myRenderer;
     [Header("Star Images")]
     public GameObject star1;
     public GameObject star2;
@@ -29,6 +30,7 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
+        myRenderer = GameObject.Find("Canvas/PlayerOne(Clone)/GunBarrel");
         hideStarsPanel = levelCompletedPanel.transform.FindChild("IgnoreStarsPanel").gameObject;
 
         if (hideStarsPanel == null)
@@ -66,6 +68,7 @@ public class ScoreManager : MonoBehaviour
     {
         gameManager.GetComponent<IonPlacement>().enabled = false;
         levelCompletedPanel.SetActive(true);
+        myRenderer.GetComponent<LineRenderer>().enabled = false;
 
         if (!disableScore)
         {
