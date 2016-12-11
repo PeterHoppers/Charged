@@ -28,18 +28,22 @@ public class IonTrackerScript : MonoBehaviour {
         negatives = GameObject.Find("Canvas/IonTrackers/Negatives").GetComponent<Text>(); 
         positives = GameObject.Find("Canvas/IonTrackers/Positives").GetComponent<Text>();
 
+        print(negatives);
+        print(IonPlacement.activeNegativeIons.Count);
+
         if (myIons.cannotPlaceNegative)
             negatives.gameObject.SetActive(false);
 
         if (myIons.cannotPlacePositive)
             positives.gameObject.SetActive(false);
 
+        negatives.text = "Negatives Ions: " + IonPlacement.activeNegativeIons.Count;
+        positives.text = "Positives Ions: " + IonPlacement.activePositiveIons.Count;
+
         myScore = GameObject.Find("GameManager").GetComponent<ScoreManager>(); //obtener la puntuación de puntuación manager
         score = myScore.levelCompletedPanel.transform.FindChild("Score").GetComponent<Text>();
 
         //  para evitar que el texto null
-        negatives.text = "Negatives Ions: " + IonPlacement.activeNegativeIons.Count;
-        positives.text = "Positives Ions: " + IonPlacement.activePositiveIons.Count;
         score.text = "Points: " + points.ToString();
     }
 
