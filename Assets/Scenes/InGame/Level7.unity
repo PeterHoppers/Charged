@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692492, g: 0.4967869, b: 0.57508546, a: 1}
+  m_IndirectSpecularColor: {r: 0.44692534, g: 0.4967872, b: 0.57508564, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -827,7 +827,7 @@ Prefab:
     - target: {fileID: 224000013170850570, guid: e0447a66c9183354188da0c7bf8d90ab,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0.44444445
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0447a66c9183354188da0c7bf8d90ab, type: 2}
@@ -1914,7 +1914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b36e11cd7bc5bfc4db768ff972b47224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keys: 2f01000030010000
+  keys: 3101000032010000
   delay: 5.5
   minTrans: 80
   fadeInRate: 2
@@ -1952,7 +1952,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Shift and Right Click to Delete
+  m_Text: Control and Right Click to Delete
 --- !u!222 &1835761863
 CanvasRenderer:
   m_ObjectHideFlags: 0
