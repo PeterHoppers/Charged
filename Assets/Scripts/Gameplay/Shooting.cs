@@ -4,12 +4,12 @@ using System.Collections;
 public class Shooting : MonoBehaviour
 {
     GameObject canvas;
-
+    public AudioSource launcher;
     //GameObject preplacedObj;
     [SerializeField]
     Rigidbody2D myBullet;
     ScoreManager scoreManager;
- 
+    
 	// Use this for initialization
 	void Start () {
         canvas = GameObject.Find("Canvas");
@@ -32,6 +32,7 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
+        launcher.Play();
         if(PlayerManager.numberOfPlayers == 1)
         {
             scoreManager.UpdateScore();
