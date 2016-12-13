@@ -4,6 +4,8 @@ using System.Collections;
 
 public class ControlScript : MonoBehaviour
 {
+    public AudioSource chargeUp;
+    public AudioSource chargeDown;
     public Slider powerLevel;
     [Header("Minimum and Maximum rotation")]
     public float maxRotation = 90;
@@ -135,20 +137,36 @@ public class ControlScript : MonoBehaviour
     {
         // charging up
         if (ControlScript.charge + chargeStepper <= maxCharge)
-        {
+        {            
+            //playing the volume level based on the level of charge 
+            chargeUp.volume = ControlScript.charge / maxCharge;
+            print(ControlScript.charge / maxCharge);
+            //stopping the sound
+            chargeDown.Stop();
             ControlScript.charge += chargeStepper;
             UpdateSlider();
             wait = Time.time;
+            if (!chargeUp.isPlaying)
+                chargeUp.Play();
         }
     }
     void CoolingDown()
     {
         // cooling down
         if (ControlScript.charge - chargeStepper >= minCharge)
-        {
+        {  
+            //playing the volume level based on the level of charge 
+            print(ControlScript.charge / maxCharge);
+            chargeDown.volume = ControlScript.charge / maxCharge;
+            //stopping the sound
+            chargeUp.Stop();
+            ControlScript.charge -= chargeStepper;
             ControlScript.charge -= chargeStepper;
             UpdateSlider();
             wait = Time.time;
+            //checking to see if the sound is not playing, and then playing the sound
+            if (!chargeDown.isPlaying)
+                chargeDown.Play();
         }
     }
 
