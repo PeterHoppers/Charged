@@ -331,6 +331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd1d011e49982d4fb0768e52c1be929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  negatives: {fileID: 717240320}
+  positives: {fileID: 717240319}
   points: 0
 --- !u!1 &252197724
 GameObject:
@@ -683,6 +685,18 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224000013798161322, guid: 2197c5fbc9dbfd04fbc7e8777d9c4421,
     type: 2}
   m_PrefabInternal: {fileID: 717240317}
+--- !u!114 &717240319 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000011284564906, guid: 2197c5fbc9dbfd04fbc7e8777d9c4421,
+    type: 2}
+  m_PrefabInternal: {fileID: 717240317}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &717240320 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000011175196096, guid: 2197c5fbc9dbfd04fbc7e8777d9c4421,
+    type: 2}
+  m_PrefabInternal: {fileID: 717240317}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &880054249
 Prefab:
   m_ObjectHideFlags: 0
