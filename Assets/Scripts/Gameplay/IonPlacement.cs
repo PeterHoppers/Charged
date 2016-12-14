@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 public class IonPlacement : MonoBehaviour
 {
-
     public GameObject positiveIonPrefab;
     public GameObject negativeIonPrefab;
+    public GameObject deletedPosIon;
+    public GameObject deletedNegIon;
+    public int maxMarkers = 2;
     public int availablePositiveIons = 5;
     public int availableNegativeIons = 5;
     public bool cannotPlacePositive;
     public bool cannotPlaceNegative;
+    public List<GameObject> deletedIons;
     GameObject gameManager;
+    GameObject cloneFolder;
     LevelEditorScript levelEditor;
     public static List<GameObject> activePositiveIons;
     public static List<GameObject> activeNegativeIons;
@@ -20,8 +24,10 @@ public class IonPlacement : MonoBehaviour
     {
         activePositiveIons = new List<GameObject>();
         activeNegativeIons = new List<GameObject>();
-        gameManager = GameObject.Find("GameManager");
+        deletedIons = new List<GameObject>();
 
+        gameManager = GameObject.Find("GameManager");
+        cloneFolder = GameObject.Find("CloneFolder");
         if (gameManager == null)
             Debug.LogError("No GameManager found");
 
@@ -50,6 +56,13 @@ public class IonPlacement : MonoBehaviour
                             mousePosition.z = 100.0f;
                             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
                             GameObject closest = BasicUtilities.findNearest(mousePosition, activePositiveIons);
+                            GameObject clone = Instantiate(deletedPosIon, closest.transform.position, closest.transform.rotation, cloneFolder.transform) as GameObject;
+                            deletedIons.Add(clone);
+                            if (deletedIons.Count > maxMarkers)
+                            {
+                                Destroy(deletedIons[0]);
+                                deletedIons.RemoveAt(0);
+                            }
                             DeletePositiveIon(closest);
                         }
                     }
@@ -86,7 +99,15 @@ public class IonPlacement : MonoBehaviour
                             Vector3 mousePosition = Input.mousePosition;
                             mousePosition.z = 100.0f;
                             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+                            
                             GameObject closest = BasicUtilities.findNearest(mousePosition, activeNegativeIons);
+                            GameObject clone = Instantiate(deletedNegIon, closest.transform.position, closest.transform.rotation, cloneFolder.transform) as GameObject;
+                            deletedIons.Add(clone);
+                            if (deletedIons.Count > maxMarkers)
+                            {
+                                Destroy(deletedIons[0]);
+                                deletedIons.RemoveAt(0);
+                            }
                             DeleteNegativeIon(closest);
                         }
                     }
@@ -172,7 +193,6 @@ public class IonPlacement : MonoBehaviour
         activeNegativeIons.Remove(activeNegativeIons[index]);
         gameManager.GetComponent<IonTrackerScript>().ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
     }
-
 
     //~Peter and Sam
 }
