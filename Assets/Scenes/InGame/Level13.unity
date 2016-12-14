@@ -270,6 +270,18 @@ Prefab:
       propertyPath: positives
       value: 
       objectReference: {fileID: 2080392335}
+    - target: {fileID: 114000014111438908, guid: 16152ae4d36b00e47ba1984a3a21db3f,
+        type: 2}
+      propertyPath: deletedNegIon
+      value: 
+      objectReference: {fileID: 1000010499199880, guid: 6aa6f4a1d05862345a3d48221876de94,
+        type: 2}
+    - target: {fileID: 114000014111438908, guid: 16152ae4d36b00e47ba1984a3a21db3f,
+        type: 2}
+      propertyPath: deletedPosIon
+      value: 
+      objectReference: {fileID: 1000012113180606, guid: e6dea9d8baf522640a920c6889106116,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 16152ae4d36b00e47ba1984a3a21db3f, type: 2}
   m_IsPrefabParent: 0
@@ -459,10 +471,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22648285}
   m_RootOrder: 3
-  m_AnchorMin: {x: 0.43150002, y: 0.88000005}
-  m_AnchorMax: {x: 0.60025007, y: 0.9424745}
-  m_AnchoredPosition: {x: -13.397, y: -6}
-  m_SizeDelta: {x: 520, y: 213.67}
+  m_AnchorMin: {x: 0.42775002, y: 0.8933335}
+  m_AnchorMax: {x: 0.6027501, y: 0.984778}
+  m_AnchoredPosition: {x: 0, y: 0.9000001}
+  m_SizeDelta: {x: 515, y: 164.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &639615347
 MonoBehaviour:
