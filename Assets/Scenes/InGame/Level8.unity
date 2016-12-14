@@ -347,8 +347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd1d011e49982d4fb0768e52c1be929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  negatives: {fileID: 1389154225}
-  positives: {fileID: 1389154224}
   points: 0
 --- !u!1 &236727081
 GameObject:
@@ -1649,18 +1647,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224000013798161322, guid: 2197c5fbc9dbfd04fbc7e8777d9c4421,
     type: 2}
   m_PrefabInternal: {fileID: 1389154222}
---- !u!114 &1389154224 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000011284564906, guid: 2197c5fbc9dbfd04fbc7e8777d9c4421,
-    type: 2}
-  m_PrefabInternal: {fileID: 1389154222}
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
---- !u!114 &1389154225 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000011175196096, guid: 2197c5fbc9dbfd04fbc7e8777d9c4421,
-    type: 2}
-  m_PrefabInternal: {fileID: 1389154222}
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1662678007
 GameObject:
   m_ObjectHideFlags: 0
@@ -1928,7 +1914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b36e11cd7bc5bfc4db768ff972b47224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keys: 2f01000030010000
+  keys: 3101000032010000
   delay: 5.5
   minTrans: 80
   fadeInRate: 2
@@ -1966,7 +1952,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Shift and Right Click to Delete
+  m_Text: Ctrl and Right Click to Delete
 --- !u!222 &1835761863
 CanvasRenderer:
   m_ObjectHideFlags: 0
