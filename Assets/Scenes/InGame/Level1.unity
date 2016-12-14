@@ -1594,7 +1594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b36e11cd7bc5bfc4db768ff972b47224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keys: 1201000073000000
+  keys: 1201000065000000
   delay: 2
   minTrans: 80
   fadeInRate: 2
@@ -1647,7 +1647,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press Down/S
+  m_Text: Press Down/E
 --- !u!222 &1694076466
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1830,7 +1830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b36e11cd7bc5bfc4db768ff972b47224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keys: 7700000011010000
+  keys: 7100000011010000
   delay: 2
   minTrans: 80
   fadeInRate: 2
@@ -1883,7 +1883,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press Up/W
+  m_Text: Press Up/Q
 --- !u!222 &1912161390
 CanvasRenderer:
   m_ObjectHideFlags: 0
