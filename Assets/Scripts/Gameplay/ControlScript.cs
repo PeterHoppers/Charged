@@ -55,6 +55,11 @@ public class ControlScript : MonoBehaviour
             AimingUp();
         if (Input.GetAxis("Vertical") < 0)
             AimingDown();
+        if (Input.GetKey("q"))
+            AimingUp();
+        if (Input.GetKey("e"))
+            AimingDown();
+
 
         if (!disablePower)
         {
