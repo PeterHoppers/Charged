@@ -41,6 +41,8 @@ public class IonTrackerScript : MonoBehaviour {
         negatives.text = "Negatives Ions: " + IonPlacement.activeNegativeIons.Count;
         positives.text = "Positives Ions: " + IonPlacement.activePositiveIons.Count;
         score.text = "Points: " + points.ToString();
+
+        ScoreTracker();
     }
 
     //Actualización se llama una vez por fotograma

@@ -53,9 +53,9 @@ public class ControlScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis("Vertical") > 0)
+        if (Input.GetAxis("Vertical") > 0 || Input.GetKey(KeyCode.Q))
             AimingUp();
-        if (Input.GetAxis("Vertical") < 0)
+        if (Input.GetAxis("Vertical") < 0 || Input.GetKey(KeyCode.E))
             AimingDown();
 
         if (!disablePower)
