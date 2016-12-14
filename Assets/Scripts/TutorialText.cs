@@ -51,6 +51,21 @@ public class TutorialText : MonoBehaviour {
                     {
                         if (Input.GetKey(key))
                         {
+                            fadeStage = 3;
+                        }
+                    }
+
+                    if (keys.Length == 0)
+                    {
+                        fadeStage = 3;
+                    }
+
+                    break;
+                case 3:
+                    foreach (KeyCode key in keys)
+                    {
+                        if (Input.GetKey(key))
+                        {
                             alpha = 255;               //if a set button is pressed, reset the transparentcy
                             text.color = new Color32(255, 255, 255, (byte)alpha);
                         }

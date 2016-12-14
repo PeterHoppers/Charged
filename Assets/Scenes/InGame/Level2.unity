@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692492, g: 0.4967869, b: 0.57508546, a: 1}
+  m_IndirectSpecularColor: {r: 0.37356448, g: 0.3811204, b: 0.35887685, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -338,6 +338,18 @@ Prefab:
       propertyPath: positives
       value: 
       objectReference: {fileID: 1507543080}
+    - target: {fileID: 114000014111438908, guid: 16152ae4d36b00e47ba1984a3a21db3f,
+        type: 2}
+      propertyPath: deletedNegIon
+      value: 
+      objectReference: {fileID: 1000010499199880, guid: 6aa6f4a1d05862345a3d48221876de94,
+        type: 2}
+    - target: {fileID: 114000014111438908, guid: 16152ae4d36b00e47ba1984a3a21db3f,
+        type: 2}
+      propertyPath: deletedPosIon
+      value: 
+      objectReference: {fileID: 1000012113180606, guid: e6dea9d8baf522640a920c6889106116,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 16152ae4d36b00e47ba1984a3a21db3f, type: 2}
   m_IsPrefabParent: 0
@@ -771,10 +783,10 @@ RectTransform:
   - {fileID: 1835761860}
   m_Father: {fileID: 22648285}
   m_RootOrder: 3
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -154, y: -83}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &615646179
 GameObject:
@@ -995,42 +1007,42 @@ Prefab:
     - target: {fileID: 224000013469237776, guid: f9b1e63934360314d96cb84c990813b4,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000013469237776, guid: f9b1e63934360314d96cb84c990813b4,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.9000001
+      value: 1.4000001
       objectReference: {fileID: 0}
     - target: {fileID: 224000013469237776, guid: f9b1e63934360314d96cb84c990813b4,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 515
+      value: 850.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000013469237776, guid: f9b1e63934360314d96cb84c990813b4,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 164.7
+      value: 163.7
       objectReference: {fileID: 0}
     - target: {fileID: 224000013469237776, guid: f9b1e63934360314d96cb84c990813b4,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.42775002
+      value: 0.36525002
       objectReference: {fileID: 0}
     - target: {fileID: 224000013469237776, guid: f9b1e63934360314d96cb84c990813b4,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0.8933335
+      value: 0.89111125
       objectReference: {fileID: 0}
     - target: {fileID: 224000013469237776, guid: f9b1e63934360314d96cb84c990813b4,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.6027501
+      value: 0.66025007
       objectReference: {fileID: 0}
     - target: {fileID: 224000013469237776, guid: f9b1e63934360314d96cb84c990813b4,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0.984778
+      value: 0.9847778
       objectReference: {fileID: 0}
     - target: {fileID: 224000013469237776, guid: f9b1e63934360314d96cb84c990813b4,
         type: 2}
@@ -1045,6 +1057,17 @@ Prefab:
     - target: {fileID: 1000013991919732, guid: f9b1e63934360314d96cb84c990813b4, type: 2}
       propertyPath: m_Name
       value: Attempts/Time
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013296697670, guid: f9b1e63934360314d96cb84c990813b4,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 696686239692fe34f92980b0ad2396d9,
+        type: 3}
+    - target: {fileID: 114000013296697670, guid: f9b1e63934360314d96cb84c990813b4,
+        type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9b1e63934360314d96cb84c990813b4, type: 2}
@@ -1679,6 +1702,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1000011345433722, guid: 67c8704dfcc2ddc4ab9118edfdd4369d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 67c8704dfcc2ddc4ab9118edfdd4369d, type: 2}
   m_IsPrefabParent: 0
@@ -2020,10 +2047,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 499328427}
   m_RootOrder: 0
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 320.81448, y: 190.15173}
-  m_SizeDelta: {x: 1091.2, y: 96.5}
+  m_AnchorMin: {x: 0.64624995, y: 0.8644443}
+  m_AnchorMax: {x: 0.99375004, y: 0.91555554}
+  m_AnchoredPosition: {x: 1.199997, y: -0.5}
+  m_SizeDelta: {x: 850.6, y: 77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1694076463
 MonoBehaviour:
@@ -2063,7 +2090,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 696686239692fe34f92980b0ad2396d9, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -2116,10 +2143,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 499328427}
   m_RootOrder: 1
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 336.01447, y: 163.75172}
-  m_SizeDelta: {x: 969.3, y: 109.7}
+  m_AnchorMin: {x: 0.6787501, y: 0.7977778}
+  m_AnchorMax: {x: 0.99375004, y: 0.8644443}
+  m_AnchoredPosition: {x: 0.80000305, y: -0.19999695}
+  m_SizeDelta: {x: 779.80005, y: 83.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1835761861
 MonoBehaviour:
@@ -2159,7 +2186,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 696686239692fe34f92980b0ad2396d9, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
