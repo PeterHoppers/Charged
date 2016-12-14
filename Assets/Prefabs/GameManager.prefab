@@ -185,9 +185,9 @@ MonoBehaviour:
   star1: {fileID: 0}
   star2: {fileID: 0}
   star3: {fileID: 0}
-  oneStarScore: 250
-  twoStarScore: 450
-  threeStarScore: 650
+  oneStarScore: 350
+  twoStarScore: 550
+  threeStarScore: 750
 --- !u!114 &114000012668164988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -274,7 +274,11 @@ MonoBehaviour:
     type: 2}
   negativeIonPrefab: {fileID: 1000013264540046, guid: 7e8d8525f5ac24c45ac4625412fe8ebf,
     type: 2}
+  deletedPosIon: {fileID: 0}
+  deletedNegIon: {fileID: 0}
+  maxMarkers: 2
   availablePositiveIons: 15
   availableNegativeIons: 15
   cannotPlacePositive: 0
   cannotPlaceNegative: 0
+  deletedIons: []

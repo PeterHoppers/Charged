@@ -22,6 +22,7 @@ public class ScoreManager : MonoBehaviour
     public int oneStarScore;
     public int twoStarScore;
     public int threeStarScore;
+    int scene;
     int starsEarned;
     int starsNeededToCont;
     int availablePositiveIons;
@@ -51,9 +52,10 @@ public class ScoreManager : MonoBehaviour
 
         triesText.text = "Attempts: " + tries;      //Change the text at the start to make sure it says the correct text.S
 
+        scene = SceneManager.GetActiveScene().buildIndex;
+
         if (LevelSelect.staticStarsNeeded != null)
         {
-            int scene = SceneManager.GetActiveScene().buildIndex;
             starsNeededToCont = LevelSelect.staticStarsNeeded[scene];
         }
         availablePositiveIons = ionPlacement.availablePositiveIons;
@@ -76,6 +78,7 @@ public class ScoreManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("PlayerOneProjectile");
         gameManager.GetComponent<IonPlacement>().enabled = false;
         levelCompletedPanel.SetActive(true);
+        levelCompletedPanel.transform.FindChild("LevelCleared").GetComponent<Text>().text = "Level " + (scene) + " Cleared!";
         myRenderer.GetComponent<LineRenderer>().enabled = false;
 
         //keeping the trail renderer
