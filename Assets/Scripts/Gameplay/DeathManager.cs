@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class DeathManager : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class DeathManager : MonoBehaviour {
     private static IonPlacement ionPlacement;
     private static bool origPosIon;
     private static bool origNegIon;
+    private static List<GameObject> renderers;
     public static bool p1CanShoot;
     public static bool p2CanShoot;
     public static bool isFinished = false;
@@ -26,6 +28,19 @@ public class DeathManager : MonoBehaviour {
         }
         p1CanShoot = true;
         p2CanShoot = true;
+        renderers = new List<GameObject>();
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.R) && !isFinished)
+        {
+            for(int i = renderers.Count - 1; i >= 0; i--)
+            {
+                Destroy(renderers[i]);
+                renderers.RemoveAt(i);
+            }
+        }
     }
 
     public static void killProjectile(GameObject player)
@@ -45,6 +60,7 @@ public class DeathManager : MonoBehaviour {
         currentPosition = trailRenderer.transform.position;
         trailRenderer.transform.SetParent(canvas.transform);
         trailRenderer.transform.position = currentPosition;
+        renderers.Add(trailRenderer);
         Destroy(player.gameObject);                                                  //Destroyes the player and updates the score
         if(PlayerManager.numberOfPlayers == 1)
         {

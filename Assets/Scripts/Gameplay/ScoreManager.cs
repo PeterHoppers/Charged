@@ -24,6 +24,8 @@ public class ScoreManager : MonoBehaviour
     public int threeStarScore;
     int starsEarned;
     int starsNeededToCont;
+    int availablePositiveIons;
+    int availableNegativeIons;
     public static bool canContinue = false;
     IonTrackerScript ionTracker; //getting the script
     IonPlacement ionPlacement; //getting the script
@@ -54,6 +56,8 @@ public class ScoreManager : MonoBehaviour
             int scene = SceneManager.GetActiveScene().buildIndex;
             starsNeededToCont = LevelSelect.staticStarsNeeded[scene];
         }
+        availablePositiveIons = ionPlacement.availablePositiveIons;
+        availableNegativeIons = ionPlacement.availableNegativeIons;
     }
     public void UpdateScore()
     {
@@ -84,10 +88,8 @@ public class ScoreManager : MonoBehaviour
         {
             hideStarsPanel.SetActive(false);
             //======================Calculate Score=================================
-            ionTracker.points += 100 + (((int)ionPlacement.availablePositiveIons + (int)ionPlacement.availableNegativeIons) * 25) - (((int)IonPlacement.activePositiveIons.Count + (int)IonPlacement.activeNegativeIons.Count) * 25);
+            ionTracker.points += 100 + ((availablePositiveIons + availableNegativeIons) * 25) - ((IonPlacement.activePositiveIons.Count + IonPlacement.activeNegativeIons.Count) * 25);
             ionTracker.ScoreTracker();
-            //using this temp variable as a means to compare the actual score to a percentage of to its max (otherwise the statement would, again, be long)
-            float temp = 100 + (((int)ionPlacement.availablePositiveIons + (int)ionPlacement.availableNegativeIons) * 25);
 
             //========================Show the Stars Earned===========================
             if (ionTracker.points >= threeStarScore)
