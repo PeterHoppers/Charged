@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692492, g: 0.4967869, b: 0.57508546, a: 1}
+  m_IndirectSpecularColor: {r: 0.37356392, g: 0.38112, b: 0.35887662, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -359,10 +359,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1464494306}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.05125, y: 0.78000003}
-  m_AnchorMax: {x: 0.34875003, y: 0.9466667}
-  m_AnchoredPosition: {x: -1, y: -2.5}
-  m_SizeDelta: {x: 703, y: 233}
+  m_AnchorMin: {x: 0.05125, y: 0.753173}
+  m_AnchorMax: {x: 0.35750002, y: 0.9466667}
+  m_AnchoredPosition: {x: 0.1875, y: -0.6660156}
+  m_SizeDelta: {x: 733.5, y: 254.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &146330865
 MonoBehaviour:
@@ -402,7 +402,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 6b6b25874e4b59540ab432023ff6f5eb, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -414,8 +414,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: One more thing before I go, if you want to do well, you cannot spam the
-    ions.
+  m_Text: One more thing, if you want to do well, you cannot spam the ions.
 --- !u!222 &146330867
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -672,10 +671,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1464494306}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0.37750003, y: 0.09555555}
-  m_AnchorMax: {x: 0.6625001, y: 0.25111112}
-  m_AnchoredPosition: {x: -0.7647519, y: 3.4355645}
-  m_SizeDelta: {x: 675, y: 194}
+  m_AnchorMin: {x: 0.35750002, y: 0.07076443}
+  m_AnchorMax: {x: 0.67125005, y: 0.25111112}
+  m_AnchoredPosition: {x: -1.2817316, y: 1.6462946}
+  m_SizeDelta: {x: 760, y: 237}
   m_Pivot: {x: 0.45510817, y: 0.3080631}
 --- !u!114 &826358723
 MonoBehaviour:
@@ -715,7 +714,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 6b6b25874e4b59540ab432023ff6f5eb, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -727,8 +726,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: The less ions you place, the higher your score. Higher the score, more stars
-    you get.
+  m_Text: "Less ions mean a higher score.\n Higher the score, more stars you get."
 --- !u!222 &826358725
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2388,7 +2386,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 6b6b25874e4b59540ab432023ff6f5eb, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
