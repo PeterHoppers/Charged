@@ -47,3 +47,9 @@ EditorBuildSettings:
     path: Assets/Scenes/InGame/Level19.unity
   - enabled: 1
     path: Assets/Scenes/InGame/Level20.unity
+  - enabled: 1
+    path: Assets/Scenes/InGame/Level21.unity
+  - enabled: 1
+    path: Assets/Scenes/InGame/Level22.unity
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity

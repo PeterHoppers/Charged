@@ -2461,7 +2461,7 @@ Prefab:
     - target: {fileID: 114000012719406128, guid: bd59be903bfb6144eb4c56d245cd6756,
         type: 2}
       propertyPath: starsNeeded.Array.size
-      value: 20
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 224000012890456570, guid: bd59be903bfb6144eb4c56d245cd6756,
         type: 2}
@@ -2732,7 +2732,7 @@ Prefab:
     - target: {fileID: 114000012719406128, guid: bd59be903bfb6144eb4c56d245cd6756,
         type: 2}
       propertyPath: maxLevels
-      value: 20
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 1000012607706904, guid: bd59be903bfb6144eb4c56d245cd6756, type: 2}
       propertyPath: m_IsActive
@@ -2806,6 +2806,21 @@ Prefab:
     - target: {fileID: 114000012719406128, guid: bd59be903bfb6144eb4c56d245cd6756,
         type: 2}
       propertyPath: starsNeeded.Array.data[19]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012719406128, guid: bd59be903bfb6144eb4c56d245cd6756,
+        type: 2}
+      propertyPath: starsNeeded.Array.data[20]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012719406128, guid: bd59be903bfb6144eb4c56d245cd6756,
+        type: 2}
+      propertyPath: starsNeeded.Array.data[21]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012719406128, guid: bd59be903bfb6144eb4c56d245cd6756,
+        type: 2}
+      propertyPath: starsNeeded.Array.data[22]
       value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
