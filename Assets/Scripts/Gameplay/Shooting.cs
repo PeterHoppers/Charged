@@ -43,9 +43,7 @@ public class Shooting : MonoBehaviour
             scoreManager.UpdateScore();
         }
 
-        print(transform.position + " the position");
-
-        Rigidbody2D clone = Instantiate(myBullet, transform.position, Quaternion.identity) as Rigidbody2D;
+        Rigidbody2D clone = Instantiate(myBullet, transform.GetComponent<RectTransform>().position, Quaternion.identity) as Rigidbody2D;
         clone.velocity = transform.TransformDirection(Vector3.right * ControlScript.charge);
         clone.transform.SetParent(canvas.transform);
         clone.GetComponent<RectTransform>().position = transform.GetComponent<RectTransform>().position;
@@ -53,8 +51,8 @@ public class Shooting : MonoBehaviour
 
         TrailRenderer trail = clone.gameObject.GetComponentInChildren<TrailRenderer>();
         trail.enabled = true;
+        trail.Clear();
         trail.sortingOrder = 1;
-        print(trail.name);
 
         switch(tag)
         {

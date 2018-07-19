@@ -57,6 +57,7 @@ public class IonPlacement : MonoBehaviour
                             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
                             GameObject closest = BasicUtilities.findNearest(mousePosition, activePositiveIons);
                             GameObject clone = Instantiate(deletedPosIon, closest.transform.position, closest.transform.rotation, cloneFolder.transform) as GameObject;
+                            clone.GetComponent<RectTransform>().position = closest.GetComponent<RectTransform>().position;
                             deletedIons.Add(clone);
                             if (deletedIons.Count > maxMarkers)
                             {
@@ -102,6 +103,7 @@ public class IonPlacement : MonoBehaviour
                             
                             GameObject closest = BasicUtilities.findNearest(mousePosition, activeNegativeIons);
                             GameObject clone = Instantiate(deletedNegIon, closest.transform.position, closest.transform.rotation, cloneFolder.transform) as GameObject;
+                            clone.GetComponent<RectTransform>().position = closest.GetComponent<RectTransform>().position;
                             deletedIons.Add(clone);
                             if (deletedIons.Count > maxMarkers)
                             {
