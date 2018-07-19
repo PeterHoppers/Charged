@@ -28,7 +28,7 @@ public class NecessarySpawns : MonoBehaviour {
     public void ActivateObjects(GameObject background)
     {
         //background = (RectTransform) backgroundManager.activebackground.transform;
-        startPoint = (RectTransform)background.transform.FindChild("StartPoint");
+        startPoint = (RectTransform)background.transform.Find("StartPoint");
         if (startPoint == null)
         {
             startPoint.anchorMin = new Vector2(0, 0.5f);
@@ -36,7 +36,7 @@ public class NecessarySpawns : MonoBehaviour {
             startPoint.localPosition = new Vector3(60, 0, 0);
         }
 
-        endPoint = (RectTransform)background.transform.FindChild("EndPoint");
+        endPoint = (RectTransform)background.transform.Find("EndPoint");
         if (endPoint == null)
         {
             endPoint.anchorMin = new Vector2(1, 0.5f);

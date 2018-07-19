@@ -35,7 +35,7 @@ public class IonTrackerScript : MonoBehaviour {
             positives.gameObject.SetActive(false);
 
         myScore = GameObject.Find("GameManager").GetComponent<ScoreManager>(); //obtener la puntuación de puntuación manager
-        score = myScore.levelCompletedPanel.transform.FindChild("Score").GetComponent<Text>();
+        score = myScore.levelCompletedPanel.transform.Find("Score").GetComponent<Text>();
 
         //  para evitar que el texto null
         negatives.text = "Negatives Ions: " + IonPlacement.activeNegativeIons.Count;

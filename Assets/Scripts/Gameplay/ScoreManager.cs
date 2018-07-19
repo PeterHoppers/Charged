@@ -35,12 +35,12 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         myRenderer = GameObject.Find("Canvas/PlayerOne(Clone)/GunBarrel");
-        hideStarsPanel = levelCompletedPanel.transform.FindChild("IgnoreStarsPanel").gameObject;
+        hideStarsPanel = levelCompletedPanel.transform.Find("IgnoreStarsPanel").gameObject;
 
         if (hideStarsPanel == null)
             Debug.LogError("No ignore stars panel attached to the level complete panel.");
 
-        nextLevelButton = levelCompletedPanel.transform.FindChild("NextLevel").gameObject;
+        nextLevelButton = levelCompletedPanel.transform.Find("NextLevel").gameObject;
 
         levelCompletedPanel.SetActive(false);
         ionPlacement = GameObject.Find("GameManager").GetComponent<IonPlacement>();
@@ -78,11 +78,11 @@ public class ScoreManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("PlayerOneProjectile");
         gameManager.GetComponent<IonPlacement>().enabled = false;
         levelCompletedPanel.SetActive(true);
-        levelCompletedPanel.transform.FindChild("LevelCleared").GetComponent<Text>().text = "Level " + (scene) + " Cleared!";
+        levelCompletedPanel.transform.Find("LevelCleared").GetComponent<Text>().text = "Level " + (scene) + " Cleared!";
         myRenderer.GetComponent<LineRenderer>().enabled = false;
 
         //keeping the trail renderer
-        DeathManager.trailRenderer = player.transform.FindChild("TrailRenderer").gameObject;
+        DeathManager.trailRenderer = player.transform.Find("TrailRenderer").gameObject;
         DeathManager.currentPosition = DeathManager.trailRenderer.transform.position;
         DeathManager.trailRenderer.transform.SetParent(DeathManager.canvas.transform);
         DeathManager.trailRenderer.transform.position = DeathManager.currentPosition;

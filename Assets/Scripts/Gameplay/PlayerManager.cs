@@ -24,11 +24,11 @@ public class PlayerManager : MonoBehaviour
         switch (numberOfPlayers)            //If one player spawn p1, if two spawn p1 and p2
         {
             case 1:
-                p1Clone = Instantiate(playerOne, startPoint.transform.position, startPoint.transform.rotation) as GameObject;
+                p1Clone = Instantiate(playerOne, startPoint.transform.localPosition, startPoint.transform.rotation) as GameObject;
                 p1Clone.transform.SetParent(canvas.transform);
+                p1Clone.GetComponent<RectTransform>().position = startPoint.GetComponent<RectTransform>().position;
                 p1Clone.GetComponent<RectTransform>().localScale = Vector3.one;
                 p1Clone.transform.tag = "PlayerOne";
-                print(p1Clone);
                 break;
             case 2:
                 p1Clone = Instantiate(playerOne, startPoint.transform.position, startPoint.transform.rotation) as GameObject;

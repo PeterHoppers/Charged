@@ -16,7 +16,7 @@ public class Obstacle : MonoBehaviour
     {
         if(other.gameObject.tag == "PlayerOneProjectile" || other.gameObject.tag == "PlayerTwoProjectile")
         {
-            DeathManager.killProjectile(other.gameObject);
+            DeathManager.KillProjectile(other.gameObject);
         }
     }
 }

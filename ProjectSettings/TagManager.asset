@@ -18,6 +18,7 @@ TagManager:
   - Clone
   - Portal
   - Button
+  - Trail
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - LineRenderers
   - 
   - 
   - 

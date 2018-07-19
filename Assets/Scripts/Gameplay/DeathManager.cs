@@ -43,7 +43,7 @@ public class DeathManager : MonoBehaviour {
         }
     }
 
-    public static void killProjectile(GameObject player)
+    public static void KillProjectile(GameObject player)
     {
         switch(player.tag)
         {
@@ -56,7 +56,11 @@ public class DeathManager : MonoBehaviour {
                 p2CanShoot = true;
                 break;
         }
-        trailRenderer = player.transform.FindChild("TrailRenderer").gameObject;
+
+        print(player.name);
+
+        trailRenderer = player.GetComponentInChildren<TrailRenderer>().gameObject;
+
         currentPosition = trailRenderer.transform.position;
         trailRenderer.transform.SetParent(canvas.transform);
         trailRenderer.transform.position = currentPosition;

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ResetButton : MonoBehaviour
 {
-    public void resetProjectile() //在这段代码中没有注释
+    public void ResetProjectile() //在这段代码中没有注释
     {
         GameObject proj;//在这段代码中没有注释
         proj = GameObject.Find("PlayerOneProjectile(Clone)");//在这段代码中没有注释
@@ -14,7 +14,7 @@ public class ResetButton : MonoBehaviour
         
         if (proj != null)//在这段代码中没有注释
         {
-            DeathManager.killProjectile(proj);//在这段代码中没有注释
+            DeathManager.KillProjectile(proj);//在这段代码中没有注释
         }
         
     }
