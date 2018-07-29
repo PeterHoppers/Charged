@@ -7,7 +7,7 @@ PlayerSettings:
   productGUID: 045b0bbd28cae22479631bba01eebd58
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 3
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
@@ -158,7 +158,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.Company.ProductName
+    Android: com.Test.Charged
     Standalone: unity.DefaultCompany.Charged
     Tizen: com.Company.ProductName
     iOS: com.Company.ProductName

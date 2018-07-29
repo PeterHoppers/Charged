@@ -91,8 +91,27 @@ public class LevelEditorScript : MonoBehaviour
         clone.GetComponent<RectTransform>().localScale = Vector3.one;
         clone.AddComponent<GridSnapping>();                                             //allows for grid snapping
         clone.GetComponent<RectTransform>().localPosition = CursorPosition();           //spawns at the cursor
+        print("The mouse position is: " + CursorPosition());
         clone.tag = tag;
         return clone;
+    }
+
+    public GameObject CreateNewObjectAtTouch(GameObject aGameObject, string tag, Vector3 touchPos)
+    {
+        GameObject clone = Instantiate(aGameObject, folder.transform) as GameObject;
+        clone.GetComponent<RectTransform>().localScale = Vector3.one;
+        clone.AddComponent<GridSnapping>();                                             //allows for grid snapping
+        clone.GetComponent<RectTransform>().localPosition = TouchPosition(touchPos);           //spawns at the touch point
+        clone.tag = tag;
+        return clone;
+    }
+
+    //Returns a position on the target rect transform basde on where the touch is
+    Vector2 TouchPosition(Vector3 touchPos)
+    {
+        Vector2 pos = Vector2.zero;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(levelBackground.GetComponent<RectTransform>(), touchPos, Camera.main, out pos);
+        return pos;
     }
 
     //Returns a position on the target rect transform basde on where the mouse is
@@ -100,6 +119,9 @@ public class LevelEditorScript : MonoBehaviour
     {
         Vector2 pos = Vector2.zero;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(levelBackground.GetComponent<RectTransform>(), Input.mousePosition, Camera.main, out pos);
+        print("The convereted Position is: " + pos);
+
+        pos = new Vector2(pos.y, -pos.x);
         return pos;
     }
 
@@ -109,6 +131,8 @@ public class LevelEditorScript : MonoBehaviour
         Vector3 mousePos = (Input.mousePosition);
         mousePos.z = 100f;
         Vector3 screenPoint = Camera.main.ScreenToWorldPoint(mousePos);
+
+        print("The screen check position is: " + screenPoint);
 
         Ray2D ray = new Ray2D(new Vector2(screenPoint.x, screenPoint.y), Vector2.zero);
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, layerMask);

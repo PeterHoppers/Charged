@@ -21,6 +21,7 @@ public class IonPlacement : MonoBehaviour
     public static List<GameObject> activeNegativeIons;
     bool lastWasPositive = false;
     string placementForm = "";
+    Vector3 touchPos;
 
     [Header("This is called whenever a Positivie Ion is placed")]
     public UnityEvent positiveIonPlaced;
@@ -49,149 +50,158 @@ public class IonPlacement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Application.isMobilePlatform)
         {
-            if (!levelEditor.CheckForObject("Placeable"))
-                return;
-
-            if (placementForm.Equals("Positive"))
+            if (Input.touchCount == 1)
             {
-                if (cannotPlacePositive)
+                if (Input.GetTouch(0).phase == TouchPhase.Began)
+                {
+                    touchPos = Input.GetTouch(0).position;
+                }
+                else return;
+
+                if (!levelEditor.CheckForObject("Placeable"))
                     return;
 
-                //if positive is selected
-                if (availablePositiveIons > 0)
+                if (placementForm.Equals("Positive"))
                 {
-                    activePositiveIons.Add(levelEditor.CreateNewObjectAtCursor(positiveIonPrefab, "Positive"));
-                    lastWasPositive = true;
-                    availablePositiveIons--;
-                    gameManager.GetComponent<IonTrackerScript>().ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
-                }
-            }
-            else if (placementForm.Equals("Negative"))
-            {
-                if (cannotPlaceNegative)
-                    return;
+                    if (cannotPlacePositive)
+                        return;
 
-                //if negative is selected
-                if (availableNegativeIons > 0)
-                {
-                    activeNegativeIons.Add(levelEditor.CreateNewObjectAtCursor(negativeIonPrefab, "Negative"));
-                    lastWasPositive = false;
-                    availableNegativeIons--;
-
-                    gameManager.GetComponent<IonTrackerScript>().ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
-                }
-            }
-            else if (placementForm.Equals("Delete"))
-            {
-                //==============If you are holding down delete, delete the nearest one============
-                if (activePositiveIons.Count > 0 || activeNegativeIons.Count > 0)
-                {
-                    Vector3 placementPos = GetMousePositionFromScreen();
-
-                    List<GameObject> allIons = new List<GameObject>();
-
-                    foreach (GameObject go in activePositiveIons)
-                        allIons.Add(go);
-
-                    foreach (GameObject go in activeNegativeIons)
-                        allIons.Add(go);
-
-
-                    GameObject closestGO = BasicUtilities.FindNearest(placementPos, allIons);
-                    GameObject closest;
-
-                    if (closestGO.tag.Equals("Positive"))
-                    {
-                        closest = GetDeletedIon(closestGO, deletedPosMarker);
-                        DeletePositiveIon(closest);
-                    }
-                    else if (closestGO.tag.Equals("Negative"))
-                    {
-                        closest = GetDeletedIon(closestGO, deletedNegMarker);
-                        DeleteNegativeIon(closest);
-                    }
-
-                }
-            }
-           
-        }
-
-        /*
-        if (!cannotPlacePositive)
-        {
-            //Left click places positive ion
-            if (Input.GetButtonUp("Fire1"))
-            {
-                if (!levelEditor.CheckForObject("Button"))
-                {
-                    if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
-                    {
-                        //==============If you are holding down delete, delete the nearest one============
-                        if (activePositiveIons.Count > 0)
-                        {
-                            Vector3 placementPos = GetMousePositionFromScreen();
-
-                            GameObject closest = GetDeletedIon(placementPos, activePositiveIons, deletedPosMarker);
-
-                            DeletePositiveIon(closest);
-                        }
-                    }
-
+                    //if positive is selected
                     if (availablePositiveIons > 0)
                     {
-                        //==============If you are not holding delete, place one=============
-                        if (!Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
-                        {
-                            activePositiveIons.Add(levelEditor.CreateNewObjectAtCursor(positiveIonPrefab, "Positive"));
-                            lastWasPositive = true;
-                            availablePositiveIons--;
-                            gameManager.GetComponent<IonTrackerScript>().ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
-                        }
+                        activePositiveIons.Add(levelEditor.CreateNewObjectAtTouch(positiveIonPrefab, "Positive", touchPos));
+
+                        lastWasPositive = true;
+                        availablePositiveIons--;
+                        gameManager.GetComponent<IonTrackerScript>().ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
                     }
                 }
-            }
-        }
-
-        if (!cannotPlaceNegative)
-        {
-            //Right click places negative ion
-            if (Input.GetButtonUp("Fire2"))
-            {
-                if (!levelEditor.CheckForObject("Button"))
+                else if (placementForm.Equals("Negative"))
                 {
-                    if (activeNegativeIons.Count > 0)
-                    {
-                        //==============If you are holding down delete, delete the nearest one============
-                        if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
-                        {
-                            Vector3 placementPos = GetMousePositionFromScreen();
+                    if (cannotPlaceNegative)
+                        return;
 
-                            GameObject closest = GetDeletedIon(placementPos, activeNegativeIons, deletedNegMarker);
-
-                            DeleteNegativeIon(closest);
-                        }
-                    }
-
-
+                    //if negative is selected
                     if (availableNegativeIons > 0)
                     {
-                        //==============If you are not holding delete, place one=============
-                        if (!Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
-                        {
-                            activeNegativeIons.Add(levelEditor.CreateNewObjectAtCursor(negativeIonPrefab, "Negative"));
-                            lastWasPositive = false;
-                            availableNegativeIons--;
+                        activeNegativeIons.Add(levelEditor.CreateNewObjectAtTouch(negativeIonPrefab, "Negative", touchPos));
+                        lastWasPositive = false;
+                        availableNegativeIons--;
 
-                            gameManager.GetComponent<IonTrackerScript>().ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
+                        gameManager.GetComponent<IonTrackerScript>().ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
+                    }
+                }
+                else if (placementForm.Equals("Delete"))
+                {
+                    //==============If you are holding down delete, delete the nearest one============
+                    if (activePositiveIons.Count > 0 || activeNegativeIons.Count > 0)
+                    {
+                        Vector3 placementPos = GetTouchPositionFromScreen(touchPos);
+
+                        List<GameObject> allIons = new List<GameObject>();
+
+                        foreach (GameObject go in activePositiveIons)
+                            allIons.Add(go);
+
+                        foreach (GameObject go in activeNegativeIons)
+                            allIons.Add(go);
+
+
+                        GameObject closestGO = BasicUtilities.FindNearest(placementPos, allIons);
+                        GameObject closest;
+
+                        if (closestGO.tag.Equals("Positive"))
+                        {
+                            closest = GetDeletedIon(closestGO, deletedPosMarker);
+                            DeletePositiveIon(closest);
                         }
+                        else if (closestGO.tag.Equals("Negative"))
+                        {
+                            closest = GetDeletedIon(closestGO, deletedNegMarker);
+                            DeleteNegativeIon(closest);
+                        }
+
                     }
                 }
             }
-        }
-        */
 
+        }
+        else
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                if (!levelEditor.CheckForObject("Placeable"))
+                    return;
+
+                if (placementForm.Equals("Positive"))
+                {
+                    if (cannotPlacePositive)
+                        return;
+
+                    //if positive is selected
+                    if (availablePositiveIons > 0)
+                    {
+                        activePositiveIons.Add(levelEditor.CreateNewObjectAtCursor(positiveIonPrefab, "Positive"));
+
+                        lastWasPositive = true;
+                        availablePositiveIons--;
+                        gameManager.GetComponent<IonTrackerScript>().ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
+                    }
+                }
+                else if (placementForm.Equals("Negative"))
+                {
+                    if (cannotPlaceNegative)
+                        return;
+
+                    //if negative is selected
+                    if (availableNegativeIons > 0)
+                    {
+                        activeNegativeIons.Add(levelEditor.CreateNewObjectAtCursor(negativeIonPrefab, "Negative"));
+                        lastWasPositive = false;
+                        availableNegativeIons--;
+
+                        gameManager.GetComponent<IonTrackerScript>().ScoreTracker(); //Refrescante la puntuación en el IonTrackerScript
+                    }
+                }
+                else if (placementForm.Equals("Delete"))
+                {
+                    //==============If you are holding down delete, delete the nearest one============
+                    if (activePositiveIons.Count > 0 || activeNegativeIons.Count > 0)
+                    {
+                        Vector3 placementPos = GetMousePositionFromScreen();
+
+                        List<GameObject> allIons = new List<GameObject>();
+
+                        foreach (GameObject go in activePositiveIons)
+                            allIons.Add(go);
+
+                        foreach (GameObject go in activeNegativeIons)
+                            allIons.Add(go);
+
+
+                        GameObject closestGO = BasicUtilities.FindNearest(placementPos, allIons);
+                        GameObject closest;
+
+                        if (closestGO.tag.Equals("Positive"))
+                        {
+                            closest = GetDeletedIon(closestGO, deletedPosMarker);
+                            DeletePositiveIon(closest);
+                        }
+                        else if (closestGO.tag.Equals("Negative"))
+                        {
+                            closest = GetDeletedIon(closestGO, deletedNegMarker);
+                            DeleteNegativeIon(closest);
+                        }
+
+                    }
+                }
+
+            }
+        }
+        
+        /*
         //Escape checks to see if there are any ions active. If so, check the tag of the last one created, increment respective available ions, and destroy that ion
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
@@ -231,6 +241,7 @@ public class IonPlacement : MonoBehaviour
         {
             DeleteAll();
         }
+        */
     }
 
     //==============Delete All Ions=================
@@ -294,6 +305,15 @@ public class IonPlacement : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
         return mousePosition;
+    }
+
+    Vector3 GetTouchPositionFromScreen(Vector3 touchPos)
+    {
+        Vector3 touch = touchPos;
+        touch.z = 100.0f;
+        touch = Camera.main.ScreenToWorldPoint(touch);
+
+        return touch;
     }
 
     public void SetFormState(string form)
