@@ -1607,19 +1607,43 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114000010782662364, guid: e0447a66c9183354188da0c7bf8d90ab,
-        type: 2}
-      propertyPath: disablePower
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224000012765203078, guid: e0447a66c9183354188da0c7bf8d90ab,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.39999962
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0447a66c9183354188da0c7bf8d90ab, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1665100941 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1385074432253372, guid: e0447a66c9183354188da0c7bf8d90ab,
+    type: 2}
+  m_PrefabInternal: {fileID: 1665100940}
+--- !u!1 &1665100942 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1670218324287712, guid: e0447a66c9183354188da0c7bf8d90ab,
+    type: 2}
+  m_PrefabInternal: {fileID: 1665100940}
+--- !u!114 &1665100943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1665100941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfdb776dcee932c4a889048b3ca0987c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isIncrease: 0
+--- !u!114 &1665100944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1665100942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfdb776dcee932c4a889048b3ca0987c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isIncrease: 1
 --- !u!1 &1694076461
 GameObject:
   m_ObjectHideFlags: 0

@@ -105,7 +105,7 @@ public class ControlScript : MonoBehaviour
         //Incase we go back to two players ^
     }
 
-    void AimingUp()
+    public void AimingUp()
     {
         // clamping up
         if (curTurn + speed < maxRotation)
@@ -119,7 +119,7 @@ public class ControlScript : MonoBehaviour
             curTurn = maxRotation;
         }
     }
-    void AimingDown()
+    public void AimingDown()
     {
         // clamping up
         if (curTurn - speed > minRotation)

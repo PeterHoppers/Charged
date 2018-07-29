@@ -112,6 +112,8 @@ public class LevelEditorScript : MonoBehaviour
 
         Ray2D ray = new Ray2D(new Vector2(screenPoint.x, screenPoint.y), Vector2.zero);
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, layerMask);
+
+
         if (hit.collider != null)
         {
             if (hit.collider.tag == tag)

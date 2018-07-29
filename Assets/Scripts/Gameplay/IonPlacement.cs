@@ -51,11 +51,14 @@ public class IonPlacement : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            if (levelEditor.CheckForObject("Button"))
+            if (!levelEditor.CheckForObject("Placeable"))
                 return;
 
             if (placementForm.Equals("Positive"))
             {
+                if (cannotPlacePositive)
+                    return;
+
                 //if positive is selected
                 if (availablePositiveIons > 0)
                 {
@@ -67,6 +70,9 @@ public class IonPlacement : MonoBehaviour
             }
             else if (placementForm.Equals("Negative"))
             {
+                if (cannotPlaceNegative)
+                    return;
+
                 //if negative is selected
                 if (availableNegativeIons > 0)
                 {

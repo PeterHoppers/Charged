@@ -24,9 +24,7 @@ public class Shooting : MonoBehaviour
     {
         if (tag == "P1Gun" && Input.GetKeyDown("space") && DeathManager.p1CanShoot == true)
         {
-            Shoot();
-            ionPlacement.cannotPlacePositive = true;            // Cannot place during shot
-            ionPlacement.cannotPlaceNegative = true;
+            Shoot();            
         }
         else if (tag == "P2Gun" && Input.GetKeyDown("return") && DeathManager.p2CanShoot == true)
         {
@@ -34,8 +32,10 @@ public class Shooting : MonoBehaviour
         }
     }
 
-    void Shoot()
+    public void Shoot()
     {
+        ionPlacement.cannotPlacePositive = true;            // Cannot place during shot
+        ionPlacement.cannotPlaceNegative = true;
         launcher.Play();
         print(name + " the object shooting ");
         if (PlayerManager.numberOfPlayers == 1)
