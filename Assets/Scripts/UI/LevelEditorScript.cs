@@ -91,6 +91,7 @@ public class LevelEditorScript : MonoBehaviour
         clone.GetComponent<RectTransform>().localScale = Vector3.one;
         clone.AddComponent<GridSnapping>();                                             //allows for grid snapping
         clone.GetComponent<RectTransform>().localPosition = CursorPosition();           //spawns at the cursor
+        print("Input Mouse: " + Input.mousePosition);
         clone.tag = tag;
         return clone;
     }
@@ -100,6 +101,7 @@ public class LevelEditorScript : MonoBehaviour
     {
         Vector2 pos = Vector2.zero;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(levelBackground.GetComponent<RectTransform>(), Input.mousePosition, Camera.main, out pos);
+        print("Cursor Position: " + pos);
         return pos;
     }
 
@@ -109,6 +111,10 @@ public class LevelEditorScript : MonoBehaviour
         Vector3 mousePos = (Input.mousePosition);
         mousePos.z = 100f;
         Vector3 screenPoint = Camera.main.ScreenToWorldPoint(mousePos);
+
+        print("Check For Object: " + screenPoint);
+        print(Screen.height + " screen height");
+        print(Screen.width + " screen width");
 
         Ray2D ray = new Ray2D(new Vector2(screenPoint.x, screenPoint.y), Vector2.zero);
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, layerMask);
