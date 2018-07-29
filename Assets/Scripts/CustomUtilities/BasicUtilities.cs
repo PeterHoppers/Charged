@@ -53,7 +53,7 @@ public static class BasicUtilities
     }
 
     //==========Returns the Gameobject that is the closest of a given Vector3=======
-    public static GameObject findNearest(Vector3 checkDistance, GameObject[] objectChecking)
+    public static GameObject FindNearest(Vector3 checkPoint, GameObject[] objectChecking)
     {
         int closeIndex = 0;
         float testDistance = Mathf.Infinity;
@@ -61,7 +61,7 @@ public static class BasicUtilities
         for (int index = 0; index < objectChecking.Length; index++)
         {
             Vector3 objectPosition = objectChecking[index].transform.position;
-            float distance = Vector3.Distance(checkDistance, objectPosition);
+            float distance = Vector3.Distance(checkPoint, objectPosition);
 
             if (distance < testDistance)
             {
@@ -74,7 +74,7 @@ public static class BasicUtilities
     }
 
     //==========Returns the Gameobject that is the closest of a given Vector3=======
-    public static GameObject findNearest(Vector3 checkDistance, List<GameObject> objectChecking)
+    public static GameObject FindNearest(Vector3 checkDistance, List<GameObject> objectChecking)
     {
         int closeIndex = 0;
         float testDistance = Mathf.Infinity;

@@ -16,20 +16,19 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000010355516064}
-  - 114: {fileID: 114000011487314312}
-  - 114: {fileID: 114000012331546456}
-  - 114: {fileID: 114000012981628586}
-  - 82: {fileID: 82000011253387722}
-  - 114: {fileID: 114000013427073300}
-  - 114: {fileID: 114000011267219948}
-  - 114: {fileID: 114000014111438908}
-  - 114: {fileID: 114000012668164988}
-  - 114: {fileID: 114000012881901538}
-  - 114: {fileID: 114000010510226238}
-  - 114: {fileID: 114000013685587096}
+  - component: {fileID: 4000010355516064}
+  - component: {fileID: 114000011487314312}
+  - component: {fileID: 114000012331546456}
+  - component: {fileID: 114000012981628586}
+  - component: {fileID: 82000011253387722}
+  - component: {fileID: 114000013427073300}
+  - component: {fileID: 114000014111438908}
+  - component: {fileID: 114000013685587096}
+  - component: {fileID: 114000012668164988}
+  - component: {fileID: 114000012881901538}
+  - component: {fileID: 114000010510226238}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -46,10 +45,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 45.375}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &82000011253387722
 AudioSource:
   m_ObjectHideFlags: 1
@@ -66,6 +65,7 @@ AudioSource:
   Loop: 0
   Mute: 0
   Spatialize: 0
+  SpatializePostEffects: 0
   Priority: 20
   DopplerLevel: 1
   MinDistance: 1
@@ -78,12 +78,14 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 1
+    - serializedVersion: 2
+      time: 1
       value: 0
       inSlope: 0
       outSlope: 0
@@ -94,7 +96,8 @@ AudioSource:
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -105,7 +108,8 @@ AudioSource:
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -116,7 +120,8 @@ AudioSource:
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
@@ -135,26 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 721fa567d42467e48a88f3f98c8d6ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114000011267219948
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000014150498538}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0ba305afb0b6d742b64105532faa1f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  results: {fileID: 0}
-  playerWinScore: 10
-  timeBetweenScenes: 5
-  time: {fileID: 0}
-  matchTime: 10
-  matchStarted: 1
-  p1Points: {fileID: 0}
-  p2Points: {fileID: 0}
-  nextRoundIn: {fileID: 0}
 --- !u!114 &114000011487314312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -177,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267922ef83a95604799dd5eb817e4f46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disableScore: 0
+  disableScore: 1
   triesText: {fileID: 0}
   tries: 0
   gameManager: {fileID: 0}
@@ -258,6 +243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd1d011e49982d4fb0768e52c1be929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  negativeCounter: {fileID: 0}
+  positiveCounter: {fileID: 0}
+  scoreCounter: {fileID: 0}
   points: 0
 --- !u!114 &114000014111438908
 MonoBehaviour:
@@ -274,11 +262,23 @@ MonoBehaviour:
     type: 2}
   negativeIonPrefab: {fileID: 1000013264540046, guid: 7e8d8525f5ac24c45ac4625412fe8ebf,
     type: 2}
-  deletedPosIon: {fileID: 0}
-  deletedNegIon: {fileID: 0}
+  deletedPosMarker: {fileID: 1000012113180606, guid: e6dea9d8baf522640a920c6889106116,
+    type: 2}
+  deletedNegMarker: {fileID: 1000010499199880, guid: 6aa6f4a1d05862345a3d48221876de94,
+    type: 2}
   maxMarkers: 2
   availablePositiveIons: 15
   availableNegativeIons: 15
   cannotPlacePositive: 0
   cannotPlaceNegative: 0
   deletedIons: []
+  positiveIonPlaced:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  negativeIonPlaced:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

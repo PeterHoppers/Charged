@@ -6,41 +6,37 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-public class IonTrackerScript : MonoBehaviour {
-    Text negatives;
-    Text positives;
+public class IonTrackerScript : MonoBehaviour
+{
+    Text negativeCounter;
+    Text positiveCounter;
    // Text total;
-    Text score;
+    public Text scoreCounter;
     [HideInInspector]
     public int points;
-    ScoreManager myScore;
     IonPlacement myIons;
+    ScoreManager myScore;
+    Text score;
 
     //Utilícelo para la inicialización
     void Start ()
     {
         myIons = GameObject.Find("GameManager").GetComponent<IonPlacement>();
 
+        negativeCounter = GameObject.Find("Canvas/IonTrackers/Negatives").GetComponentInChildren<Text>();
+        positiveCounter = GameObject.Find("Canvas/IonTrackers/Positives").GetComponentInChildren<Text>();
+
         if (myIons == null)
             Debug.LogError("There are no \"ion placement\" attached to GameManager");
 
-        //encontrar todos los textos
-        negatives = GameObject.Find("Canvas/IonTrackers/Negatives").GetComponent<Text>(); 
-        positives = GameObject.Find("Canvas/IonTrackers/Positives").GetComponent<Text>();
-
         if (myIons.cannotPlaceNegative)
-            negatives.gameObject.SetActive(false);
+            negativeCounter.gameObject.SetActive(false);
 
         if (myIons.cannotPlacePositive)
-            positives.gameObject.SetActive(false);
+            positiveCounter.gameObject.SetActive(false);
 
         myScore = GameObject.Find("GameManager").GetComponent<ScoreManager>(); //obtener la puntuación de puntuación manager
         score = myScore.levelCompletedPanel.transform.Find("Score").GetComponent<Text>();
-
-        //  para evitar que el texto null
-        negatives.text = "Negatives Ions: " + IonPlacement.activeNegativeIons.Count;
-        positives.text = "Positives Ions: " + IonPlacement.activePositiveIons.Count;
-        score.text = "Points: " + points.ToString();
 
         ScoreTracker();
     }
@@ -50,8 +46,8 @@ public class IonTrackerScript : MonoBehaviour {
     {
       //  public IonTrackerScript track = new IonTrackerScript();
         //escribir las cuentas de ion
-        negatives.text = "Negatives Ions: " + IonPlacement.activeNegativeIons.Count;
-        positives.text = "Positives Ions: " + IonPlacement.activePositiveIons.Count;
-        score.text = "Points: " + points.ToString();
+        negativeCounter.text = "Negatives Ions: " + IonPlacement.activeNegativeIons.Count;
+        positiveCounter.text = "Positives Ions: " + IonPlacement.activePositiveIons.Count;
+        //scoreCounter.text = "Points: " + points.ToString();
     }
 }
