@@ -313,6 +313,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012476663902, guid: e0447a66c9183354188da0c7bf8d90ab, type: 2}
+      propertyPath: m_Name
+      value: PowerMeter
+      objectReference: {fileID: 0}
     - target: {fileID: 224000013170850570, guid: e0447a66c9183354188da0c7bf8d90ab,
         type: 2}
       propertyPath: m_AnchorMax.x
@@ -2331,7 +2335,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000010291785890, guid: 1f76839b0a23c644799005d86618fb2c, type: 2}
       propertyPath: m_TagString
-      value: Placeable
+      value: Background
       objectReference: {fileID: 0}
     - target: {fileID: 1000014025256972, guid: 1f76839b0a23c644799005d86618fb2c, type: 2}
       propertyPath: m_TagString

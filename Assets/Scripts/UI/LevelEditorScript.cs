@@ -42,7 +42,7 @@ public class LevelEditorScript : MonoBehaviour
     //Finds the background...duh
     void FindBackground()
     {
-        levelBackground = GameObject.Find("Background");
+        levelBackground = GameObject.FindGameObjectWithTag("Background");
         if (!levelBackground)
             Debug.LogError("No level image componenet was found");
     }
@@ -91,7 +91,7 @@ public class LevelEditorScript : MonoBehaviour
         clone.GetComponent<RectTransform>().localScale = Vector3.one;
         clone.AddComponent<GridSnapping>();                                             //allows for grid snapping
         clone.GetComponent<RectTransform>().localPosition = CursorPosition();           //spawns at the cursor
-        print("The mouse position is: " + CursorPosition());
+        print("The mouse position is: " + Input.mousePosition);
         clone.tag = tag;
         return clone;
     }
@@ -118,13 +118,44 @@ public class LevelEditorScript : MonoBehaviour
     Vector2 CursorPosition()
     {
         Vector2 pos = Vector2.zero;
+        levelBackground.GetComponent<RectTransform>().sizeDelta = new Vector2(1045, 450);
         RectTransformUtility.ScreenPointToLocalPointInRectangle(levelBackground.GetComponent<RectTransform>(), Input.mousePosition, Camera.main, out pos);
+        print(levelBackground.GetComponent<RectTransform>().sizeDelta + " background size");
+        levelBackground.GetComponent<RectTransform>().sizeDelta = new Vector2(1045, 450);
+        print(levelBackground.name);
+        print(levelBackground.GetComponent<RectTransform>().position + " position");
         print("The convereted Position is: " + pos);
 
-        pos = new Vector2(pos.y, -pos.x);
         return pos;
     }
 
+    //return true if the raycast hits an object with the given tag
+    public bool CheckForObject(string tag, Vector3 pos)
+    {
+        Vector3 mousePos = pos;
+        mousePos.z = 100f;
+        Vector3 screenPoint = Camera.main.ScreenToWorldPoint(mousePos);
+
+        print("The screen check position is: " + screenPoint);
+
+        Ray2D ray = new Ray2D(new Vector2(screenPoint.x, screenPoint.y), Vector2.zero);
+        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, layerMask);
+
+
+        if (hit.collider != null)
+        {
+            if (hit.collider.tag == tag)
+            {
+                return true;
+            }
+            else if (hit.collider.tag != tag)
+            {
+                return false;
+            }
+        }
+
+        return false;
+    }
     //return true if the raycast hits an object with the given tag
     public bool CheckForObject(string tag)
     {
@@ -133,6 +164,7 @@ public class LevelEditorScript : MonoBehaviour
         Vector3 screenPoint = Camera.main.ScreenToWorldPoint(mousePos);
 
         print("The screen check position is: " + screenPoint);
+      
 
         Ray2D ray = new Ray2D(new Vector2(screenPoint.x, screenPoint.y), Vector2.zero);
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, layerMask);

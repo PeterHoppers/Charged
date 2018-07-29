@@ -31,7 +31,7 @@ public class ControlScript : MonoBehaviour
         curTurn = startRotation;
         charge = maxCharge * 0.5f;
 
-        power = GameObject.Find("Power");
+        power = GameObject.Find("PowerMeter");
         powerLevel = power.GetComponent<Slider>();
         if (powerLevel == null)
             Debug.LogError("I DON'T HAVE THE POWER!!!!!!!!");

@@ -59,7 +59,8 @@ public class DeathManager : MonoBehaviour {
 
         print(player.name);
 
-        trailRenderer = player.GetComponentInChildren<TrailRenderer>().gameObject;
+        if (player.GetComponentInChildren<TrailRenderer>())
+            trailRenderer = player.GetComponentInChildren<TrailRenderer>().gameObject;
 
         currentPosition = trailRenderer.transform.position;
         trailRenderer.transform.SetParent(canvas.transform);

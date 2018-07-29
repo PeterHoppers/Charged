@@ -60,7 +60,7 @@ public class IonPlacement : MonoBehaviour
                 }
                 else return;
 
-                if (!levelEditor.CheckForObject("Placeable"))
+                if (!levelEditor.CheckForObject("Placeable", touchPos))
                     return;
 
                 if (placementForm.Equals("Positive"))
