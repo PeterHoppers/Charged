@@ -59,12 +59,17 @@ public class DeathManager : MonoBehaviour {
 
         print(player.name);
 
-        trailRenderer = player.GetComponentInChildren<TrailRenderer>().gameObject;
+        if (player.GetComponentInChildren<TrailRenderer>())
+        {
+            trailRenderer = player.GetComponentInChildren<TrailRenderer>().gameObject;
+            currentPosition = trailRenderer.transform.position;
+            trailRenderer.transform.SetParent(canvas.transform);
+            trailRenderer.transform.position = currentPosition;
+            renderers.Add(trailRenderer);
 
-        currentPosition = trailRenderer.transform.position;
-        trailRenderer.transform.SetParent(canvas.transform);
-        trailRenderer.transform.position = currentPosition;
-        renderers.Add(trailRenderer);
-        Destroy(player.gameObject);                                                  //Destroyes the player and updates the score
+            Destroy(player.gameObject);                                                  //Destroyes the player and updates the score
+        }
+
+
     }
 }
