@@ -16,7 +16,7 @@ public class ControlScript : MonoBehaviour
     public int minCharge = 10;
     [Header("Max Firepower")]
     public int maxCharge = 250;
-    public float chargeStepper;
+    public float chargeStepper = 4.0f;
     public static float charge;
     public static int startRotation;
     bool disablePower = false;
@@ -46,7 +46,7 @@ public class ControlScript : MonoBehaviour
         }
         else
         {
-            powerLevel.gameObject.SetActive(false);
+            power.gameObject.SetActive(false);
         }
     }
 
@@ -138,12 +138,14 @@ public class ControlScript : MonoBehaviour
     {
         // charging up
         if (charge + chargeStepper <= maxCharge)
-        {            
+        {
+            //print("The charge is: " + charge);
             //playing the volume level based on the level of charge 
             chargeUp.volume = charge / maxCharge;
             //stopping the sound
             chargeDown.Stop();
             charge += chargeStepper;
+            //print("The charge is: " + charge);
             UpdateSlider();
             wait = Time.time;
             if (!chargeUp.isPlaying)
@@ -161,7 +163,6 @@ public class ControlScript : MonoBehaviour
             //stopping the sound
             chargeUp.Stop();
             charge -= chargeStepper;
-            charge -= chargeStepper;
             UpdateSlider();
             wait = Time.time;
             //checking to see if the sound is not playing, and then playing the sound
@@ -172,6 +173,6 @@ public class ControlScript : MonoBehaviour
 
     void UpdateSlider()
     {
-        powerLevel.value = ControlScript.charge / maxCharge;
+        powerLevel.value = charge / maxCharge;
     }
 }

@@ -10,6 +10,7 @@ public class Shooting : MonoBehaviour
     Rigidbody2D myBullet;
     ScoreManager scoreManager;
     private IonPlacement ionPlacement;
+    bool isFiring;
 
     // Use this for initialization
     void Start () {
@@ -22,7 +23,7 @@ public class Shooting : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (tag == "P1Gun" && Input.GetKeyDown("space") && DeathManager.p1CanShoot == true)
+        if (tag == "P1Gun" && Input.GetKeyDown("space"))
         {
             Shoot();            
         }
@@ -34,10 +35,13 @@ public class Shooting : MonoBehaviour
 
     public void Shoot()
     {
+        if (!DeathManager.p1CanShoot)
+            return;
+
         ionPlacement.cannotPlacePositive = true;            // Cannot place during shot
         ionPlacement.cannotPlaceNegative = true;
         launcher.Play();
-        print(name + " the object shooting ");
+
         if (PlayerManager.numberOfPlayers == 1)
         {
             scoreManager.UpdateScore();

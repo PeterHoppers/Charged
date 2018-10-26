@@ -30,10 +30,10 @@ public class IonTrackerScript : MonoBehaviour
             Debug.LogError("There are no \"ion placement\" attached to GameManager");
 
         if (myIons.cannotPlaceNegative)
-            negativeCounter.gameObject.SetActive(false);
+            negativeCounter.transform.parent.gameObject.SetActive(false);
 
         if (myIons.cannotPlacePositive)
-            positiveCounter.gameObject.SetActive(false);
+            positiveCounter.transform.parent.gameObject.SetActive(false);
 
         myScore = GameObject.Find("GameManager").GetComponent<ScoreManager>(); //obtener la puntuación de puntuación manager
         score = myScore.levelCompletedPanel.transform.Find("Score").GetComponent<Text>();

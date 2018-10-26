@@ -8,12 +8,11 @@ public class UIAngleChange : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 {
     public bool isClockwise;
     bool isChangeing;
-    Button button;
     ControlScript controls;
+
     // Use this for initialization
     void Start()
     {
-        button = GetComponent<Button>();
         controls = GameObject.FindGameObjectWithTag("PlayerOne").GetComponent<ControlScript>();
     }
 
