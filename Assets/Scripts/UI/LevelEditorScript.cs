@@ -92,6 +92,7 @@ public class LevelEditorScript : MonoBehaviour
         clone.AddComponent<GridSnapping>();                                             //allows for grid snapping
         clone.GetComponent<RectTransform>().localPosition = CursorPosition();           //spawns at the cursor
         print("Input Mouse: " + Input.mousePosition);
+        Debug.LogError("THE " + clone.name + " HAS BEEN PLACED AT " + clone.GetComponent<RectTransform>().localPosition);
         clone.tag = tag;
         return clone;
     }
